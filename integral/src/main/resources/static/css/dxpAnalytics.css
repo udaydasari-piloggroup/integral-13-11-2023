@@ -1,0 +1,6316 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 4 Jan, 2022, 11:49:46 AM
+    Author     : Santhosh.K
+*/
+.dxpDataAnalyticswrapper {
+	display: flex;
+	height: calc(100vh - 50px - 40px);
+	width: 100%;
+}
+
+.leftFileUploads {
+	width: 15%;
+	border-right: 1px solid #f1f1f1;
+}
+
+.visualizationHeaderDiv {
+	background: #f1f1f1;
+}
+
+.columnsHeaderDiv {
+	background: #f1f1f1;
+}
+
+.leftUploadHeaderDiv {
+	background: #f1f1f1;
+}
+
+.visionVisualizationDataSourcesCLass {
+	height: 100%;
+}
+
+.visionVisualizationDataSourcesCLass .jqx-tree-dropdown-root {
+	width: 100% !important;
+}
+
+.ivisualizationConnectionsMainClass .jqx-tree-dropdown-root {
+	width: 100% !important;
+}
+
+.width60 .leftUploadHeaderDiv, .width60 .columnsHeaderDiv, .width60 .visualizationHeaderDiv
+	{
+	background: inherit;
+}
+
+.visualizationMainDivwrapper {
+	width: 15%;
+	border-right: 1px solid #f1f1f1;
+}
+
+.columnsMainDivwrapper {
+	width: 15%;
+	border-right: 1px solid #f1f1f1;
+}
+
+.columnsHeaderDiv, .visualizationHeaderDiv {
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding: 4px;
+	cursor: pointer;
+}
+
+.leftUploadHeaderDiv {
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding: 4px;
+	cursor: pointer;
+}
+
+.columnsHeaderDiv .toggleImg, .visualizationHeaderDiv .toggleImg {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.leftUploadHeaderDiv .toggleImg {
+	position: absolute;
+	right: 0;
+	top: 1px;
+}
+
+.width60 {
+	width: 4% !important;
+	position: relative;
+}
+
+.chartView {
+	width: 70%;
+}
+
+.visualBIChart, .fileUploadsDA {
+	display: none;
+}
+
+.width60 #VisualizeBIColumns {
+	display: none;
+}
+
+#columnsMainDivwrapperID.width60 .columnsHeaderDiv .toggleImg,
+	#visualizationMainDivwrapperID.width60 .visualizationHeaderDiv .toggleImg
+	{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	right: inherit;
+	transform: translate(-50%, -20%);
+}
+
+#leftFileUploadMainDivwrapperID.width60 .leftUploadHeaderDiv .toggleImg
+	{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	right: inherit;
+	transform: translate(-50%, -20%);
+}
+
+#columnsMainDivwrapperID.width60 .columnsHeaderDiv .columnstitle {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, 284%);
+}
+
+#visualizationMainDivwrapperID.width60 .visualizationHeaderDiv .visualizationtitle
+	{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, 375%);
+}
+
+#leftFileUploadMainDivwrapperID.width60 .leftUploadHeaderDiv .uploadstitle
+	{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	right: inherit;
+	transform: translate(-50%, 358%);
+	width: 80px;
+}
+
+.columnsHeaderDiv .toggleImg img, .visualizationHeaderDiv .toggleImg img
+	{
+	transform: rotate(180deg);
+}
+
+.leftUploadHeaderDiv .toggleImg img {
+	transform: rotate(180deg);
+}
+
+#columnsMainDivwrapperID.width60 .columnsHeaderDiv .toggleImg img,
+	#visualizationMainDivwrapperID.width60 .visualizationHeaderDiv .toggleImg img
+	{
+	transform: rotate(0deg);
+}
+
+#leftFileUploadMainDivwrapperID.width60 .leftUploadHeaderDiv .toggleImg img
+	{
+	transform: rotate(0deg);
+}
+
+#columnsMainDivwrapperID.width60 .columnsHeaderDiv .columnstitle h4,
+	#visualizationMainDivwrapperID.width60 .visualizationHeaderDiv .visualizationtitle h4,
+	#leftFileUploadMainDivwrapperID.width60 .leftUploadHeaderDiv .uploadstitle h4
+	{
+	transform: rotate(90deg);
+	font-size: 14px;
+}
+
+.columnsMainDivwrapper .columnstitle h4, .visualizationMainDivwrapper .visualizationtitle h4,
+	.leftFileUploads .uploadstitle h4 {
+	font-size: 14px;
+	margin-bottom: 0;
+}
+
+/* From PilogCloud Css to DXP Starts Here*/
+.dataVisualization {
+	display: flex;
+}
+
+#Filters {
+	width: 240px;
+	border-right: 1px solid #ddd;
+	padding: 2px;
+	margin: 2px;
+	height: 650px;
+	font-weight: 600;
+}
+/*#Visualization{
+    width:280px;
+    border-right: 1px solid #ddd;
+    padding: 2px;
+    margin: 2px;
+    height: 650px;
+    font-weight: 600;
+}*/
+#Fields {
+	width: 240px;
+	font-weight: 600;
+	border-right: 1px solid #f1f1f1;
+}
+
+.imageSpanCLass {
+	float: right;
+}
+
+.VisionImageVisualizationFilterOpen {
+	border-right: 1px solid #ddd;
+	width: 40px;
+	position: relative;
+	height: 650px;
+}
+
+.VisionImageVisualizationChartsOpen {
+	border-right: 1px solid #ddd;
+	width: 40px;
+	position: relative;
+	height: 650px;
+}
+
+.VisionImageVisualizationFieldsOpen {
+	border-right: 1px solid #ddd;
+	width: 40px;
+	position: relative;
+	height: 650px;
+}
+
+.VisionImageVisualizationFilterOpen .textSpanFilterCLass {
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	transform: rotate(90deg);
+	display: inline-block;
+	position: absolute;
+	top: 40px;
+	left: -3px;
+	font-weight: 600;
+}
+
+.VisionImageVisualizationFilterOpen .imageSpanFiltersCLass {
+	float: right;
+	transform: rotate(180deg);
+}
+
+.VisionImageVisualizationChartsOpen .textSpanChartsCLass {
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	transform: rotate(90deg);
+	display: inline-block;
+	position: absolute;
+	top: 50px;
+	left: -20px;
+	font-weight: 600;
+}
+
+.VisionImageVisualizationChartsOpen .imageSpanChartsCLass {
+	float: right;
+	transform: rotate(180deg);
+}
+
+.VisionImageVisualizationFieldsOpen .textSpanFieldsCLass {
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	transform: rotate(90deg);
+	display: inline-block;
+	position: absolute;
+	top: 30px;
+	left: -8px;
+	font-weight: 600;
+}
+
+.VisionImageVisualizationFieldsOpen .imageSpanFieldsCLass {
+	float: right;
+	transform: rotate(180deg);
+}
+
+.VisualizationFormAreaClass {
+	display: flex;
+}
+
+.lefticonView {
+	border-right: 1px solid #f1f1f1;
+	height: 650px;
+	overflow-y: auto;
+}
+
+.visionVisualizationDataChartViewCLass::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+}
+
+/* Track */
+.visionVisualizationDataChartViewCLass::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+.visionVisualizationDataChartViewCLass::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+/* Handle on hover */
+.visionVisualizationDataChartViewCLass::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+#visualizeArea {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/*.VisualizationSourcesCLass{
+    position: absolute;
+    left: 0 !important;
+    width: 300px!important;
+    height: calc(100vh- 0px) !important;
+}*/
+
+/* Dialog Box  start*/
+#visionVisualizationDmFileUpload {
+	height: 315px;
+}
+
+.VisionVisualizationUploadFileContent {
+	margin: 30px 0;
+}
+
+.VisionAnalyticsBIFields .visionVisualizationDragColumns {
+	text-indent: 16px;
+	line-height: 25px;
+	font-size: 12px;
+}
+
+.visualizeTabsClass ul li {
+	display: inline;
+	padding-right: 10px;
+	padding-bottom: 5px;
+}
+
+.visualizeTabsClass ul li img {
+	width: 20px;
+}
+
+.visionHighlightVisualizeIcons {
+	border-bottom: 2px solid red;
+}
+
+.visionVisualizationDragColumns {
+	display: none;
+}
+
+.visionVisualizeChartTableClass h6 {
+	font-size: 14px;
+}
+
+.visionVisualizeChartTableClass img {
+	width: 16px;
+	height: 16px;
+	padding-right: 3px;
+}
+
+.VisionImageVisualizationTableClass {
+	width: 22px;
+	height: 20px;
+	padding-right: 4px;
+}
+
+.visionVisualizeChartBoxClass {
+	border: 2px solid #ddd;
+	width: 285px;
+	height: 230px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	display: inline-block;
+}
+
+.visionVisualChartBoxClass {
+	overflow: auto;
+}
+
+#nwgrip, #negrip, #swgrip, #segrip {
+	width: 10px;
+	height: 10px;
+	background-color: #ffffff;
+	border: 2px solid #ddd;
+}
+
+#nwgrip {
+	left: -2px;
+	top: -2px;
+	border: solid black;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+	transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+}
+
+#negrip {
+	top: -2px;
+	right: -3px;
+	border: solid black;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+	transform: rotate(270deg);
+	-webkit-transform: rotate(270deg);
+}
+
+#swgrip {
+	bottom: -3px;
+	left: -2px;
+	border: solid black;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+	transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+}
+
+#segrip {
+	bottom: -3px;
+	right: -2px;
+	border: solid black;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+	transform: rotate(350deg);
+	-webkit-transform: rotate(360deg);
+}
+
+#ngrip {
+	top: -2px;
+	left: 50%;
+	width: 15px;
+	height: 1px;
+	background-color: #000;
+	border: 2px solid #000;
+}
+
+#sgrip {
+	bottom: -2px;
+	left: 50%;
+	width: 15px;
+	height: 1px;
+	background-color: #000;
+	border: 2px solid #000;
+}
+
+#wgrip {
+	left: -2px;
+	top: 50%;
+	width: 3px;
+	height: 15px;
+	background-color: #000;
+	border: 2px solid #000;
+}
+
+#egrip {
+	right: -2px;
+	top: 50%;
+	width: 3px;
+	height: 15px;
+	background-color: #000;
+	border: 2px solid #000;
+}
+
+.visionVisualizationDataChartViewCLass {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: auto;
+	column-gap: 4px;
+	row-gap: 1px;
+}
+
+.visionVisualizeChartFiltersFieldsClass img {
+	float: right;
+	background-color: #0b4a99;
+}
+
+.visionVisualizeChartFiltersFieldsClass .visionVisualizeChartFiltersFieldSpan
+	{
+	text-align: center;
+}
+
+.visionVisualizeSlicerClass {
+	display: flex;
+	padding: 4px;
+	border: 1px solid #ddd;
+	margin: 3px 0px;
+	align-items: center;
+	background: #f1f1f1;
+}
+
+.visionVisualizeSlicerClass .visionVisualizeSlicerFieldClass {
+	padding: 3px;
+	border: 1px dashed #333;
+	background-color: #fff;
+	padding-left: 12px;
+	width: 79%;
+	text-align: center;
+	margin-left: 20px;
+}
+
+.visionVisualizeChartIconsClass {
+	text-align: right;
+	margin-top: -5px;
+}
+
+.visionVisualizeChartButtonsClass {
+	text-align: right;
+	margin-top: -5px;
+}
+
+.visionVisualizeHorizontalDotsClass {
+	width: 16px;
+}
+
+.visionVisualizeChartImageClass {
+	width: 16px;
+}
+
+.visionVisualizeOptionsClass {
+	z-index: 9999;
+	border: 1px solid #f1f1f1;
+	position: absolute;
+	right: -102px;
+	top: 15px;
+	background: #fff;
+	width: 120px;
+	border-radius: 3px;
+	padding: 3px;
+	/*box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;*/
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08)
+		0px 0px 0px 1px;
+	text-align: left;
+}
+
+.visionVisualizeSLicerMatchedButton {
+	background: #0071c5;
+	color: #fff;
+	border: 1px solid #0071c5;
+}
+
+.visionVisualizeChartSlicersButtons {
+	margin-right: 4px;
+}
+
+.visionVisualizeChartBorderRemoveClass {
+	border: 0px !important;
+}
+
+.visionVisualizeChartPropConfigClass {
+	height: 240px;
+	overflow: auto;
+}
+
+.icons {
+	height: 16px;
+	width: 16px;
+	/*    margin: 6px 0;*/
+}
+
+.general-filters:last-of-type .sub-filterItems {
+	margin-bottom: inherit;
+}
+
+.open {
+	transform: rotate(180deg);
+}
+
+.main-container {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	padding: 4px;
+	/*background-color: #e9ecef;*/
+	border-bottom: 0.5px solid #dee2e6;
+	margin-top: 8px;
+}
+
+.inner-container {
+	padding: inherit;
+	margin-top: inherit;
+}
+
+.inner-container .filter-container {
+	margin-bottom: 6px;
+}
+
+.filter-container {
+	display: flex;
+	gap: 12px;
+	width: 150px;
+	align-items: center;
+}
+
+.visionVisualizeChartPropConfigClass p {
+	margin-bottom: 0px;
+	display: block;
+	font-size: 11px;
+	/*    margin-top: 10px;*/
+	font-weight: 100;
+}
+
+.visionVisualizeChartPropConfigClass label {
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	font-size: 11px;
+	font-weight: 100;
+}
+
+.visionVisualizeChartPropConfigClass .sub-filterItems {
+	margin-bottom: 3px;
+}
+
+#slice-color-sub-filters {
+	margin-top: 10px;
+}
+
+.toggle-btn {
+	display: flex;
+	align-items: center;
+	position: relative;
+	height: 24px;
+	width: 72px;
+}
+
+.on-off-text {
+	font-weight: 100;
+	font-size: 14px;
+}
+
+#hole-radius-sub-filters input[type="text"] {
+	height: 24px;
+	width: 24px;
+}
+
+.colorsSelectDiv {
+	position: relative;
+	z-index: 99;
+	margin-top: 10px; /*01-09-2020*/
+	height: 35px; /*01-09-2020*/
+	display: none; /*01-09-2020*/
+}
+
+.visionCloseColorBox {
+	width: 10px;
+	height: 10px;
+	cursor: pointer;
+	position: absolute;
+	margin-top: -8px;
+	margin-left: 28px;
+}
+
+.visionVisualizeCOnfigJoinImageDIvClass {
+	padding: 2px;
+	background: #f1f1f1;
+}
+
+.visionVisualizeCOnfigJoinImageDIvClass img {
+	width: 16px;
+}
+
+.visionDxpColumnJoinType {
+	float: left;
+	margin-left: 28px;
+	margin-right: 8px;
+	margin-top: 3px;
+}
+
+.visionDxpAddRowIcon {
+	margin-bottom: 12px !important;
+	margin-left: 2px;
+}
+
+.visionDxpJoinClauseTablesDiv {
+	margin-top: 10px;
+}
+
+.dataMigrationTabs {
+	border: 1px solid lightgrey;
+}
+
+.ui-dialog-titlebar {
+	background: #f1f1f1;
+}
+
+.visionVisualizeCardIconsClass {
+	background: #f1f1f1;
+	height: 25px;
+}
+
+.visionVisualizeHorizontalCardClass {
+	width: 16px;
+	float: right;
+	margin-top: 4px;
+	margin-right: 9px;
+}
+
+.visionVisualizeCardValuesDivClass {
+	width: 273px;
+	height: 178px;
+	/* padding: 45px;
+	background: #f1f1f1; */
+	text-align: center;
+	font: 32px Arial, sans-serif;
+}
+
+/*.visualizeChartConfigPropertiesClass{
+    width: 100%;
+    height: 104px;
+    border: 1px solid #ddd;
+}*/
+.visionVisualizeChartPropCardClass {
+	display: flex;
+}
+
+.visionVisualizeChartPropCardClass img {
+	width: 26px;
+	padding-left: 5px;
+	padding-top: 5px;
+}
+
+.visionEtlMappingMain {
+	align-items: stretch;
+}
+
+.visionVisualizationDataChartViewCLass {
+	height: 507px;
+}
+
+/* Chandhan 31-12-2021: */
+/*.chartelements{
+    display: none;
+    position: absolute;
+    top: -3px;
+    right: -31px;  
+    width: 30px;
+}*/
+.dxpFilterPopOverClass .searchFilterResultsList {
+	display: flex;
+	position: relative;
+	padding: 4px;
+	border: 1px solid #f1f1f1;
+	margin-bottom: 5px;
+}
+
+.dxpFilterPopOverClass .searchFilterResultsList:hover {
+	background-color: #ddd;
+}
+
+.dxpFilterPopOverClass .chartElementPopContentTitle {
+	padding-left: 5px;
+	font-size: 12px;
+	font-family: segeo-ui, -apple-system, Roboto, Helvetica Neue, sans-serif;
+}
+
+.dxpFilterPopOverClass .chartElementImgClass {
+	position: absolute;
+	right: 0;
+	display: none;
+}
+
+.dxpFilterPopOverClass .chartElementImgClass img {
+	width: 12px;
+}
+
+.dxpFilterPopOverClass .jqx-popover-content {
+	padding: 2px;
+}
+
+#Visualization {
+	max-width: 100%;
+	padding: 2px;
+	margin: 2px;
+	font-weight: 600;
+}
+
+.visionVisualizationDataChartViewCLass {
+	overflow: auto;
+	height: 100%;
+	width: 100%;
+}
+
+.visionVisualizeChartTableClass h6 {
+	font-size: 14px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-bottom: 4px;
+}
+
+.visionVisualizeChartTableClass img {
+	width: 16px;
+	padding-right: 3px;
+}
+
+.visionVisualizeChartTableToggleClass .visionVisualizationDragColumns {
+	padding-left: 29px;
+	margin-bottom: inherit;
+}
+
+.visionVisualizeChartTableToggleClass .visionVisualizationDragColumns li
+	{
+	padding: 3px;
+	font-size: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border-bottom: 1px solid #f1f1f1;
+	border-left: 1px solid #f1f1f1;
+}
+
+.VisionImageVisualizationTableClass {
+	width: 16px;
+	padding-right: 4px;
+}
+
+.visionVisualizeChartsTabsClass {
+	/* height: 280px;
+    overflow-x: hidden;
+    overflow-y: auto; */
+	
+}
+
+
+
+.visionVisualizeChartTableClass {
+	display: flex;
+	padding-top: 8px;
+	border-bottom: 1px solid #f1f1f1;
+}
+
+.visualizeConfigTabsClass {
+	margin-top: 10px;
+}
+
+#visionVisualizeConfig {
+	margin-bottom: 10px;
+}
+
+.visualizeConfigTabsClass #visionVisualizeConfig li {
+	display: inline;
+	padding: 6px 5px;
+}
+
+.visualizeConfigTabsClass #visionVisualizeConfig li img {
+	width: 16px;
+}
+
+.visionVisualizeConfigActiveClass {
+	border-bottom: 2px solid #ddd;
+}
+
+.visionVisualizeChartClass {
+	border: 1px dashed #0b4a99;
+	min-height: 26px;
+	background-color: #f1f1f1;
+}
+
+.visionCloseColumnBtn {
+	float: right;
+	margin-top: 3px;
+	margin-right: 3px;
+}
+
+.visionValuesColumnCloseBtn {
+	float: right;
+}
+
+.visionAggregateColumnBtn {
+	float: right;
+	width: 6px;
+	margin-top: 3px;
+	margin-right: 3px;
+}
+
+.visionVisualizeChartPropConfigClass input {
+	height: 24px;
+	width: 99.97%;
+	font-size: 12px;
+	padding-top: 4px;
+	margin-bottom: 0px;
+	border: 1px solid #0b4a99;
+}
+
+.visionVisualizeChartPropConfigClass input:focus {
+	outline: none;
+}
+
+.visionVisualizeChartPropConfigClass select {
+	height: 24px;
+	width: 99.97%;
+	font-size: 12px;
+	margin-bottom: 10px;
+	border: 1px solid #0b4a99;
+}
+
+.toggle-btn.active .straight-line {
+	margin-left: 6px;
+	background: #0b4a99;
+}
+
+.straight-line {
+	width: 29px;
+	height: 4px;
+	border-radius: 8px;
+	display: inline-block;
+	background: #ddd;
+	cursor: pointer;
+	margin-left: 16px;
+}
+
+.circle-bg {
+	position: absolute;
+	height: 14px;
+	width: 14px;
+	border: 2px solid #ddd;
+	border-radius: 50%;
+	display: inline-block;
+	margin-left: 18px;
+	background: #ddd;
+}
+
+.toggle-btn.active .circle-bg {
+	left: 28px;
+	background: #0b4a99;
+	border: 2px solid #0b4a99;
+}
+
+.sub-filters {
+	margin-left: 14px;
+}
+
+.visionVisualizeChartFiltersFieldClass {
+	border: 1px dashed #0b4a99;
+	min-height: 26px;
+	background-color: #f1f1f1;
+}
+
+.visionVisualizeChartFiltersFieldDivClass {
+	position: relative;
+	border: 1px solid #f1f1f1;
+}
+
+.visionVisualizeChartFiltersFieldOperator {
+	position: sticky;
+	top: 0;
+}
+
+.visionVisualizeChartFiltersFieldValuesClass {
+	height: 110px;
+	overflow-y: auto;
+	padding: 3px;
+	font-size: 12px;
+	/*width: 80%;*/
+}
+
+.savedConnIconsClass img {
+	width: 30px !important;
+}
+
+.visionVisualizeChartFiltersFieldValuesClass input[type=checkbox] {
+	zoom: 0.9;
+	margin-right: 3px;
+}
+
+.visionVisualizeChartFiltersFieldOperatorsClass select {
+	width: 99.97%;
+	border: 1px solid #f1f1f1;
+	font-size: 12px;
+}
+
+.visionVisualizeChartFiltersFieldDivClass {
+	margin-bottom: 10px;
+}
+
+.visionVisualizeChartFiltersFieldsClass {
+	background: #f1f1f1;
+}
+
+.visionVisualizeChartPropJoinsClass {
+	border: 1px solid #ddd;
+	height: 180px;
+	font-size: 12px;
+}
+
+.visionVisualizeChartPropConfigClass::-webkit-scrollbar {
+	width: 2px;
+}
+/* Chandhan 31-12-2021: */
+.chartelements {
+	/*display: none;*/
+	position: absolute;
+	top: -3px;
+	right: -31px;
+	width: 30px;
+}
+
+.dxpFilterPopOverClass .searchFilterResultsList {
+	display: flex;
+	position: relative;
+	padding: 4px;
+	border: 1px solid #f1f1f1;
+	margin-bottom: 5px;
+}
+
+.dxpFilterPopOverClass .searchFilterResultsList:hover {
+	background-color: #ddd;
+}
+
+.dxpFilterPopOverClass .chartElementPopContentTitle {
+	padding-left: 5px;
+	font-size: 12px;
+	font-family: segeo-ui, -apple-system, Roboto, Helvetica Neue, sans-serif;
+}
+
+.dxpFilterPopOverClass .chartElementImgClass {
+	position: absolute;
+	right: 0;
+	display: none;
+}
+
+.dxpFilterPopOverClass .chartElementImgClass img {
+	width: 12px;
+}
+
+.dxpFilterPopOverClass .jqx-popover-content {
+	padding: 2px;
+}
+
+.dxpFilterPopOverChildClass .jqx-popover-content {
+	padding: 2px;
+}
+
+.dxpFilterPopOverChildClass .searchedDxpSearchResults .searchFilterResultsList
+	{
+	padding: 3px;
+	border-bottom: 1px solid #f1f1f1;
+}
+
+.dxpFilterPopOverChildClass .searchedDxpSearchResults .searchFilterResultsList:hover
+	{
+	background-color: #ddd;
+}
+
+.DxpVisualizationbutton {
+	width: 600px;
+	text-align: center;
+}
+
+.DxpVisualizationbutton span button {
+	margin-right: 25px;
+}
+
+.lefticonView {
+	max-width: 12.666667% !important;
+}
+
+.DxpVisualizationbutton button.btn:focus {
+	box-shadow: inherit;
+}
+
+.visionCardViewClass {
+	display: flex;
+	border-bottom: 1px solid #f1f1f1;
+	margin-bottom: 10px;
+	padding: 7px;
+	width: 100%;
+	overflow-x: auto;
+	align-items: center;
+	gap: 15px;
+}
+
+/* Santhosh Edit the Home Page Cards 12-05-2022 */
+.visionCardViewClass .visionHomeCardViewClass {
+	/* margin-right: 4px;
+	box-shadow: rgb(0 0 0/ 24%) 0px 3px 8px; */
+	/* 	flex-grow: 1; */
+	flex-basis: 0;
+	/* padding: 3px;
+	background: #00a1de;
+	border: 1px solid #ddd;
+	border-radius: 8px; */
+}
+
+.visionHomeVisualizeCardValuesDivClass {
+	width: 80px;
+	height: 40px;
+	border-radius: 50%;
+	position: relative;
+	background-color: #00a1de;
+	border: 1px solid #00a1de;
+	margin: 5px auto;
+	color: #fff;
+}
+
+.visionHomeVisualizeCardValuesDivClass span {
+	position: absolute;
+	top: 45%;
+	left: 45%;
+	transform: translate(-45%, -45%);
+	font-size: 16px;
+}
+/* Santhosh Edit the Home Page Cards 12-05-2022 */
+.visionHomeVisualizeCardDivClass {
+	background: #00a1de;
+	text-align: center;
+	color: #fff;
+	font-weight: 600;
+}
+/*.width60 .VisualizationTabsClass{
+    display: none;
+}
+.VisualizationTabsClass{
+    margin-top: 10px;
+}
+.VisualizationTabsClass ul{
+    margin-bottom: 10px;
+    border-bottom: 1px solid #f1f1f1;
+    background-color: #f1f1f1;
+}
+.VisualizationTabsClass ul li{
+    display: inline;
+    padding: 2px 5px;
+}*/
+.width60 .dBConnectionClass {
+	display: none;
+}
+
+.dBConnectionClass {
+	margin-top: 10px;
+}
+
+.dBConnectionClass ul {
+	margin-bottom: 10px;
+	border-bottom: 1px solid #f1f1f1;
+	padding: 4px;
+}
+
+.dBConnectionClass ul li {
+	display: inline;
+	padding: 4px 8px;
+}
+
+.Vtabactive {
+	background-color: #f1f1f1;
+}
+
+/*Home Page Dashboard Css Starts Here by SANK*/
+.chartMain {
+	margin: 5px;
+	/*box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;*/
+}
+
+.visualizationDashboardView .container-fluid {
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+.visualizationDashboardView .container-fluid .row {
+	margin-left: -5px;
+	margin-right: -5px;
+}
+
+.visualizationDashboardView .container-fluid .col-12 {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.visualizationDashboardView .container-fluid .col-md-6,
+	.visualizationDashboardView .container-fluid .col-sm-6,
+	.visualizationDashboardView .container-fluid .col-lg-4 {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+/*Home Page Dashboard Css Starts Here by SANK*/
+.chartMain {
+	margin: 1px;
+	/*box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;*/
+}
+
+.visualizationDashboardView .container-fluid {
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+.visualizationDashboardView .container-fluid .row {
+	margin-left: -5px;
+	margin-right: -5px;
+}
+
+.visualizationDashboardView .container-fluid .col-12 {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.visualizationDashboardView .container-fluid .col-md-6,
+	.visualizationDashboardView .container-fluid .col-sm-6,
+	.visualizationDashboardView .container-fluid .col-lg-4 {
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: 10px;
+}
+
+.visionCloseColumnBtn, .visionValuesColumnCloseBtn {
+	background: #ccc;
+	border-radius: 50%;
+	width: 12px;
+	margin-right: 4px;
+}
+
+.homeChartWrapDiv .chartMain {
+	position: relative;
+}
+
+.homeChartWrapDiv .rightControls {
+	position: absolute;
+	top: 0;
+	right: 6px;
+	width: 30px;
+	border: 1px solid #f1f1f1;
+	background-color: #f1f1f1;
+	height: 100%;
+	text-align: center;
+	display: none;
+}
+
+.homeChartWrapDiv .rightControls .iconDiv {
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 7px;
+	padding-top: 8px;
+}
+
+/* Ploty Mode Edit Css Starts Here */
+.visualizationDashboardView .plot-container .modebar-container {
+	top: -2px !important;
+	right: -2px !important;
+}
+
+.visualizationDashboardView .js-plotly-plot .plotly .modebar.vertical {
+	display: inherit;
+	max-height: inherit !important;
+	height: 100%;
+	/*overflow-y: auto;*/
+	background: #f1f1f1 !important;
+}
+
+.visualizationDashboardView .modebar-group {
+	padding-bottom: 0 !important;
+	background-color: inherit !important;
+}
+
+.visualizationDashboardView .modebar-btn {
+	padding: 8px 4px !important;
+	height: 30px !important;
+	cursor: pointer;
+	line-height: normal;
+	box-sizing: border-box;
+	border-bottom: 1px solid #ddd;
+}
+
+#homepageChartDialog .modal-content {
+	position: absolute;
+	transform: translate(0, -15%);
+}
+
+.FilterColumndataClass {
+	display: flex;
+}
+
+#visualizeChartConfigFiltersData {
+	width: 180px;
+	margin-left: 41px;
+	margin-top: 48px;
+	margin-top: 5px;
+}
+/* filter Popup Css by Rajashekar */
+.filterPopUp .FilterColumndataClass {
+	width: 100%;
+}
+
+.filterPopUp .VisualizeBIFilterColumns {
+	width: 50%;
+}
+
+.filterPopUp .FilterColumndataClass #VisualizeBIFilterColumns {
+	width: 50%;
+	border-right: 1px solid #ddd;
+	padding-right: 5px;
+}
+
+.filterPopUp #visualizeChartConfigFiltersData {
+	width: 50%;
+	padding: 10px;
+	margin-left: inherit;
+	margin-top: inherit;
+}
+
+.filterPopUp .visionVisualizeChartFiltersFieldSpanClass {
+	position: relative;
+	top: -20px;
+}
+
+.filterPopUp .visionVisualizationDragColumns {
+	text-align: left;
+}
+
+#homepageChartDialog .modal-content {
+	position: absolute;
+	transform: translate(0, -15%);
+}
+
+.dashboardTitleClass {
+	text-align: center;
+}
+
+.dashboardTitleClass h4 {
+	margin: 10px 0;
+	font-size: 18px;
+	fill: rgb(68, 68, 68);
+	color: rgb(68, 68, 68);
+}
+
+.dashbordNameclass select {
+	width: 250px;
+	height: 27px;
+	margin: 10px 0;
+	margin-top: -65px;
+}
+
+.homeChartWrapDiv {
+	position: relative;
+}
+
+.homeChartWrapDiv .createpopupClass {
+	position: absolute;
+	right: -94px;
+	top: 43%;
+	z-index: 1050;
+	background: #f1f1f1;
+	border: 1px solid #f1f1f1;
+	width: 100px;
+	border-radius: 4px;
+	box-shadow: rgb(0 0 0/ 24%) 0px 3px 8px;
+}
+
+.homeChartWrapDiv .chartDialogClass {
+	position: absolute;
+	right: -94px;
+	top: 43%;
+	z-index: 1050;
+	background: #f1f1f1;
+	border: 1px solid #f1f1f1;
+	width: 100px;
+	border-radius: 4px;
+	box-shadow: rgb(0 0 0/ 24%) 0px 3px 8px;
+}
+
+.createpopupResultsList {
+	padding: 2px;
+}
+
+.createpopupResultsList {
+	padding: 3px;
+	border-bottom: 1px solid #ddd;
+}
+/*.visionChartPropConfigClass {
+    height: 400px;
+    overflow: auto;
+}*/
+.DxpdashbordTypeclass .dashboardTitleHome {
+	text-align: center;
+}
+
+.DxpdashbordTypeclass {
+	position: relative;
+}
+
+.dashboardTypeClass {
+	padding-bottom: 4px;
+	cursor: pointer;
+}
+
+.DxpdashbordTypeclass .slicerImage {
+	position: absolute;
+	right: 47px;
+	top: 8px;
+	width: 18px;
+}
+
+.DxpdashbordTypeclass .optionSelect {
+	position: absolute;
+	right: 77px;
+	top: 6px;
+}
+
+.DxpdashbordTypeclass select {
+	width: 160px;
+	height: 23px;
+}
+
+.ui-dialog .homePageChartEdits .visionChartPropConfigClass {
+	border-right: 1px solid #ddd;
+	padding: 0px 30px;
+}
+
+.ui-dialog .homePageChartEdits .visionChartPropConfigClass input,
+	.ui-dialog .homePageChartEdits .visionChartPropConfigClass select {
+	height: 27px;
+}
+
+.homePageChartEdits {
+	height: 405px !important;
+}
+
+.ui-dialog .homePageChartEdits .visionChartPropConfigClass ul input,
+	.ui-dialog .homePageChartEdits .visionChartPropConfigClass ul select {
+	width: 100%;
+}
+
+.ui-dialog .homePageChartEdits .visionChartPropConfigClass .sub-filterItems p
+	{
+	margin: 0;
+}
+
+.ui-dialog .homePageChartEdits .visionChartPropConfigClass .sub-filterItems input,
+	.ui-dialog .homePageChartEdits .visionChartPropConfigClass .sub-filterItems select
+	{
+	margin-bottom: 10px;
+}
+
+.ui-dialog .homePageChartEdits .visionChartPropConfigClass .sub-filterItems label
+	{
+	margin: 0;
+}
+
+.chartDialogClass {
+	overflow-y: auto !important;
+	opacity: 0.3;
+}
+
+.chartDialogClass {
+	/*margin: 30px;*/
+	background-color: rgba(255, 0, 0, 0.4);
+	border: 1px solid black;
+	opacity: 1.5;
+}
+
+.ivisualizationGridDataDivClass .jqx-checkbox-default {
+	border-radius: 50%;
+}
+
+.ivisualizationConnectionsMainClass .ivisualizationConnectionsClass {
+	width: 100% !important;
+}
+
+.ivisualizationConnectionsMainClass .ivisualizationConnectionsClass #panelivisualizationConnections
+	{
+	width: 100% !important;
+}
+/*Home Page Dashboard Css Ends Here by SANK*/
+
+/*13-04-2022*/
+.ivisualizationConnectionsMainClass .ivisualizationConnectionsClass {
+	width: 100% !important;
+}
+
+.ivisualizationConnectionsMainClass .ivisualizationConnectionsClass #panelivisualizationConnections
+	{
+	width: 100% !important;
+}
+
+.filterPopUp .HomeSlicerColumndataClass #VisualizeBIHomeSlicerColumns {
+	width: 50%;
+	border-right: 1px solid #ddd;
+	padding-right: 5px;
+}
+
+.filterPopUp #visualizeChartHomeSlicerData {
+	width: 50%;
+	padding: 10px;
+	margin-left: inherit;
+	margin-top: inherit;
+}
+
+.filterPopUp .HomeSlicerColumndataClass {
+	width: 100%;
+}
+
+.filterPopUp {
+	overflow-y: auto !important;
+}
+
+.HomeSlicerColumndataClass {
+	display: flex;
+	flex-direction: row;
+    justify-content: space-around;
+    gap:10px;
+}
+
+ .visualizeChartHomeSlicerClass{
+	width:50%;
+}
+#VisualizeBIHomeSlicerColumns{
+	width:50% !important;
+}
+
+.VisionImageVisualizationHomeTableClass {
+	width: 22px;
+	height: 20px;
+	padding-right: 4px;
+}
+
+.visionVisualizeHomeChartSlicerFieldsClass {
+	background: #f1f1f1;
+}
+
+.visionVisualizeHomeChartSlicerFieldDivClass {
+	position: relative;
+	border: 1px solid #f1f1f1;
+}
+
+.visionVisualizeHomeChartSlicerFieldDivClass {
+	margin-bottom: 10px;
+}
+
+.visionVisualizeHomeChartSlicerFieldOperator {
+	position: sticky;
+	top: 0;
+}
+
+.visionVisualizeHomeChartSlicerFieldsClass .visionVisualizeHomeChartSlicerFieldSpan
+	{
+	text-align: center;
+}
+
+.visionVisualizeHomeChartSlicerFieldValuesClass {
+	height: 54px;
+	overflow-y: auto;
+	padding: 3px;
+	font-size: 12px;
+	/* width: 80%; */
+}
+
+.filterPopUp .visionVisualizeHomeChartFiltersFieldSpanClass {
+	position: relative;
+	top: -20px;
+}
+
+.visionVisualizeHomeChartTableToggleClass .visionVisualizationDragColumns li
+	{
+	padding: 3px;
+	font-size: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border-bottom: 1px solid #f1f1f1;
+	border-left: 1px solid #f1f1f1;
+}
+
+.visionVisualizeHomeChartSlicerFieldOperatorsClass select {
+	width: 99.97%;
+	border: 1px solid #f1f1f1;
+	font-size: 12px;
+}
+
+.visionVisualizeHomeChartTableToggleClass .visionVisualizationDragColumns
+	{
+	padding-left: 29px;
+	margin-bottom: inherit;
+}
+
+.visionVisualizeHomeChartSlicerFieldsClass img {
+	float: right;
+	background: #0b4a99;
+}
+/* Homepage Dashboard X and Y Labels Tooltip*/
+.xaxislayer-above, .yaxislayer-above {
+	pointer-events: all !important;
+}
+
+.xlabelTooltipText, .ylabelTooltipText {
+	display: none;
+	width: 150px;
+	background-color: #1f77b4;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 1;
+	bottom: 18%;
+	left: 0;
+	margin-left: -60px;
+}
+
+.ylabelTooltipText {
+	left: 24% !important;
+	bottom: 36% !important;
+}
+
+.xlabelTooltipText::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #1f77b4 transparent transparent transparent;
+}
+
+.ylabelTooltipText::after {
+	content: " ";
+	position: absolute;
+	top: 98%;
+	left: 50%;
+	margin-left: -66px;
+	border-width: 7px;
+	border-style: solid;
+	border-color: #1f77b4 transparent transparent transparent;
+}
+
+/*13-04-2022*/
+.visionVisualizationDragColumns .columnFilterDiv {
+	position: sticky;
+	top: 0;
+}
+
+.visionVisualizationDragColumns .columnFilterDiv input {
+	width: 99.5%;
+	height: 28px;
+}
+
+.filterPopUp .visionVisualizationDragColumns .tableColumnsList {
+	height: 220px;
+	overflow-y: auto;
+}
+
+.filterPopUp .visionVisualizationDragColumns {
+	text-align: left;
+	position: relative;
+}
+
+.predictiveAnalysis {
+	display: flex;
+}
+
+.predictiveAnalysis .searchedDxpSearchResults, .predictiveAnalysis .predictiveAvgClass
+	{
+	width: 50%;
+	padding: 10px;
+}
+
+.predictiveAnalysis .searchFilterResultsList {
+	padding: 4px;
+	border-bottom: 1px solid #ddd;
+}
+
+.predictiveAnalysis .searchFilterResultsList:nth-child {
+	border-bottom: inherit;
+}
+
+.predictiveAnalysis .modal-dialog {
+	max-width: 800px;
+}
+
+/* Santhosh Home page Css alignments Starts Here 14-04-2022 */
+.chartSelectionsDropDown {
+	display: flex;
+	align-items: center;
+	padding: 9px;
+}
+
+.chartSelectionsDropDown .visionVisualizeHomePageDropdown select {
+	height: 30px;
+	padding: 4px;
+	font-size: 12px;
+	margin-right: 8px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.homePageDDSlicer .homechartSlicerColumnsDiv {
+	height: 100px;
+	overflow-y: auto;
+}
+
+/* Santhosh Home page Css alignments Ends Here 14-04-2022 */
+
+/*css for popup by RajaSekhar on 26-04-2022*/
+.chartDialogClass .visionChartPropConfigClass ul li .sub-filterItems p {
+	display: inline;
+}
+
+.chartDialogClass .visionChartPropConfigClass ul li .sub-filterItems input
+	{
+	width: 99%;
+	margin-bottom: 15px;
+	height: 25px;
+}
+
+.chartDialogClass .visionChartPropConfigClass ul .general-filters .sub-filterItems label
+	{
+	display: inline;
+}
+
+.chartDialogClass .visionChartPropConfigClass ul .general-filters .sub-filterItems select
+	{
+	width: 99%;
+	margin-bottom: 15px;
+	height: 25px;
+}
+
+.chartDialogClass .visionChartPropConfigClass ul li .sub-filters .sub-filterItems label
+	{
+	display: inline;
+	top: 0px;
+}
+
+.chartDialogClass .visionChartPropConfigClass ul li .sub-filters .sub-filterItems select
+	{
+	width: 99%;
+	margin-bottom: 15px;
+	height: 25px;
+}
+/*css for popup by RajaSekhar on 26-04-2022*/
+
+/* Extended Chart View Popup Css Starts Here by SANK */
+.extendedChartView .modal-body {
+	padding: 4px;
+}
+
+.extendedChartView  .plot-container .modebar-container {
+	top: -6px !important;
+	right: -36px !important;
+	height: 100% !important;
+}
+
+.extendedChartView .js-plotly-plot .plotly .modebar.vertical {
+	display: inherit;
+	max-height: inherit !important;
+	height: 100%;
+	background: #f1f1f1 !important;
+}
+
+.extendedChartView .modebar-group {
+	padding-bottom: 0 !important;
+	background-color: inherit !important;
+}
+
+.extendedChartView .modebar-btn {
+	padding: 8px 4px !important;
+	height: 30px !important;
+	cursor: pointer;
+	line-height: normal;
+	box-sizing: border-box;
+	border-bottom: 1px solid #ddd;
+}
+/* Extended Chart View Popup Css Ends Here by SANK */
+/* Chart Title Text Look&Feel Css starts here by SANK 13-06-2022 */
+.homeChartParentDiv .chartMain .g-gtitle .gtitle {
+	font-family: segeo-ui, -apple-system, Roboto, Helvetica Neue,
+		sans-serif !important;
+	font-weight: 500 !important;
+	font-size: inherit !important;
+	fill: rgb(24, 100, 171) !important;
+	opacity: inherit !important;
+	font-size: 14px !important;
+}
+
+.homeChartParentDiv .chartMain .legendtext, .homeChartParentDiv .chartMain .angularaxistick text
+	{
+	font-family: segeo-ui, -apple-system, Roboto, Helvetica Neue,
+		sans-serif !important;
+	font-weight: 600 !important;
+	fill: rgb(24, 100, 171) !important;
+	opacity: inherit !important;
+}
+
+.homeChartParentDiv .chartMain .xaxislayer-above .xtick text,
+	.homeChartParentDiv .chartMain .yaxislayer-above .ytick text {
+	font-family: segeo-ui, -apple-system, Roboto, Helvetica Neue,
+		sans-serif !important;
+	font-weight: 600 !important;
+	fill: rgb(24, 100, 171) !important;
+}
+/* Chart Title Text Look&Feel Css ends here by SANK 13-06-2022 */
+.visionVisualizationDataChartcount {
+	height: 100%;
+}
+
+.chartMain .compareChartsClass {
+	height: 400px !important;
+}
+
+.ui-datepicker .ui-datepicker-header {
+	font-weight: bold;
+	background: #0071C5 !important;
+	color: #fff;
+	border: 1px solid #9aaec8;
+}
+
+.insightsSurveyCompareChartsDateFiltersTableClass .ui-state-default,
+	.ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default
+	{
+	border: 1px solid #0071c5;
+	background: #0071C5;
+	font-weight: bold;
+	border-radius: 10px;
+	color: #fff;
+	border-style: none;
+	outline: 0;
+	font-size: 13px;
+	font: normal 12px/16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.selectFiltersMain {
+	display: flex;
+	align-items: center;
+}
+
+.selectFiltersMain .filterLabel {
+	font-weight: 600;
+	font-size: 12px;
+}
+
+.selectFiltersMain .homePageDashBoardFilterTypesDivClass {
+	margin-left: 14px;
+}
+
+.visionVisualizeChartOneFiltersFieldClass,
+	.visionVisualizeChartTwoFiltersFieldClass {
+	padding: 4px;
+	border: 1px dashed #333;
+}
+
+.visionVisualizeHomeChartOneFiltersValuesClass,
+	.visionVisualizeHomeChartTwoFiltersValuesClass {
+	margin-bottom: 10px;
+	border: 1px solid #f1f1f1;
+	padding: 4px;
+	height: 80px;
+	overflow-y: auto;
+}
+
+.visionVisualizeHomeChartOneFiltersValuesClass>div,
+	.visionVisualizeHomeChartTwoFiltersValuesClass>div {
+	padding: 2px;
+	border-bottom: 1px solid #f1f1f1;
+	white-space: nowrap;
+	width: 99%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.visionVisualizeHomeChartOneFiltersValuesClass>div img,
+	.visionVisualizeHomeChartTwoFiltersValuesClass>div img {
+	float: right;
+}
+
+#dashBoardHomeCompareFiltersId {
+	display: flex;
+	width: 95%;
+	align-items: center;
+}
+
+.intelliSenseSelectBoxClass {
+	display: flex;
+	align-items: center;
+}
+
+.intelliSenseSelectBoxClass .filterLabels {
+	color: #000;
+}
+
+.intelliSenseSelectBoxClass #mainSelectBoxDataId {
+	height: 30px;
+	cursor: pointer;
+}
+
+.intelliSenseSelectBoxClass .visionFilterData {
+	margin-left: 6px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.intelliSenseSelectBoxClass .visionHomePageSlicerClass {
+	cursor: pointer;
+}
+
+.VisualizeColumnCancelClass {
+	float: right;
+	background-color: #0b4a99;
+}
+
+.dashBoardHeaderFilterFormClass {
+	padding: 3px;
+	font-size: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border-bottom: 1px solid #f1f1f1;
+	border-left: 1px solid #f1f1f1;
+}
+
+.visionDashBoardHomeFilterClass {
+	display: flex;
+	background-color: #f1f1f1;
+	align-items: center;
+	padding: 5px;
+}
+.dashboardTypeSelection .dashBoardType .intellisenseHomeSelectBox{
+	width:160px;
+}
+
+.visionDashBoardHomeFilterClass {
+	display: flex;
+	background-color: #fff;
+	align-items: center;
+	padding: 9px;
+	gap:8px;
+}
+.intelliSenseSelectBoxClass .iconMenuNavPrev, .intelliSenseSelectBoxClass .iconMenuNavNext{
+	position: absolute;
+    top: 12%; 
+    transform: translateY(-50%); 
+    left: 61px;
+    font-size: 18px;
+    background: #ccc; 
+    width: 30px;
+    text-align: center;  
+    line-height: 30px;
+    border-radius: 100%;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.1), -2px -2px 5px rgba(0,0,0,.1);
+    z-index: 999;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.intelliSenseSelectBoxClass .iconMenuNavPrev:hover, 
+.intelliSenseSelectBoxClass .iconMenuNavNext:hover{
+    opacity: 1;
+    transiton: .2s all eas-in-out;  
+}
+
+.intelliSenseSelectBoxClass .iconMenuNavNext{
+    z-index:9999;
+}
+.intelliSenseSelectBoxClass .iconMenuNavNext{
+    right: 4px;
+    left: initial;
+}
+
+.intelliSenseSelectBoxClass .iconMenuNavNext{
+    right: 10px;
+    left: initial;
+}
+
+.visionDashBoardHomeFilterClass .FilterColumnTitle .FilterColumnTitleSpanClass
+	{
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.applyBtndiv button {
+	font-size: 12px;
+	/*margin-top: 20px;*/
+}
+
+.FilterColumnTitle .surveyPartyTitleColonSpanClass {
+	padding: 8px;
+	font-weight: 600;
+}
+
+.FilterColumnTitle {
+	margin-bottom: inherit !important;
+}
+
+.FilterColumnIdClass .surveyAnalyticChartQuestionClass {
+	font-size: 12px;
+}
+
+.selectFiltersMain {
+	display: flex;
+	align-items: center;
+}
+
+.selectFiltersMain .filterLabel {
+	font-weight: 600;
+	font-size: 12px;
+}
+
+.selectFiltersMain .homePageDashBoardFilterTypesDivClass {
+	margin-left: 14px;
+}
+
+.selectFiltersMain .homePageDashBoardFilterTypesDivClass select {
+	font-size: 12px;
+	padding: 4px;
+}
+
+.visionFilterData {
+	margin-left: 5px;
+}
+
+/* Css Edit for the Charts Filters */
+.visionDashBoardHomeFilterClass .dashBoardHomeChartOneCompareFiltersTableSpanClass,
+	.visionDashBoardHomeFilterClass .dashBoardHomeChartTwoCompareFiltersTableSpanClass
+	{
+	font-weight: 600;
+	font-size: 16px;
+	margin-bottom: 2px;
+	padding: 4px;
+	text-align: center;
+	border-bottom: 1px solid #f1f1f1;
+}
+
+.dashBoardHomeChartOneCompareFiltersTableClass,
+	.dashBoardHomeChartTwoCompareFiltersTableClass {
+	width: 100%;
+}
+
+/* .innerFilterDivClass { */
+/* 	display: flex; */
+/* 	align-items: center; */
+/* } */
+
+.innerFilterDivDateClass>div {
+	margin: 5px 0px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.innerFilterDivDateClass .feildsOperatorDiv{
+	margin: 5px 0px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.innerFilterDivDateClass .visionVisualizeCardToColValuesClass {
+	margin: 5px 0px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/**/
+.innerFilterDivStrClass .visionVisualizeCardDateValueClass .innerFilterDivStrFromClass,
+.innerFilterDivStrClass .visionVisualizeCardDateValueClass .innerFilterDivStrToClass {
+margin: 5px 0px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.visionVisualizeCardFromColValuesClass input[type=text].jqx-input, input[type=password].jqx-input,
+	.visionVisualizeCardToColValuesClass input[type=text].jqx-input, input[type=password].jqx-input
+	{
+	width: 90%;
+}
+
+.visionVisualizeChartClass .feildsOperatorDiv .visionVisualizeCardDateFromColLabelClass,
+	.visionVisualizeChartClass .feildsOperatorDiv .visionVisualizeCardDateToColLabelClass
+	{
+	font-size: 11px;
+	font-weight: 700;
+}
+
+.visionDashBoardCompareColValuesClass {
+	display: flex;
+	align-items: center;
+}
+
+.visionDashBoardCompareColValuesClass span {
+	margin-right: 5px;
+}
+
+.visionDashBoardCompareColValuesClass .jqx-input {
+	width: 95%;
+}
+
+.visionDashBoardCompareChartOperatorClass {
+	height: 24px;
+	width:198px;
+}
+
+.visionDbCompareChartsFilterButtonDivClass {
+	text-align: center;
+}
+
+.visionDbCompareChartsFilterButton {
+	font-size: 13px;
+}
+
+.visionDashBoardCompareColLabelClass {
+	width: 20%;
+	font-size: 13px;
+	font-weight: 600;
+}
+/*.dashBoardHomeChartOneCompareFiltersClass{
+    border-right: 2px solid #f1f1f1;
+}*/
+/* Css Edit for the Charts Filters */
+/* Css Edit for the Charts Filters */
+.dashboardFilterColumnClass {
+	display: flex;
+	background-color: #f1f1f1;
+	align-items: center;
+	padding: 5px;
+}
+/*.dashboardFilterColumnClass .FilterColumnIdClass{
+    width: 60%;
+}*/
+.dashboardFilterColumnClass .FilterColumnIdClass select {
+	width: 99%;
+}
+
+.dashboardFilterColumnClass .FilterColumnTitle {
+	display: flex;
+	align-items: center;
+}
+
+.dashboardFilterColumnClass .FilterColumnTitle .FilterColumnTitleSpanClass
+	{
+	font-size: 12px;
+	font-weight: 600;
+	width: 40%;
+}
+
+FilterColumnTitle .FilterColumnTitleSpanClass {
+	padding: 8px;
+}
+
+.FilterColumnTitle .surveyPartyTitleColonSpanClass {
+	padding: 8px;
+	font-weight: 600;
+}
+
+.FilterColumnTitle {
+	margin-bottom: inherit !important;
+}
+
+.FilterColumnIdClass .surveyAnalyticChartQuestionClass {
+	font-size: 12px;
+}
+
+.selectFiltersMain {
+	display: flex;
+	align-items: center;
+}
+
+.selectFiltersMain .filterLabel {
+	font-weight: 600;
+	font-size: 12px;
+}
+
+.selectFiltersMain .homePageDashBoardFilterTypesDivClass {
+	margin-left: 14px;
+}
+
+.selectFiltersMain .homePageDashBoardFilterTypesDivClass select {
+	font-size: 12px;
+	padding: 4px;
+}
+
+.visionFilterData {
+	margin-left: 5px;
+}
+
+.VisualizeColumnCancelClass {
+	float: right;
+	background-color: #0b4a99;
+}
+
+.dashBoardHeaderFilterFormClass {
+	padding: 3px;
+	font-size: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border-bottom: 1px solid #f1f1f1;
+	border-left: 1px solid #f1f1f1;
+}
+
+/*Material section css ends here  on 05-08-2022*/
+.visualizeChartHomeSlicerClass ul {
+	margin-bottom: 1px;
+}
+
+.visualizeChartHomeSlicerClass ul .homefilterColumnsDiv li {
+	padding: 3px;
+	font-size: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border-bottom: 1px solid #d1c3c3;
+	border-left: 1px solid #f1f1f1;
+	background: #f1f1f1;
+}
+
+.visionDashBoardCOmpareChartFiltersClass {
+	float: right;
+	background-color: #0b4a99;
+}
+
+.resizableChartDiv {
+	max-width: inherit !important;
+}
+
+.extendedChartView .gtitle {
+	font-family: segeo-ui, -apple-system, Roboto, Helvetica Neue,
+		sans-serif !important;
+	font-weight: 600 !important;
+	font-size: inherit !important;
+	fill: rgb(24, 100, 171) !important;
+	opacity: inherit !important;
+	font-size: 18px !important;
+}
+
+.extendedChartView .legendtext {
+	font-family: segeo-ui, -apple-system, Roboto, Helvetica Neue,
+		sans-serif !important;
+	font-weight: 800 !important;
+	fill: rgb(24, 100, 171) !important;
+	opacity: inherit !important;
+	/*font-size: 9px !important;*/
+	margin-right: 5px !important;
+}
+
+.extendedChartView .groups .traces {
+	margin-right: 30px;
+}
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27 Jul, 2022, 5:07:58 PM
+    Author     : Jagadish.R
+*/
+
+/*.votingAnalysis {
+    margin: 10px 0px;
+}
+.insightsVoteAnalyticFirstClass {
+    border: 1px solid #ddd;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.surveySocialMediaCard .card-header{
+    justify-content: inherit !important;
+    position: relative;
+}
+.surveySocialMediaCard .card-header .header-refresh{
+    position: absolute;
+    right: 3%;
+}
+.surveySocialMediaCard .card-header .header-filterCalendar{
+    position: absolute;
+    right: 11%;
+}
+.surveyDropdown {
+    list-style-type: none;
+}
+.surveyDropdown .dropdown-item{
+    padding: 4px;
+}
+
+
+
+.surveyDropdown .dropdown-menu li {
+    position: relative;
+}
+
+.surveySocialMediaCard .card-header .insightsSurveyAnalyticsFilterDataClass{
+    position: absolute;
+    top: 43px;
+    background: #fff;
+    right: 46px;
+    z-index: 9999;
+    width: 120px;
+    height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+}
+.surveyDropdown li a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.surveyDropdown li a .surveyAnalyticImgClass{
+    width: 14px !important;
+}
+.surveyDropdown li{
+    border-bottom: 1px solid #f1f1f1;
+    position: relative;
+}
+.surveySocialMediaCard .card-header .SurveyChildDataClass{
+    position: absolute;
+    right: -77px;
+    top: 103%;
+    z-index: 9999;
+    width: 120px;
+    height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    display: none;
+}
+
+
+ Survey Dashboard Css Starts Here 29-07-2022 
+.surveyAnalyticChartsDataClass{
+    margin-left: -5px;
+    margin-right: -5px;
+}
+.surveyAnalyticChartsDataClass .homeChartWrapDiv{
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 10px;
+}
+
+.surveyAnalyticChartsDataClass .homeChartWrapDiv .plot-container .modebar-container{
+    top: -2px !important;
+    right: -2px !important;
+}
+
+.surveyAnalyticChartsDataClass .homeChartWrapDiv .js-plotly-plot .modebar.vertical{
+    display: inherit;
+    max-height: inherit !important;
+    height: 100%;
+     overflow-y: auto; 
+    background: #f1f1f1 !important;
+}
+
+.surveyAnalyticChartsDataClass .homeChartWrapDiv .plot-container .modebar-group {
+    display: block;
+    float: none;
+    padding-left: 0px;
+    padding-bottom: 8px;
+}
+.surveyAnalyticChartsDataClass .modebar-group {
+    padding-bottom: 0 !important;
+    background-color: inherit !important;
+}
+.surveyAnalyticChartsDataClass .js-plotly-plot .plotly .modebar.vertical .modebar-group .modebar-btn {
+    display: block;
+    text-align: center;
+}
+
+.surveyAnalyticChartsDataClass .js-plotly-plot .plotly .modebar-btn {
+    padding: 8px 4px !important;
+    height: 30px !important;
+    cursor: pointer;
+    line-height: normal;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ddd;
+}*/
+.surveyAnalyticPartyNameButtonsClass {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	overflow-x: hidden;
+	border-bottom: 2px solid #ddd;
+	background-color: #f1f1f1;
+}
+
+.surveyAnalyticPartyNameButtonsClass:hover {
+	overflow-x: auto;
+	cursor: pointer;
+}
+
+.surveyAnalyticPartyNameButtonsClass::-webkit-scrollbar {
+	height: 8px;
+}
+
+.surveyAnalyticPartyNameButtonsClass .surveyAnalyticPartyNameButtons {
+	padding: 4px 10px;
+	border-radius: 4px;
+	margin-right: 3px;
+}
+
+.surveyAnalyticPartyNameButtonsClass .surveyPartyTitle .surveyPartyTitleSpanClass
+	{
+	/*width: 150px;*/
+	display: block;
+	height: 18px;
+	margin-left: 2px;
+	white-space: nowrap;
+}
+
+.surveyAnalyticPartyNameButtonsClass .surveyPartyTitle .surveyPartyTitleColonSpanClass
+	{
+	margin-left: 2px;
+}
+
+.surveyPartyTitleSpanClass:nth-child(2) .surveyPartyTitleSpanClass {
+	width: 120px;
+}
+
+.surveyAnalyticPartyNameButtonsClass .surveyPartyTitle {
+	margin-right: 5px;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+}
+
+.surveyAnalyticPartyNameButtonsClass .surveyAnalyticChartsDataQuestionsIdClass
+	{
+	/*margin-right: 10px;*/
+	margin-left: 3px;
+}
+
+.surveyAnalyticPartyNameButtonsClass .surveyAnalyticChartsDataQuestionsIdClass select
+	{
+	font-size: 12px;
+	height: 30px;
+	width: 150px;
+}
+
+.surveyAnalyticPartyNameButtonsTwoClass {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	overflow-x: hidden;
+	border-bottom: 2px solid #ddd;
+	background-color: #f1f1f1;
+}
+
+.surveyAnalyticPartyNameButtonsTwoClass:hover {
+	overflow-x: auto;
+	cursor: pointer;
+}
+
+.surveyAnalyticPartyNameButtonsTwoClass::-webkit-scrollbar {
+	height: 8px;
+}
+
+.surveyAnalyticPartyNameButtonsTwoClass .surveyAnalyticPartyNameButtons
+	{
+	padding: 4px 10px;
+	border-radius: 4px;
+	margin-right: 3px;
+}
+
+.surveyAnalyticPartyNameButtonsTwoClass .surveyPartyTitle .surveyPartyTitleSpanClass
+	{
+	/*width: 150px;*/
+	display: block;
+	height: 18px;
+	margin-left: 2px;
+	white-space: nowrap;
+}
+
+.surveyAnalyticPartyNameButtonsTwoClass .surveyPartyTitle .surveyPartyTitleColonSpanClass
+	{
+	margin-left: 2px;
+}
+
+.surveyAnalyticPartyNameButtonsTwoClass .surveyPartyTitle {
+	margin-right: 5px;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+}
+
+.surveyAnalyticPartyNameButtonsTwoClass .surveyAnalyticChartsDataQuestionsIdClass
+	{
+	/*margin-right: 10px;*/
+	margin-left: 3px;
+}
+
+.surveyAnalyticPartyNameButtonsTwoClass .surveyAnalyticChartsDataQuestionsIdClass select
+	{
+	font-size: 12px;
+	height: 30px;
+	width: 150px;
+}
+/*.js-plotly-plot .plotly .main-svg .legend {
+    transform: translate(20px, 282px);
+    position: relative;    
+}*/
+.chartPallettePopup {
+	overflow: auto !important;
+}
+
+.chartPallettePopup .jqx-popover-content {
+	padding: 4px !important;
+}
+
+.colorPallatteMainDiv .colorPalletteSection {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.colorPallatteMainDiv .themeBtnsContainer {
+	padding: 4px;
+	border-bottom: 1px solid #f1f1f1;
+}
+
+.colorPallatteMainDiv .selectColorTitle {
+	margin-bottom: 3px;
+	padding: 3px;
+	font-size: 16px;
+	/*    border-bottom: 1px solid #ddd;*/
+}
+
+.colorPallatteMainDiv .colorblockTitle h5 {
+	margin-bottom: inherit;
+	padding: 4px;
+	background-color: #ddd;
+	font-size: 14px;
+	border-radius: 3px;
+}
+
+.colorPallatteMainDiv .themeBtnsContainer .themeBtnsGroup {
+	display: flex;
+	flex-wrap: wrap;
+	border: 2px solid #f1f1f1;
+	margin: 8px;
+	width: 26%;
+	padding: 4px;
+	border-radius: 50%;
+	/*justify-content: center;*/
+}
+/*.colorPallatteMainDiv .themeBtnsContainer .themeBtnsGroup:hover{
+    border: 4px solid #ddd;
+}*/
+.colorPallatteMainDiv .themeBtnsContainer .themeBtns {
+	display: block;
+	height: 10px;
+	width: 10px;
+	margin: 2px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.colorPallatteMainDiv .themeBtnsContainer .themeBtnsGroup>div {
+	display: flex;
+}
+
+/* Color Pallatte Css Starts Here 25-08-2022 */
+
+/* Chart Color Pallatte Css Starts Here */
+/*.dxpFilterPopOverClass {
+    overflow-y: auto;
+}*/
+.dxpFilterPopOverClass .themeBtnsContainer .themeBtnsGroup {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 6px;
+	width: 30%;
+	justify-content: center;
+}
+
+.resizableChartDiv {
+	max-width: inherit !important;
+}
+
+#imageid {
+	overflow: hidden;
+	transition-duration: 0.8s;
+	transition-property: transform;
+}
+
+#imageid:hover {
+	transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+}
+
+#imageid {
+	-webkit-animation: spin 5s linear infinite;
+	-moz-animation: spin 5s linear infinite;
+	animation: spin 5s linear infinite;
+}
+
+/* rotate 360 key for refresh btn */
+@-moz-keyframes spin { 100% {
+	-moz-transform: rotate(360deg);
+}
+
+}
+@-webkit-keyframes spin { 100% {
+	-webkit-transform: rotate(360deg);
+}
+
+}
+/*@keyframes spin {100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); };*/
+.xaxislayer-above .xtick text {
+	height: 50px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.plusIconColumn {
+	float: right;
+}
+
+.plusIconColumn img {
+	width: 16px;
+}
+
+.pieLegendTraces {
+	height: 50px !important;
+	overflow-y: scroll;
+}
+
+.homeChartWrapDiv
+.homeChartParentDiv {
+	box-shadow: rgb(0 0 0/ 24%) 0px 3px 8px;
+	border: 2px solid #3a81e9;
+}
+/**/
+.visionVisualizeChartDrillDownConfigureClass ul li .sub-filterItems input
+	{
+	width: 99%;
+	margin-bottom: 15px;
+	height: 25px;
+}
+
+.visionVisualizeChartDrillDownConfigureClass ul .general-filters .sub-filterItems select
+	{
+	width: 99%;
+	margin-bottom: 15px;
+	height: 25px;
+}
+
+.visionVisualizeChartDrillDownConfigureClass ul li .sub-filterItems p {
+	display: inline;
+}
+
+.visionVisualizeChartDrillDownConfigureClass ul li .sub-filters .sub-filterItems select
+	{
+	width: 99%;
+	margin-bottom: 15px;
+	height: 25px;
+}
+
+.visionVisualizeDrillDownChartTypeClass {
+	display: flex;
+}
+
+.visionVisualizeChartFiltersClass .visionVisualizeChartFiltersXAxisFieldClass
+	{
+	margin: 10px 0px;
+	border-style: dotted;
+	padding: 5px;
+	background-color: #d1d1d1;
+	color: #000;
+	text-align: center;
+}
+/**/
+.legend rect.bg {
+	display: none !important;
+}
+/*.scrollbox .groups .chartLegendScroll{ 
+    overflow-y: scroll;
+    width: 200px !important
+}
+.scrollbox .groups .chartLegendScroll::-webkit-scrollbar{ 
+    width: 5px;
+    height: 5px;
+}*/
+.chartLegendScroll {
+	position: absolute;
+	bottom: 0;
+	overflow: auto;
+	/*    width: 100px !important;  */
+}
+
+.visionVisualizeChartDrillDownChartTypesClass {
+	margin-left: 15px;
+}
+
+.scrollbar {
+	display: none;
+}
+
+.chartMain {
+	margin: 1px;
+}
+
+.chartMainBorderBox {
+	border-radius: 8px;
+}
+
+.homeChartWrapDiv .js-plotly-plot .plotly .main-svg {
+	width: 100% !important;
+}
+
+.addcolumnIcon {
+	width: 16px;
+}
+
+.columnAddImg {
+	float: right;
+}
+
+.treeMapMainDiv {
+	box-shadow: rgb(0 0 0/ 24%) 0px 3px 8px;
+	border: 2px solid #00acee;
+}
+
+.treeMapMainDiv  .homeChartParentDiv, .treeMapMainDiv .chartMain {
+	box-shadow: none !important;
+}
+
+.treeMapMainDiv .homeChartParentDiv {
+	box-shadow: inherit !important;
+	border: none !important;
+}
+
+.treeMapMainDiv .chartMainBorderBox {
+	border: inherit !important;
+	overflow-x: hidden;
+}
+
+.visionVisualizeRadioButtonsClass {
+	padding: 3px;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.visionVisualizeRadioButtonsClass .radioCheckinput {
+	margin-top: 2px;
+}
+
+.visionVisualizeRadioButtonsClass .radioText {
+	margin-right: 8px;
+	font-size: 10px;
+}
+
+.changeGraphPopup .modal-header {
+	display: none;
+}
+
+.changeGraphPopup .isPopupDefaultSaveClass {
+	text-align: center;
+}
+
+.changeGraphPopup .isPopupDefaultSaveClass img {
+	width: 100px !important;
+	margin-bottom: 10px;
+}
+
+.changeGraphPopup .isPopupDefaultSaveClass p {
+	margin-bottom: inherit;
+	font-size: 20px;
+}
+
+.changeGraphPopup .modal-footer {
+	align-items: center !important;
+	justify-content: center !important;
+}
+
+.changeGraphPopup .modal-footer button {
+	font-size: 14px !important;
+}
+
+/**/
+.homepageChartDialogTreeMap {
+	padding-top: 0px !important;
+	max-width: 1300px;
+	overflow-y: hidden !important;
+	position: absolute;
+	left: 100px;
+}
+
+.homepageChartDialogTreeMap .extendedChartView modal-header {
+	padding: 5px !important;
+}
+
+.homeChartParentDiv .chartMain .svg-container {
+	/* height: 270px !important; */
+	/*    overflow-y: auto;
+    overflow-x: hidden;*/
+	
+}
+
+.homeChartParentDiv .chartMain .svg-container::-webkit-scrollbar {
+	width: 8px;
+}
+
+/*22-09-2022 ECHARTS CHART CONFIG*/
+.visionVisualizeChartPropConfigClassEcharts label {
+	display: block !important;
+	margin-top: 9px; /*/
+    font-size: 12px;/*/
+	font-weight: 600; /*/
+    padding: 2px 5px;/*/
+	top: 0px !important; /**/
+}
+
+.visionVisualizeChartPropConfigClassEcharts label {
+	top: 0px !important;
+	display: block;
+}
+
+.visionVisualizeChartPropConfigClassEcharts .sub-filters {
+	margin-left: 0px !important;
+}
+
+.visionVisualizeChartPropConfigClassEcharts p {
+	margin-bottom: 0px;
+	display: block;
+	font-size: 12px !important;
+	/* margin-top: 10px; */
+	font-weight: 600 !important;
+}
+
+.visionVisualizeChartPropConfigClassEcharts select {
+	margin-bottom: 0px;
+}
+/*22-09-2022 ECHARTS CHART CONFIG*/
+.intelliSenseSelectBoxClass .dashBoardType select {
+	height: 30px;
+	padding: 4px;
+	font-size: 12px;
+	border-radius: inherit !important;
+}
+/* 10-10-2022 Charts below the grid */
+.modalChartsBasedonFileImport .visionVisualizationDataChartViewCLass {
+	display: inherit;
+	grid-template-columns: inherit;
+	grid-template-rows: inherit;
+	column-gap: inherit;
+	row-gap: inherit;
+	/*overflow: inherit;*/
+}
+
+.visionVisualizeModalChartClass {
+	/* height: 300px; */
+	/* border: 1px solid #3a81e9; */
+	
+}
+
+.fileChartsBorder {
+	max-width: 32%;
+	border: 2px solid #3a81e9;
+	margin: 2px;
+	box-shadow: rgb(0 0 0/ 24%) 0px 3px 8px;
+}
+.fileVoiceChartsBorder {
+	max-width: 100% !important;
+	border: 2px solid #3a81e9;
+	margin: 2px;
+	box-shadow: rgb(0 0 0/ 24%) 0px 3px 8px;
+}
+
+.modalChartsBasedonFileImport {
+	padding-bottom: 48px;
+}
+
+.modalChartsBasedonFileImport .visionVisualizationDataChartViewCLass .visionVisualizeModalChartClass .plot-container .svg-container
+	{
+	border: 1px solid #f1f1f1;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	margin: 10px;
+}
+
+.modalChartsBasedonFileImport .visionVisualizationDataChartViewCLass .visionVisualizeModalChartClass .plot-container .svg-container .modebar-container
+	{
+	position: absolute;
+	top: 0;
+	right: -2px !important;
+}
+
+.modalChartsBasedonFileImport .visionVisualizationDataChartViewCLass .visionVisualizeModalChartClass .plot-container .svg-container .modebar-container .modebar.vertical
+	{
+	height: 100% !important;
+}
+
+.modalChartsBasedonFileImport .visionVisualizationDataChartViewCLass .visionVisualizeModalChartClass .plot-container .svg-container .modebar-container .modebar-group
+	{
+	background-color: inherit !important;
+}
+
+.modalChartsBasedonFileImport .visionVisualizationDataChartViewCLass .js-plotly-plot .plotly .modebar.vertical
+	{
+	background-color: #f1f1f1 !important;
+}
+
+/* 10-10-2022 Charts below the grid */
+.chartViewAreaClass {
+	padding-left: 0;
+	padding-right: 0;
+	width: 100% !important;
+	height: 100%;
+}
+
+.visionSmartBiDesignTab {
+	cursor: pointer;
+	background-color: #fff;
+	margin: 5px;
+	float: left;
+	width: 110px;
+	height: 27px;
+	margin-right: 0px;
+	text-align: center;
+	color: #000000;
+	padding: 6px 1px 14px 1px;
+}
+
+.visionSmartBiDesignTabHighLight {
+	margin: 2px;
+	margin-right: -2px;
+	border: 1px solid #ffff;
+	border-top: 2px solid #0b4a99;
+	background: #fff;
+	color: #0b4a99;
+	padding: 6px 1px 13px 1px;
+	font-weight: bold;
+}
+
+.chartViewAreaClass {
+	position: relative;
+}
+
+.chartViewAreaClass .visionSmartBIDesignTabHeadingsDiv {
+	position: fixed;
+	bottom: 38px;
+	background: #f1f1f1;
+	width: 100%;
+}
+
+.chartViewAreaClass .visionSmartBIDesignTabHeadingsDiv .visionSmartBIDesignTabHeadings
+	{
+	margin-bottom: inherit;
+}
+
+.visionVisualizationDataChartViewCLass {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: auto;
+	column-gap: 4px;
+	row-gap: 1px;
+}
+
+.dataView {
+	display: flex;
+	height: 90%;
+}
+
+.visionSmartBiGridDataClass {
+	width: 95%;
+	height: 100%
+}
+
+.visionVisualizeModalChartClass .svg-container {
+	position: inherit !important;
+}
+
+.visionAutoSuggestedChartTypesClass {
+	width: 174px;
+	padding: 4px;
+	border: 1px solid #ddd;
+	margin-top: 5px;
+	margin-left: 8px;
+}
+
+.visionAutoSuggestedChartTypesClass .visionAutoSuggestionChartTypesSpan
+	{
+	padding: 6px;
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 9px;
+}
+
+.visionAutoSuggestedChartTypesClass .visionAutoSuggestionChartTypeClass
+	{
+	margin-top: 10px;
+	padding: 4px;
+}
+
+.visionAutoSuggestionChartTypeClass img {
+	width: 30px;
+	padding-left: 7px;
+}
+
+/* OverFlow Icons inthe Home page Charts */
+.homeChartWrapDiv .modebar-container {
+	overflow-y: auto;
+	width: 10%;
+}
+
+.homeChartWrapDiv .modeBarMainContainer {
+	width: 50%;
+}
+
+/* OverFlow Icons inthe Home page Charts */
+.visionVisualizeChartTableColDateClass {
+	display: flex;
+}
+
+/* Icons Row with Three in a Row Css */
+.visionVisualizeChartsTabsClass .iconsRow {
+	align-items: center;
+	text-align: center;
+	margin-left: -1px;
+	margin-right: -1px;
+}
+
+.visionVisualizeChartsTabsClass .iconsRow .visualIconDivImg img {
+	width: 40px;
+}
+
+.visualIconDivImg {
+	margin: 4px 0;
+	padding-right: 1px;
+	padding-left: 1px;
+}
+/* Icons Row with Three in a Row Css */
+.pieLegendLabelItem {
+	display: flex;
+	padding: 3px;
+}
+
+.pieLegendLabelItem span {
+	margin-left: 10px;
+	margin-top: -4px;
+}
+
+.pieLegends {
+	height: 60px;
+	overflow-y: scroll;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.filteredLegend {
+	opacity: 0.4;
+}
+
+.visionVisualizeQueryHeaderClass {
+	padding: 4px;
+	border-bottom: 1px solid #3a81e9;
+	display:flex;
+	gap:5px;
+}
+
+.ace_editor, .ace_editor div {
+	font-family: monospace;
+}
+
+.ace_editor, .ace_editor * {
+	font-family: "Monaco", "Menlo", "Ubuntu Mono", "Droid Sans Mono",
+		"Consolas", monospace !important;
+	font-size: 12px !important;
+	font-weight: 400 !important;
+	letter-spacing: 0 !important;
+}
+
+.visionVisualizeQueryGridButtonsClass {
+	width: 99%;
+	padding: 4px;
+	background-color: #d0e1f9;
+	display: flex;
+	align-items: center;
+	gap: 3px;
+}
+
+.visionSuggestionChartTypeClass .visualChartsByQueryClass img {
+	width: 35px;
+}
+
+.visionSuggestionChartTypeClass {
+	padding: 15px;
+}
+
+.visionSuggestedChartTypesClass {
+	/* overflow-y: scroll; */
+	height: 195px;
+}
+/* chandan BI ETL code */
+.CaseClass .CasesensetiveIdClass {
+	width: 50%;
+	height: 23px;
+}
+
+.CaseClass {
+	display: flex;
+}
+
+.visionVisualizeNormalCardHomeClass .mainCardClassHome .visionVisualizeCardValuesSpanClass {
+	width: 100%;
+	text-align: center;
+	color:#fff;
+	margin-top: 15px;
+}
+
+.sqlDataTypeClass {
+	display: flex;
+	align-items: center;
+}
+
+.sqlDataTypeClass .OptionIdClass {
+	display: flex;
+	align-items: center;
+	width: 63%;
+}
+
+.sqlDataTypeClass .visionVisualizeCardValuesSpanClass {
+	width: 46%;
+}
+
+.sqlDataTypeClass .columnOptionSpan {
+	width: 50%;
+}
+
+.sqlDataTypeClass .columnOptionSpan select {
+	width: 100%;
+	height: 23px;
+}
+
+.sqlDataTypeClass .sizeOptionDivMain {
+	width: 17%;
+}
+
+.sqlDataTypeClass .sizeOptionDivMain input[type='number'] {
+	width: 100%;
+	height: 23px;
+}
+
+.TablelistClass {
+	width: 34%;
+}
+
+.QueryAreaId {
+	width: 60%;
+}
+
+.QueryAreamainId {
+	border: 1px solid;
+	display: flex;
+	height: 300px;
+}
+
+.consoleClass {
+	border: 1px solid;
+	width: 40%;
+}
+
+.consoleHederClass {
+	background-color: #ddd;
+}
+/* chandan BI ETL code*/
+.currencyConversionMain table {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.visionDxpPieChartColours {
+	display: block !important;
+}
+
+.visionVisualizationDataChartViewFilterClass {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	padding: 4px;
+	border-bottom: 1px solid #ddd;
+}
+
+.editDateCalendar {
+	z-index: 99999 !important;
+}
+
+#visionHomeChartSuggestionsSaveId {
+	padding-left: 10px;
+}
+
+.highlightSerchTerm {
+	background: yellow;
+}
+
+.actualValueClass .ColumnRenameClass span {
+	width: 30%;
+}
+
+.renameValueClass .ColumnRenameClass span {
+	width: 30%;
+}
+
+.alterTablePopup {
+	overflow: auto !important;
+}
+
+.AggregateBiColumnClass .smartBiSelectClass, .AggregateBiColumnClass .inputField
+	{
+	width: 100%;
+}
+
+/* Santhosh Popover Suggestion Css Starts Here */
+.defaultPopOverAnimate {
+	background-color: #f4f4ff !important;
+	border: 1px solid #3a81e9 !important;
+	color: #1864b1 !important;
+}
+
+.defaultPopOverAnimate .jqx-widget-header {
+	border-color: inherit;
+	background: inherit;
+	padding: inherit;
+}
+
+.defaultPopOverAnimate .jqx-popover-content {
+	padding: 4px;
+	margin: 0 7px;
+}
+
+.defaultPopOverAnimate .jqx-popover-content p {
+	margin-bottom: 1px;
+	line-height: 1.6;
+}
+
+.defaultPopOverAnimate .jqx-popover-arrow {
+	border-width: 16px !important;
+	border-top: 15px solid transparent !important;
+	border-top: 0 solid transparent !important;
+	border-right: 16px solid #f4f4ff !important;
+	border-left: none !important;
+	border-bottom: 40px solid transparent !important;
+	transform: rotate(136deg);
+}
+
+.defaultPopOverAnimate .jqx-popover-arrow:after {
+	display: none !important;
+}
+
+.defaultPopOverAnimate .jqx-icon-close {
+	background-color: #f9f9f9;
+	border-radius: 50%;
+}
+
+/* Santhosh Popover Suggestion Css Ends Here */
+
+/* GraphType in the Modal Popup */
+.graphTypesPopTabs .visionVisualizeChartsTabsClass {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.graphTypesPopTabs .visionVisualizeChartsTabsClass img {
+	width: 20px;
+}
+
+.graphTypesPopTabs .jqx-popover-content {
+	padding: 6px !important;
+}
+
+.excelimageClass {
+	width: 83px;
+	height: 59px;
+	margin-left: 194px;
+	margin-top: 111px;
+}
+
+.imageDivClass {
+	background: #badaba;
+	height: 70%;
+}
+
+/* GraphType in the Modal Popup */
+.visionHomeCardViewClass .visionHomeVisualizeCardDivClassCard .card {
+	/* margin-top: 10px; */
+	border-radius: 14px;
+	background-color: #00a1de;
+	min-height: 122px;
+	margin: 3px;
+	border: 1px solid #4ea9f6;
+	background: linear-gradient(to bottom, #b7deff, #f7f6ff);
+}
+
+.visionHomeCardViewClass .visionHomeVisualizeCardDivClassCard .card-content .card-body .titles
+	{
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	color: #043daf;
+	/* text-align: center; */
+	font-size: 600;
+	font-weight: 600;
+}
+
+.visionHomeCardViewClass .visionHomeVisualizeCardDivClassCard .card-content .card-body .media
+	{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: #043daf;
+	font-weight: 600;
+}
+
+.visionHomeCardViewClass .visionHomeVisualizeCardDivClassCard .card-content .card-body .barText .textClass p
+	{
+	margin-bottom: 0px;
+	font-weight: 600;
+	color: #043daf;
+}
+
+/*chandan css changes code*/
+.jqx-menu-wrapper .jqx-menu-vertical .jqx-menu-ul {
+	background-color: #d0e1f9 !important;
+}
+
+.jqx-menu li, .jqx-menu-dropdown li {
+	margin: 0px !important;
+}
+
+.jqx-menu-wrapper .jqx-menu-vertical .jqx-menu-ul .jqx-menu-item-top input
+	{
+	padding: 2px !important;
+	font-size: 10px;
+	background-color: #fff !important;
+	border: 1px solid #000;
+	border-radius: 4px;
+	width: 100%;
+	font-weight: 600;
+}
+
+.jsonimageClass {
+	width: 83px;
+	height: 59px;
+	margin-left: 194px;
+	margin-top: 111px;
+}
+
+.imageDivClass {
+	background: #badaba;
+	height: 70%;
+}
+
+.jsonDivClass {
+	background: #f1f1f1f1;
+	height: 70%;
+}
+
+.xmlDivClass {
+	background: #ebeff5;
+	height: 70%;
+}
+
+/*chandan css changes code*/
+.visionHomeCardViewClass .visionHomeVisualizeCardDivClassCard .card-content .card-body .media-body .img
+	{
+	width: 30px;
+}
+
+.visionHomeCardViewClass .visionHomeVisualizeCardDivClassCard .card-content .card-body .media .align-self-center .img
+	{
+	width: 50px;
+}
+
+/* .visionHomeCardViewClass .visionHomeVisualizeCardDivClassCard .card-content .card-body .media .imageFlex {
+width: 93px;
+} */
+.visionHomeCardViewClass .visionHomeVisualizeCardDivClassCard .card-content .card-body .media-body .align-self-center
+	{
+	width: 50%;
+	text-align: right;
+}
+/**/
+
+/* Dashboard Workspace Cards Css Starts Here by SANTHOSH */
+.roundedCard {
+	width: 280px;
+	height: 280px;
+	border-radius: 50%;
+}
+
+.roundedCard .chartelements {
+	top: 36%;
+	right: -32px;
+	width: 30px;
+}
+
+.ovalCard {
+	width: 280px;
+	height: 230px;
+	border-radius: 50%;
+}
+
+.ovalCard .chartelements {
+	top: 36%;
+	right: -32px;
+	width: 30px;
+}
+
+/* Dashboard Workspace Cards Css Starts Here by SANTHOSH */
+
+/*Visualization cards css changes starts here by Rajasekhar on 06-12-2022*/
+.visionVisualizeCardLevelDivClass {
+	text-align: center;
+	color: #043daf;
+	font-weight: 600;
+}
+
+/* .visionVisualChartBoxClass .visionVisualizeCardValuesDivClass {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+} */
+
+/* .visionVisualChartBoxClass .thumbsDateClass{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+} */
+.visionVisualChartBoxClass .thumbsDateClass .todayDate {
+	color: #004daf;
+	font-weight: 500;
+	float: right;
+	margin-right: 28px;
+	margin-top: 8px;
+	text-align: center;
+	width: 78%;
+}
+
+.visionVisualizeCardValuesDivClass .mainCardClass {
+	display: flex;
+	align-items: center;
+	justify-content: space-around; 
+	height: 70px; 
+	margin-top: 10px;
+	padding: 14px;
+}
+
+.visionVisualizeCardValuesDivClass .mainCardClass .align-self-center {
+	width: 20%;
+}
+
+.visionVisualizeCardValuesDivClass .mainCardClass .align-self-center img
+	{
+	width: 100%;
+	margin-left: inherit !important;
+}
+
+.visionVisualizeCardValuesRound {
+	margin-top: 16px;
+}
+
+.visionVisualizeCardValuesOval .thumbsDateClass .todayDate {
+	margin-right: 23px;
+}
+
+.visionVisualizeCardLevelSpanClass {
+	color: #004daf;
+	font-weight: 600;
+}
+
+.visionVisualizeCardValuesDivClass .thumbsDateClass .todayDate {
+	position: relative;
+}
+
+.visionVisualizeCardValuesDivClass .thumbsDateClass .span {
+	position: absolute;
+	top: 6px;
+	left: 77px;
+}
+/*Visualization cards css changes ends here by Rajasekhar on 06-12-2022*/
+
+/*Visualization cards css changes ends here by Rajasekhar on 08-12-2022*/
+.visionVisualizeCardValuesRoundHome {
+	width: 220px;
+	height: 220px !important;
+	border: 1px solid #004daf;
+	border-radius: 50%;
+}
+
+.visionVisualizeCardValuesRoundHome .visionVisualizeCardLevelSpanClass {
+	color: #004daf;
+	font-weight: 600;
+	font-size: 10px;
+}
+
+.visionVisualizeCardValuesRoundHome {
+	border: 2px solid #4ea9f6;
+	background: linear-gradient(to bottom, #b7deff, #f7f6ff);
+}
+
+.visionVisualizeCardValuesOvalHome {
+	width: 240px;
+	height: 180px;
+	border: 1px solid #004daf;
+	border-radius: 50%;
+}
+
+.visionVisualizeCardValuesOvalHome .visionVisualizeCardLevelSpanClass {
+	color: #004daf;
+	font-weight: 600;
+	font-size: 10px;
+}
+
+.visionVisualizeCardValuesOvalHome {
+	border: 2px solid #4ea9f6;
+	background: linear-gradient(to bottom, #b7deff, #f7f6ff);
+}
+
+.visionHomeVisualizeCardDivClassCard .card {
+	height: 160px;
+}
+
+.visionHomeVisualizeCardDivClassCard {
+	width: 200px;
+}
+
+.visionHomeVisualizeCardDivClassCard .cardTitleHome {
+	color: #004daf;
+	font-weight: 600;
+	font-size: 10px;
+}
+
+.visionVisualizeCardValuesDivClass {
+	height: 188px;
+}
+
+.todayDate {
+	color: #004daf;
+}
+
+.visionVisualizeCardValuesHome {
+	border: 2px solid #4ea9f6;
+	background: linear-gradient(to bottom, #b7deff, #f7f6ff);
+}
+
+.visionVisualizeCardValuesRoundHome .mainCardClassHome,
+	.visionVisualizeCardValuesOvalHome .mainCardClassHome,
+	.visionVisualizeCardValuesHome .mainCardClassHome {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;  
+	height: 38px;
+	margin-top: 18px;
+}
+/*Visualization cards css changes ends here by Rajasekhar on 08-12-2022*/
+.visionVisualizeChartTrendLineImage {
+	margin-right: inherit !important;
+	width: 75% !important;
+}
+
+/*Adding Image to card CSS start*/
+.visionVisualizeCardLevelSpanClass {
+	color: #004daf;
+	font-weight: 600;
+	width: 100%;
+	text-align: center;
+	border: none;
+	font-size: 12px;
+	background-color: transparent;
+}
+
+/*09-12-2022*/
+.errorMessageInPopUp {
+	display: flex;
+	align-items: center;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.errorMessageInPopUp img {
+	width: 40px;
+	margin-right: 10px;
+}
+
+/*09-12-2022*/
+
+/*Adding Image to card css end*/
+
+/*Card Trend Conversion tool tip*/
+.visionVisualizeChartsTabsClass .cardTrendConversion {
+	display: flex;
+	align-items: center;
+	gap: 11px;
+	padding: 8px;
+	border-bottom: 1px solid #f1f1f1;
+	background-color : #fff;
+}
+
+.visionVisualizeChartsTabsClass .cardTrendConversion:hover {
+	background: #d0e1f9;
+}
+
+.visionVisualizeChartsTabsClass .cardTrendConversion:last-child {
+	border-bottom: none;
+}
+
+.visionVisualizeChartsTabsClass .cardTrendConversion img{
+	width : 30px;
+}
+/*23-12-2022*/
+.visionVisualizeCardValuesRoundHome .thumbsDateClass .todayDate {
+	position: relative;
+	width: 67%;
+	transform: translate(28px, 4px);
+	font-size: 10px;
+	margin-top: 14px;
+	margin-left: 6px;
+}
+
+.visionVisualizeCardValuesHome .thumbsDateClass .todayDate {
+	position: relative;
+	width: 50%;
+	transform: translate(55px, 4px);
+	font-size: 10px;
+	margin-top: 7px;
+}
+
+.visionVisualizeCardValuesOvalHome .thumbsDateClass .todayDate {
+	position: relative;
+	width: 60%;
+	transform: translate(55px, 4px);
+	font-size: 10px;
+	margin-top: 8px;
+}
+
+.visionVisualizeCardValuesRoundHome .mainCardClassHome .align-self-center,
+	.visionVisualizeCardValuesOvalHome .mainCardClassHome .align-self-center
+	{
+	margin-left: 9px;
+}
+
+.visionVisualizeCardValuesOvalHome .mainCardClassHome .align-self-center,
+	.visionVisualizeCardValuesRoundHome .mainCardClassHome .align-self-center
+	{
+	margin-right: 7px;
+}
+
+/*23-12-2022*/
+
+
+
+
+/*29-12-2022*/
+
+.visionCardViewClass .visionHomeCardViewClass .visionVisualizeNormalCardHomeClass {
+border: 1px solid #00a1de;
+    border-radius: 8px;
+    background-color: #00a1de;
+    width : 280px;
+    height: 70px;
+}
+
+.visionVisualizeNormalCardHomeClass .titleMainClass .visionVisualizeCardLevelSpanClass {
+	color : #fff;
+}
+
+.visionVisualizeCardLevelSpanClass span{
+	color : #fff;
+}
+.visionVisualizeNormalCardHomeClass .titleMainClass {
+text-align: center;
+}
+
+.visionVisualizeCardValuesLevelDivClass .titleMainLevelClass .visionVisualizeCardLevelSpanClass{
+	font-size: 16px;
+    padding: 10px;
+}
+
+.visionVisualizeCardValuesLevelDivClass .mainCardClass {
+margin-top: 35px;
+}
+.visionVisualizeCardValuesLevelDivClass .mainCardClass .visionVisualizeCardValuesSpanClass{
+text-align: center;
+    font-size: 28px;
+    color: #004daf;
+    width: 100%;
+}
+/*29-12-2022*/ 
+
+/* Home Page ChartType Popup */
+.homepageChartTypePopup .jqx-popover-content {
+	padding: 6px;
+}
+.homepageChartTypePopup .visionVisualizeChartsTabsClass img{
+	width: 26px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+/* Home Page ChartType Popup */
+
+/* Home page Cards for the Shapes */
+.visionHomeCardViewClass .visionVisualizeCardValuesRoundHome{
+	padding: 10px;
+	position: relative;
+}
+.visionHomeCardViewClass .visionVisualizeCardValuesRoundHome .mainCardClassHome {
+	height: auto;
+	width: 100%;
+	justify-content: inherit !important;
+}
+.visionHomeCardViewClass .visionVisualizeCardValuesRoundHome .mainCardClassHome .align-self-center{
+	width: 20%;
+	margin-left: inherit;
+	margin-right: inherit;
+}
+.visionHomeCardViewClass .visionVisualizeCardValuesRoundHome .mainCardClassHome .align-self-center img{
+	width: 100% !important;
+}
+.visionHomeCardViewClass .visionVisualizeCardValuesRoundHome .mainCardClassHome .visionVisualizeCardValuesSpanClass{
+	width: 60%;
+}
+.visionHomeCardViewClass .visionVisualizeCardValuesRoundHome .mainCardClassHome .plotlyImage{
+	width: 20%;
+}
+.visionHomeCardViewClass .visionVisualizeCardValuesRoundHome .mainCardClassHome .plotlyImage img{
+	width: 100% !important;
+}
+.visionHomeCardViewClass .visionVisualizeCardValuesRoundHome .thumbsDateClass{ 
+	margin-top: 15px; 
+}
+.visionHomeCardViewClass .visionVisualizeCardValuesRoundHome .todayDate{
+	position: absolute;
+	width: 100%;
+	left: 45%;
+	bottom: 12px;
+	transform: translate(-45%, 0);
+}
+
+/* Home Page Oval Card Css */
+
+.visionHomeCardViewClass .visionVisualizeCardValuesOvalHome{
+	padding: 10px;
+	position: relative;
+}
+.visionHomeCardViewClass .visionVisualizeCardValuesOvalHome .mainCardClassHome {
+	height: auto;
+	width: 100%;
+	justify-content: inherit !important;
+}
+.visionHomeCardViewClass .visionVisualizeCardValuesOvalHome .mainCardClassHome .align-self-center{
+	width: 20%;
+	margin-left: inherit;
+	margin-right: inherit;
+}
+.visionHomeCardViewClass .visionVisualizeCardValuesOvalHome .mainCardClassHome .align-self-center img{
+	width: 100% !important;
+}
+.visionHomeCardViewClass .visionVisualizeCardValuesOvalHome .mainCardClassHome .visionVisualizeCardValuesSpanClass{
+	width: 60%;
+}
+.visionHomeCardViewClass .visionVisualizeCardValuesOvalHome .mainCardClassHome .plotlyImage{
+	width: 20%;
+}
+.visionHomeCardViewClass .visionVisualizeCardValuesOvalHome .mainCardClassHome .plotlyImage img{
+	width: 100% !important;
+}
+.visionHomeCardViewClass .visionVisualizeCardValuesOvalHome .thumbsDateClass{ 
+	margin-top: 0; 
+}
+.visionHomeCardViewClass .visionVisualizeCardValuesOvalHome .todayDate{
+	position: absolute;
+	width: 100%;
+	left: 45%;
+	bottom: 7px;
+	transform: translate(-45%, 0);
+}
+
+.visionVisualizeCardValuesHome .mainCardClassHome{
+	width: 100%;
+	padding: 4px;
+}
+.visionVisualizeCardValuesHome .mainCardClassHome .align-self-center{
+	width: 15%;
+}
+.visionVisualizeCardValuesHome .mainCardClassHome .align-self-center img{
+	width: 100%;
+}
+.visionVisualizeCardValuesHome .mainCardClassHome .visionVisualizeCardValuesSpanClass{
+	width: 60%;
+}
+.visionVisualizeCardValuesHome .mainCardClassHome .plotlyImage{
+	width: 25%;
+}
+.visionVisualizeCardValuesHome .mainCardClassHome .plotlyImage img{
+	width: 100%;
+}
+
+/* Home page Cards for the Shapes */
+.visualCardDarkMode{
+	cursor:pointer;
+	margin-left:3px
+}
+
+.modal-custom-class {
+	margin-top: 130px !important;
+}
+
+.modal-custom-class .modal-body {
+	padding: 30px 12px !important;
+}
+
+.visionDashBoardHomeFilterClass .applyBtndiv {
+	display : flex;
+	gap: 6px;
+}
+
+ .showGridDataJqPopup , .showFIGridDataJqPopup{
+	width:80% !important;
+	height:auto !important;
+}
+
+#modalDailogDiv .modalPopUpMsgText {
+	margin-bottom: 0;
+	font-size: 16px;
+	padding: 10px 0;
+}
+
+.bubble, 
+.row.chatBotHeaderTop .leftBotIcon  p,
+.row.chatBotHeaderTop .leftBotIcon  span p {
+    font-size: 14px;
+}
+.row.chatBotHeaderTop .leftBotIcon  p,
+.row.chatBotHeaderTop .leftBotIcon  span p {
+    font-weight: 400;
+}
+
+.row.chatBotHeaderTop .leftBotIcon  span:nth-child(2){
+ margin-bottom: 10px;
+ display: inline-block;
+}
+
+.row.chatBotHeaderTop .leftBotIcon > p{
+  padding-bottom:10px;
+  
+}
+.bubble, .bubble-button{
+    text-transform: capitalize;
+}
+
+.mainHeader{
+ display: block;
+ position: relative;
+ height: auto;
+ line-height: 12px;
+}
+.leftBotIcon{
+    display: flex;
+    align-items: center;
+}
+.leftBotIcon > span:nth-child(1){
+    flex-shrink: 0;
+    width: 10px;
+}
+.leftBotIcon > .chatbotMetaHeader{
+    flex-grow: 1;
+    
+}
+.chatbotMetaHeader{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.chatbotMetaHeader > span{
+ display: inline-block;
+ margin-bottom: 6px;
+ margin-top: 5px;
+}
+.row.chatBotHeaderTop .leftBotIcon p, .row.chatBotHeaderTop .leftBotIcon span p{
+ font-weight: 600;
+}
+.chatbotShrinked .chatbotMetaHeader{
+ display: none;
+}
+.mainHeader .rightIcons{
+ top: 5px;
+}
+
+
+*, select, inputs {
+font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  }
+  
+  
+  
+  
+  
+  .imageFileDivClass{
+	background: #badaba;
+    height: 60%;
+}
+
+.parentFileTablesClass{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 50px;
+}
+.parentFileTablesClass .visionVisualizationDMFileUploadclass{
+    background: #badaba;
+}
+.parentFileTablesClass > div{
+    box-sizing: border-box;
+}
+.parentFileTablesClass .VisionVisualizationUploadFileContent{
+    margin: 0px;
+}
+.parentFileTablesClass .imageFileDivClass .excelimageClass{
+    display: block;
+    margin: 20px auto;
+    
+}
+.parentFileTablesClass  #visionVisualizationDmFileUpload{
+    height: auto !important;
+    max-height: 130px;
+}
+
+.parentFileTablesClass   .userTableNamesDivClass {
+   flex-shrink:0;
+   border: 1px solid #ccc;
+   height: 150px;
+   min-width: 300px;
+}
+
+.parentFileTablesClass  .userTableNameClass{
+    background: #ffffff5e;
+    margin-bottom: 5px;
+}
+
+
+button#intelliSenseYes {
+    margin-right: 10px;
+}
+
+.userColumnNamesDivClass  {
+    max-width: 300px;
+    height: 190px;
+    overflow: auto;
+    min-width: 200px;
+}
+
+.userColumnNamesDivClass > div{
+ /*    background: #a58863;
+    margin-bottom: 5px; */
+}
+
+/* For future mod, chart types */
+.userColumnNamesDivClass  {
+   height: 155px;
+    overflow-y: scroll;
+    width: 35%;
+}
+.userColumnNamesDivClass:hover  {
+    overflow: auto;
+}
+
+.intelliSenseChartClass {
+    display: inline-block;
+    margin-top: 0px;
+    min-width: 370px;
+}
+
+.userColumnNamesDivClass > div{
+    background: #ffffff5e;
+    margin-bottom: 5px;
+}
+
+body:has(.userColumnNamesDivClass) .visualIconDivImg  img{
+    max-width:150px;
+}
+
+
+
+/* spacer for the scroll functionality to parent div*/
+.visionChartsAutoSuggestionUserClass:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 50px;
+}
+
+/* chat configurations */
+.intelliSenseViewColumnsClass {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.intelliSenseChartColumnsDivId > p{
+    margin-bottom: 10px;
+}
+span.intelliSenseViewColumnsSpanCLass {
+    min-width: 50px;
+    display: inline-block;
+}
+
+.intelliSenseViewValuesColumnsClass {
+    margin-top: 10px;
+    position: relative;
+}
+
+.intelliSenseViewValuesColumnsClass select, .intelliSenseViewAxisColumnsClass select{
+    margin-right: 10px;
+}
+
+.intelliSenseChartConfigDivClass ul.conigProperties{
+    display: inline-block;
+    padding: 10px 0px;
+    min-width: 370px;
+    box-sizing: border-box;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-top: 0;
+}
+.intelliSenseViewColumnsClass{
+	margin-top:0px;
+	margin-bottom:0px;
+	padding-top:0px;
+	padding-bottom:0px;
+}
+.intelliSenseChartConfigDivClass ul.conigProperties select, .intelliSenseChartConfigDivClass ul.conigProperties input{
+    width: 100%;
+    padding: 2px 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.intelliSenseChartConfigDivClass ul.conigProperties  p{
+    margin-bottom: 3px;
+}
+
+/* layout for chat config*/
+
+.visionChartsUserAutoSuggetionsClass {
+    display: flex;
+}
+.visionChartsAutoSuggestionUserClass{
+    flex-grow: 1;
+    padding: 10px 20px;
+}
+.visionChartsAutoSuggestionUserExamplesClass{
+    flex-shrink: 0;
+    min-width: 400px;
+    background: #f7f7f7;
+    padding: 10px 20px;
+    max-width: 400px;
+    width : 400px;
+}
+
+div#visionVisualizeChartId0 {
+    position: relative;
+}
+.visionChartsAutoSuggestionUserExamplesClass{
+    min-height: 100vh;
+    display: block;
+}
+.intelliSenseChartParengtClass {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+.visionChartsAutoSuggestionUserClass *{
+    font-size: 14px;
+}
+
+/* bubble css */
+.intelliSenseChartParengtClass {
+    display: block;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.visionChartsAutoSuggestionUserClass *{
+    font-size: 14px;
+}
+
+/* .visionChartsAutoSuggestionUserClass > *{
+    background: #0b4a99;
+    margin: 10px 0px;
+    max-width: 400px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.1), -2px -2px 5px rgba(0,0,0,.1);
+    color: #fff;
+    position: relative;
+} */
+
+/* .visionChartsAutoSuggestionUserClass > *:after{
+    content: "";
+    display: block;
+    border: 10px solid transparent;
+    border-left: 10px solid #0b4a99;
+    position: absolute;    
+    left: 0px;
+    bottom: -5px;
+} */
+
+.replyIntelisenseView{
+    margin-right: 0px;
+    margin-left: auto;
+}
+
+/* .visionChartsAutoSuggestionUserClass > button{
+    background: #0b4a99;
+    color: #fff;
+} */
+
+
+
+.visionChartsAutoSuggestionUserClass > .replyIntelisenseView{
+    background: rgb(147 173 206);
+    color: #3b1686;
+}
+
+.visionChartsAutoSuggestionUserClass > .replyIntelisenseView:has(.replyIntelisenseView),
+.visionChartsAutoSuggestionUserClass > .sayIntelisenseView:has(.sayIntelisenseView){
+    background: transparent;
+    box-shadow: none;
+}
+.visionChartsAutoSuggestionUserClass > .sayIntelisenseView{
+    width: 100%;
+    max-width: 100%;
+}
+.visionChartsAutoSuggestionUserClass > .replyIntelisenseView:has(.replyIntelisenseView):after,
+.visionChartsAutoSuggestionUserClass  .sayIntelisenseView:has(.sayIntelisenseView):after{
+    display: none;
+}
+
+.visionChartsAutoSuggestionUserClass > .replyIntelisenseView .replyIntelisenseView{
+    background: rgb(147 173 206);
+    color: black;
+    padding: 0px 0px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.1), -2px -2px 5px rgba(0,0,0,.1);
+}
+
+.visionChartsAutoSuggestionUserClass  .sayIntelisenseView .sayIntelisenseView .sayIntelisenseView {
+    background: #0b4a99;
+    color: white;
+    padding: 0px 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.1), -2px -2px 5px rgba(0,0,0,.1);
+    margin-bottom: 0px;
+}
+
+.visionChartsAutoSuggestionUserClass  .sayIntelisenseView p{
+    text-align: center;
+}
+
+.visionChartsAutoSuggestionUserClass > .replyIntelisenseView .visualizationDMFileDivClass.replyIntelisenseView{
+    min-width: 200px;
+}
+
+/*ul.conigProperties > li > .sub-filterItems {
+    display: flex;
+    gap: 10px;
+}*/
+
+ul.conigProperties > li > .sub-filterItems > p {
+    white-space: nowrap;
+    min-width: 154px;
+    text-align: left;
+}
+
+/* import and table select*/
+
+.userTableNamesDivClass  > p{
+    text-align: center;
+    margin-bottom:0px;
+    line-height: 30px;
+}
+
+#visionShowFileUploadMsg{
+    text-align: center;
+    margin: 5px 0px;
+    
+}
+.parentFileTablesClass .imageFileDivClass .excelimageClass{
+    margin: 5px auto;
+    padding: 5px;
+}
+
+.parentFileTablesClass  .VisionVisualizationUploadFileContent h5{
+    text-align: center;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+}
+
+.parentFileTablesClass  .visionVisualizationDMFileUploadclass  {
+    padding-top: 10px;
+}
+
+.userIntellisenseViewTableNamesDivClass {
+    height: 116px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.userIntellisenseViewTableNamesDivClass:hover {
+    overflow: auto;
+}
+.userTableNamesDivClass  > p{
+    text-align: center;
+    margin-bottom:0px;
+    line-height: 30px;
+}
+.userIntellisenseViewTableNamesDivClass > div.userTableNameClass{
+    background: linear-gradient(58deg, #f6feff, #cfc4fa) !important;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.15), -2px -2px 5px rgba(0,0,0,.15);
+        margin-bottom: 5px;
+}
+#visionShowFileUploadMsg{
+    text-align: center;
+    margin: 5px 0px;
+    
+}
+.parentFileTablesClass .imageFileDivClass .excelimageClass{
+    margin: 5px auto;
+    padding: 5px;
+}
+
+.parentFileTablesClass  .VisionVisualizationUploadFileContent h5{
+    text-align: center;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+}
+
+.parentFileTablesClass  .visionVisualizationDMFileUploadclass  {
+    padding-top: 10px;
+}
+
+.replyIntelisenseView:has(#intelliSenseTableId){
+   background: transparent;
+    box-shadow: none;
+}
+.replyIntelisenseView:has(#intelliSenseTableId):after{
+  display: none;
+}
+span.intelliSenseViewColumnsSpanCLass{
+    position: absolute;
+    margin-top: 10px;
+}
+.intelliSenseViewAxisSelectInputColumnsClass, .intelliSenseViewValuesSelectInputColumnsClass{
+    margin-left: 60px;
+    margin-top: 10px;
+}
+.nobgbubble {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.nobgbubble .sayIntelisenseView{
+    min-width: 400px;
+}
+.intelliSenseChartClass  .row.iconsRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 54px)
+}
+.intelliSenseChartClass {
+    min-width: 400px;
+    width: 100%;
+}
+
+
+.intelliSenseChartClass  .iconsRow{
+    max-width: 400px;
+    margin-left: auto;
+    border: 1px solid blue;
+    padding: 10px;
+    margin-right:20%;
+}
+
+/* chatbot sidebar */
+.visionChartPreviewAutoSuggestSidebar img{
+    width: 100%;
+}
+.visionChartsAutoSuggestionUserExamplesClass > div{
+    padding: 10px 0px;
+}
+.visionTablePreviewAutoSuggestSidebar table tr:nth-child(even){
+    background: #0b4a9920
+}
+
+/*no bubble style in chat*/
+.noBubble{
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.noBubble p{
+    background: linear-gradient(58deg, #f6feff, #cfc4fa) !important;
+    color: black;
+    padding: 0px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.15), -2px -2px 5px rgba(0,0,0,.15);
+    width: calc(100% - 25px);
+    margin: auto;
+}
+
+.gradStyle{
+    background: #0b4a99;
+    color: white;
+    padding:3px 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.15), -2px -2px 5px rgba(0,0,0,.15);
+    margin-bottom: 10px;
+}
+
+.noBubble .userColumnNamesClass{
+    margin-bottom: 10px;
+    margin-left:0;
+    padding: 5px ;
+    width: calc(100% - 10px);
+    
+}
+.nobrderbtm{
+	border-bottom: none !important;
+}
+
+
+/* start */
+
+
+.convai-right-message-button{
+    background: linear-gradient(58deg, #7bdeea, #f9f7ff);
+    color: #000;
+    border-radius: 50px;
+     float: right;
+    /* border-top-right-radius: 50px; */
+    /* border-bottom-right-radius: 50px; */
+    min-width: 50px;
+     width:fit-content;
+    position: relative;
+   /*  left: 632px; */
+    margin: 10px 5px;
+    max-width: 400px;
+    padding: 5px 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.1), -2px -2px 5px rgba(0,0,0,.1);
+}
+/*.visionChartsAutoSuggestionUserClass{
+	float:right;
+}*/
+
+
+.visionChartsAutoSuggestionUserClass{
+	 background-image: url("../images/white_wall_hash.webp");
+	 min-height: 486px;
+}
+.convai-message {
+	min-height: 30px;
+    margin-top: 10px;
+    height: max-content;
+}
+.visualizationDMFileDivClass{
+	height: 160px;
+}
+
+.visionChartsAutoSuggestionUserExamplesClass .intelliSenseViewExampleChartImageClass img {
+    width:420px
+}
+
+.visionChartsAutoSuggestionUserExamplesClass .intelliSenseViewExampleChartDataImageClass img{
+    width:392px;
+}
+.visionChartsAutoSuggestionUserExamplesClass .intelliSenseViewExampleChartAggregateImageClass img{
+    width:392px;
+}
+
+.userIntellisenseViewTablesDivClass p{
+    margin-bottom:5px;
+    max-width: 300px;
+        margin-left: 0px;
+}
+
+.intelliSenseChartParengtClass  .visionAggregateColumnBtn {
+    width: 15px;
+    transform: rotate(90deg);
+    float: none !important;
+    margin-left: 5px;
+    margin-top: -3px;
+}
+
+.intellisenseViewValuesAddMultipleDivClass {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+}
+.sayIntelisenseView{
+    position: relative;
+}
+
+.intelliSenseChartVisualizeDivClass, .visionVisualizeChartBoxClass  {
+    position: relative;
+}
+.intelliSenseChartVisualizeDivClass{
+    text-align: right;
+    margin-right: 15px;
+}
+.intelliSenseChartVisualizeDivClass .chartelements{
+    right: -20px;
+}
+
+div.visionChartsAutoSuggestionUserClass, .visionChartsAutoSuggestionUserExamplesClass {
+    overflow: auto;
+}
+
+.intelliSenseViewTableshidden {
+	display: none !important;
+}
+
+/*chat search*/
+.userTableNamesDivClass  .search{
+    width: 100%;
+    text-align: left;
+    position: relative;
+}
+
+.userTableNamesDivClass  .search input{
+    width: calc(100% - 20px);
+    border-radius: 10px;
+    padding: 5px 10px;
+    padding-left: 30px;
+    max-width: 300px;
+    margin-left: auto;
+    display: block;
+}
+
+div.userIntellisenseViewTableNamesDivClass {
+    margin-left: auto;
+    max-width: 300px;
+}
+
+/*f002*/
+.userTableNamesDivClass  .search:before{
+    content: "\f002";
+    font-family: "FontAwesome";
+    position: absolute;
+    right: 275px;
+    top: 5px;
+}
+
+button.convai-left-message-button {
+    background: linear-gradient(58deg, #7bdeea, #f9f7ff);
+    color: #000;
+    border-radius: 50px;
+    float: none;
+    /* border-top-right-radius: 50px; */
+    /* border-bottom-right-radius: 50px; */
+    min-width: 50px;
+    width: fit-content;
+    position: relative;
+    /* left: 632px; */
+    margin: 10px 5px;
+    max-width: 400px;
+    padding: 5px 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.1), -2px -2px 5px rgba(0,0,0,.1);
+}
+.nonLoadedBubble{
+	opacity: 0 !important;
+}
+.convai-message:has(button.convai-left-message-button) {
+    text-align: right;
+}
+
+
+
+a.playIco {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    line-height:50px;
+    width: 50px;
+    background: blue;
+    text-align: center;
+    border-radius: 100%;
+    color: #fff;
+}
+.intelliSenseChartParengtClass {
+	display: flex;
+    align-items: start;
+}
+.intelliSenseViewColumnsClass, .intelliSenseViewColumnsClass{
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+.intelliSenseChartParengtClass  .conigProperties > *{
+    margin-bottom: 17px !important;
+}
+
+.intelliSenseViewColumnsClass > * {
+	 margin-bottom: 17px !important;
+}
+.sub-filterItems select, .sub-filterItems input{
+	margin-bottom: 5px !important;
+	margin-top: 5px !important;
+}
+
+.intelliSenseViewColumnsClass > * {
+	 margin-bottom: 17px !important;
+}
+
+/* Button Shaking Css*/
+
+.convai-left-message-button, .userIntellisenseViewTableNamesDivClass,.intelliSenseChartClass .visionVisualizeChartsTabsClass {
+  animation: shakeWithWait 10s ease-in-out both infinite;
+  animation-delay: 5s; 
+  animation-direction: alternate;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shakeWithWait {
+	0%,90%{
+		opacity: 1;
+	}
+	79%,80%{
+		opacity:1;
+	}
+   81%,
+  82% {
+    opacity: 0;
+  }
+  83%,
+  84% {
+   opacity: 1;
+  }
+  85%,
+  86% {
+    opacity: 0;
+  }
+  87%,
+  88% {
+    opacity: 1;
+  }
+  89%,
+  90% {
+    opacity: 0;
+  }
+  91%,
+  92% {
+    opacity: 1;
+  }
+  93%,
+  94% {
+    opacity: 0;
+  }
+  95%,
+  96% {
+    opacity: 1;
+  }
+  96%,
+  97% {
+    opacity: 0;
+  }
+  98%,
+  100% {
+    opacity: 1;
+  }
+}
+/* Button Shaking Css*/
+
+ .showSubItems {
+    display: block !important;
+}
+.showSubItems li{
+    display: block !important;
+} 
+
+.intelliSenseChartConfigDivClass {
+    display: flex;
+    align-items: stretch !important;
+}
+.intellisenseChartConfigDivClass{
+    flex-grow: 1;
+}
+.intellisenseChartsDivClass{
+    flex-shrink: 0;
+    position: relative;
+    top: 0px;
+    min-width: 300px;
+    display: flex;
+}
+.intelliSenseChartVisualizeDivClass{
+    position: sticky;
+    top: 0px;
+    align-self: end;
+}
+/* .visionVisualChartBoxSelected {
+	width: 280px !important;
+	height: 225px !important;
+	display: block;
+} */
+
+.intellisenseviewaddvaluecolumns{
+	width: 15px;
+	position: absolute;
+    top: 0px;
+    right: 20px;
+}
+
+.intellisenseviewaddFiltervaluecolumns
+{
+	width: 15px;
+	top: 0px;
+    right: -7px;
+    position: relative;
+}
+
+
+
+.userConversAIExistDataDivClass{ 
+	margin-bottom: 30px; 
+}
+
+
+.intelliSenseViewGoBackClass{
+	padding:0 10px;
+}
+
+.visionVisualizeChartFiltersFieldDivClass {
+    max-width: 220px;
+}
+.intellisenseViewFilterDivClass{
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px 0px;
+}
+.noleftmargin {
+    margin-left: 10px !important;
+}
+.intellisenseViewchartFiltercolumnsclass{
+	display :flex;
+}
+.convai-reverse-order button{float: initial !important;}
+.convai-reverse-order{
+    float: right;
+}
+#visionChartsAutoSuggestionUserId
+{
+	    /* background: linear-gradient(58deg, #0344b2, #f9f7ff); */
+}
+
+.intelliSenseChartVisualizeDivClass
+{
+	position: absolute;
+    z-index: 9999;
+    float: right;
+    margin-left: 60%;
+    margin-top: 300px;  
+}
+
+.visionChartsAutoSuggestionUserClass .intelliSenseChartConfigDivClass {
+    margin-top: 50px;
+}
+
+.saveConversationalAIChart {
+	z-index:9999 !important;
+}
+
+.visionChartsAutoSuggestionUserClass .intellisenseviewAggregateImagespanClass{
+	/* position: absolute; */
+    top: 44px;
+    right: 21px;
+}
+
+.visionChartsAutoSuggestionUserClass .intellisenseviewAggregateImagespanClass img{
+	width:34px;
+}
+
+.intellisenseViewtableDataClass
+{
+	height :400px;
+}
+
+.visionChartsAutoSuggestionUserExampleParentClass{
+    display: flex
+}
+.visionChartsAutoSuggestionUserClass{
+    flex-grow: 1;
+}
+
+
+.userTableColumnsDivClass{
+	display:flex;
+	/*width : 600px;*/
+	height:100%;
+}
+.userEditorMergeTablesDivClass{
+	width:100%;   
+	display:flex;
+	flex-direction:row;
+}
+
+.userEditorMergeTablesDivClass .userEditorMergeTablesClass{
+	border: 1px solid #000fff;
+   	height: 90%;
+    overflow-y: auto;
+} 
+.userEditorMergeTablesDivClass .userEditorMergeTablesClass li , .userEditorMergeTablesAppendClass  .userEditorMergeTableClass{
+    border: 1px solid #ddd;
+    padding: 2px 4px;
+    margin: 4px 4px;
+}
+.userEditorMergeTablesDivClass .userEditorMergeTablesAppendClass {
+	border: 1px solid #000fff;
+    width: 50%;
+    height:300px;
+    overflow-y:auto; 
+    margin: 0px 10px;
+}
+
+.visionmergerTablesClass {
+	width: 97%;
+	position: relative;
+	top: 1px;
+	height: 8%;
+	left: 0px;
+	margin: 4px;
+	border: 1px solid blue;
+	border-radius: 8px;
+}
+
+.userEditorMergeDivClass {
+	border: 1px solid blue;
+	height:300px;
+	flex-grow:1;
+}
+.mergeTablesPopUp{
+	overflow-y:hidden !important;
+}
+
+.editorMergeNewTableDivClass #editorMergeNewTableErrorClass {
+    text-align: right;
+    width: 95%;
+    color: #FF0000;
+    font-weight: 500;
+}
+
+.userEditorMergeTablesErrorDivClass{
+	text-align:center;
+	font-weight:700;
+	color:#FF0000;
+}
+
+.editorMergeTableColumnsTableClass {
+    width:80%;
+    
+}
+.editorMergeTableColumnsTableClass tbody tr td input{
+    width:258px;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    word-spacing:nowrap;
+} 
+
+.applyMergeTableColumnsColor
+{
+	color : #FF0000;
+}
+.editorMergeTableColumnsDivClass{
+	height: 300px;
+    overflow-y: auto
+}
+.editorMergeTableColumnsDivClass::-webkit-scrollbar{
+	display:none;
+}
+
+.userEditorMergeTableDuplicateColsErrorClass{
+	text-align: center;
+    font-size: 14px;
+    color: red;
+    font-weight: 600;
+}
+
+.bicolumnPopUp .ui-dialog .ui-dialog-content::-webkit-scrollbar{
+	width:12px !important;
+	
+}
+.userTableColumnsDivClass .flowchart-operator{
+	border-radius: inherit !important;
+	text-align: center !important;
+	border:2px solid #4d2c96;
+	
+}
+.userTableColumnsDivClass .flowchart-operator-outputs .flowchart-operator-connector-label{
+	border-radius: inherit !important;
+	width: 150px !important;
+    text-align: center !important;
+}
+.userTableColumnsDivClass .flowchart-operator-connector-arrow{
+	width: 8px;
+    height: 8px;
+    background-color: #4d2c96;
+}
+.userTableColumnsDivClass .flowchart-operator-connector-arrow:hover{
+	width: 8px !important;
+    height: 8px !important;
+    background-color: #4d2c96 !important;
+}
+.userTableColumnsDivClass .flowchart-operator-connector-label:hover .flowchart-operator-connector-arrow{
+	width: 8px !important;
+    height: 8px !important;
+    background-color: #4d2c96 !important;
+}
+.userTableColumnsDivClass .flowchart-operator-title{
+	background-color: #3e3257 !important;
+	color:#fff !important;
+}
+
+.userTableColumnsDivClass:hover{
+	overflow-x:auto !important;
+	cursor:pointer;
+}
+userTableColumnsDivClass:hover ::-webkit-scrollbar{
+	width:10px !important;
+	border-radius:10px;
+}
+
+.conversAiDialog {
+	overflow: hidden !important;
+}
+
+
+
+.visionChartsAutoSuggestionExampleClass .textSearch{
+	position:absolute;
+	width:263px;
+	height:50px !important;
+	margin-left: 16px;
+	bottom: 10px !important;
+}
+
+
+
+.visionConversationalAiIcon
+{
+	width:20px;
+	height:20px;
+	cursor:pointer;
+}
+
+
+  .loaderWait{
+  	width: 120px !important;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-45%, -45%);
+
+}
+
+.loaderWait img{
+  width: 30px !important;
+}
+
+.searchDataContent{
+	margin-top: 185px !important;
+}
+
+
+
+    
+ 
+ .visionVisualizeQueryBodyClass {
+ width:99%;
+ height:110px;
+ 
+ }
+ .searchDataContentClass{
+ height:130px;
+ }
+ .infoClass{
+ display:flex
+ }
+ .infoSubDivClass{
+ display:flex;
+ }
+ 
+
+
+
+  .visionChartsAutoSuggestionUserExampleParentClass .userMergeTablesJoinErrorClass{ 
+	position: relative;
+    margin-left: 25%;
+    margin-top: auto;
+} 
+
+.visionConvAIMergeTableColumnsParentClass{
+	display: flex;
+    flex-direction: row;
+    gap: 40px;
+     margin-left:25%;
+}
+.visionConvAIMergeTableColumnsParentClass .visionConvAIMergeTableColumnsClass{
+	border: 1px solid #000fff;
+    background-color: #fff;
+    width: auto;
+    padding:4px;
+}
+.visionConvAIMergeTableColumnsClass .visionConvAIMergeTableColumnsNameClass{
+	background-color: #3e3257 !important;
+    color: #fff !important;
+    text-align: center;
+}
+
+.voiceBeatClass {
+	position: absolute;
+    margin: 8px 0px;
+    right: 147px;
+    bottom: 2px;    
+}
+
+
+.integralMultiLanguageClass .languageSelectionBox{
+	font-size: 15px !important;
+	position:absolute;
+	right: -107px;
+    width: 110px
+}
+.convAIMergeSelectTableColumnsSpanClass
+{
+	display:flex;
+}
+.userConvAISelectMergeColumnsNormalClass  
+{
+	color:black;
+	font-weight :400;
+}
+.userConvAISelectMergeColumnsDuplicateClass
+{
+	color:red;
+	font-weight :500;
+}
+
+.visualizeAreaGirdDataClass{
+	position:absolute !important;
+}
+.visionSmartBiChangeClass{
+  position: absolute;
+  top: 68px;
+}
+.visionSmartBiGridDataClass .transposeDataClass{
+	position: absolute !important;
+    top: 40px !important;
+	
+}
+.selectClass li{
+	list-style-type: none;
+}
+.selectPopoverChange{
+	left: 482px !important;
+    top: 46px !important;
+	
+}
+.visionGridViewButtonsClass img{
+	width:22px;  
+}
+.editorViewUserTableNamesDivClass{
+    margin-left: 5px;
+    width: 50%;
+    display:flex;
+    flex-direction:column;
+	
+}
+.editorViewUserTableNamesDivClass .editorExistTablesHeaderClass,.visionEditorShowTablesColumnsDivId .editorExistTablesHeaderClass{
+	background-color: #3e3257;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff; 
+    width:100%;  
+    text-align:center;      
+    margin-bottom:5px;
+}
+.visionEditorShowTablesDivClass .search input{
+	border:2px solid #3e3257;
+	border-radius:12px;
+	width: 200px;
+	padding: 2px 10px;
+}
+.visionEditorShowTablesDivClass .search{
+	margin-bottom:7px;
+}
+.userEditorViewTableNamesDivClass .userTableNameClass{
+	border:1px solid #ddd;
+	padding:4px;
+	width:100%;
+	
+}
+.userEditorViewTableNamesDivClass , .userColumnNamesDivClass {
+    height: 170px;
+    overflow-y: scroll;
+    border: 1px solid #0d80e2;
+}
+.visionEditorShowTablesColumnsDivClass{
+	display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+   /*  margin-left: 40%; */
+    right: 5px;
+    top: 12%;
+	
+}
+.visionEditorShowTablesColumnsDivClass .editorExistTablesHeaderClass{  
+	background-color: #3e3257;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    margin-bottom: -1px;
+}
+ .visionEditorShowTablesColumnsDivClass .search input{
+border:2px solid #3e3257;
+	border-radius:12px;
+	width: 200px;
+    margin: 5px;
+    padding: 2px 10px;
+	
+	
+}
+.userColumnNamesDivClass .userColumnNameClass{
+	border:1px solid #ddd !important;
+	padding:4px !important;
+	
+	
+}
+
+.editorViewUserTableNamesDivClass::after{
+	content:'';
+	border-right:2px solid #f1f1f1;
+}
+
+.visionGridViewButtonsClass{
+	
+	display: flex;
+    gap: 10px;
+    flex-direction: row;
+}
+.visulizeGridPagrClass{
+	display: flex;
+    gap: 10px;
+    flex-direction: row;
+}
+ 
+.intelliSenseViewValuesSelectInputColumnsClass .visionDeleteColumnBtn
+{
+	width :20px;
+} 
+
+.visionCardViewClass .visionHomeCardViewClass .visionVisualizeCardValuesHome,
+.visionCardViewClass .visionHomeCardViewClass .visionVisualizeNormalCardHomeClass {
+	position: relative !important;
+} 
+
+.homepageCardEdit {
+	width: 16px;
+	position: absolute;
+	right: 0;
+	top: 4%;
+	transform: rotate(90deg);
+	display: none;
+}
+.hpCardEditBasicImg {
+	/* right: 55.5% !important;
+    top: 35% !important; */
+}
+
+.listCustClass {
+	width: 100% !important
+}
+
+.homepageCardEditMain .homepageCardDateSelect {
+	display: flex;
+	gap: 59px;
+}
+
+.homepageCardEditMain .homepageCardEditInnerFrom, .homepageCardEditMain .homepageCardEditInnerTo
+	{
+	display: flex;
+	flex-direction: column;
+}
+
+.homepageCardEditMain .homepageCardEditInnerFrom {
+	justify-content: flex-start !important;
+}
+
+/* .homepageCardEditMain .homepageCardEditInnerFrom span { */
+/* 	margin: 0 0 2px -146px; */
+/* 	font-size: 12px; */
+/* 	color: #444040; */
+/* } */
+
+/* .homepageCardEditMain .homepageCardEditInnerTo span { */
+/* 	margin: 0 0 2px -167px; */
+/* 	font-size: 12px; */
+/* 	color: #444040; */
+/* } */
+
+.homepageCardEditMain .homepageCardEditValueClass {
+	padding: 4px 6px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.homepageCardEditMain .homepageCardEditColumn {
+	padding: 4px 6px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.homepageCardEditMain .homepageEditedSaveCardDiv {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 10px;
+}
+
+.homepageCardEditMain .homepageEditedSaveCardDiv input {
+	margin-top: 2px;
+	cursor: pointer;
+}
+
+.homepageCardEditMain .homepageEditedSaveCardDiv label {
+	top: 0px;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* new css */
+.homepageEditCardCurrCol span, .homepageCardEditInnerFrom span, .homepageCardEditInnerTo span {
+    margin-left:5px !important;
+    width: 100%;
+    text-align: left;
+    font-size: 12px;
+	color: #444040;
+}
+.homepageCardEditMain .homepageCardDateSelect{
+    gap: 10px;
+}
+.homepageCardEditMain .homepageCardDateSelect > div{
+   flex: 1;
+}
+.homepageCardEditMain .visionVisualizeCardDateFromValueClass,
+.homepageCardEditMain .visionVisualizeCardDateFromValueClass > select,
+.homepageCardEditMain .visionVisualizeCardDateToValueClass, 
+.homepageCardEditMain .visionVisualizeCardDateToValueClass > select{
+    min-width: 100%;
+    cursor: pointer;
+}
+
+.homepageCardEditMain .homepageEditCardCurrCol > p{
+    margin: 0px;
+}
+
+.homepageCardEditMain .homepageEditCardCurrCol{
+    margin: 5px 0px;
+}
+
+.homepageEditedSaveCardDiv label{
+	-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+.hpCardEditColDiv .hpEditCardAggrImg {
+	float: right;
+    width: 6px;
+    margin-top: -34px;
+    margin-right: 13px;
+    transform: scale(2);
+}
+
+.jqx-menu-wrapper:has(#editCardMenu){
+    z-index: 99999 !important;
+}
+
+
+
+
+
+/*PRK Changes 09-06-2023*/
+
+
+
+
+
+/*PRK*//*New*/
+
+.visionVisualizeQueryBodyClass .ace-tm .ace_print-margin{
+	background: transparent !important;
+	width:0px !important;
+}
+.visionVisualizeQueryBodyClass .Current_V10_editor_1Class {
+	height:110px !important;
+	overflow-y:auto;
+}
+.searchDataContentClass .infoClass .infoMainDivClass {
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.visionVisualizeQueryClass{
+	background-color:#f1f1f1 !important;
+}
+.searchDataContentClass .infoClass{
+	align-items: center
+}
+.visionChartsAutoSuggestionExampleClass #div_language .languageSelectionBox{
+	width: 5.5rem;
+    border: 1px solid #ddd;
+    height: 1.7rem;
+}
+
+ 
+
+
+.leftMessageDiv::before{
+	content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 5px solid #287bc3;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #287bc3;
+    border-bottom: 9px solid transparent;
+    bottom: -12%;
+    left: 1%;
+    transform: rotate(21deg);
+	
+}
+.convai-left-message::before{
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid #287bc3;
+    border-right: 10px solid transparent;
+    border-top: 5px solid #287bc3;
+    border-bottom: 10px solid transparent;
+    bottom: -5px;
+    left: -1%;
+    transform: rotate(21deg);
+}
+ .convai-right-message::after{
+	content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 8px solid rgb(147 173 206);
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgb(147 173 206);
+    border-bottom: 10px solid transparent;
+    bottom: 0%;
+    right: -4%;
+    transform: rotate(-80deg);
+} 
+.rightMessageDiv::after{
+	
+	content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 5px solid #fff;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #fff;
+    border-bottom: 10px solid transparent;
+    bottom: 2px;
+    right: -8px;
+    transform: rotate(-80deg);
+	
+}
+ .convai-message .leftMsgBeforeImagesClass{
+	position: absolute;
+    top: 0;
+    left: -1.5%;
+} 
+ .rightroboticMsg .rightMsgBeforeImagesClass{
+	position: absolute;
+    right: -1%;
+    top: 45px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+} 
+ .text-right .rightMsgBeforeImagesClass{
+	position: absolute;
+    right: -30% !important;
+    top: -8px !important;
+    
+} 
+ .rightMsgBeforeImagesClass{
+	position:absolute;
+	top:-2%;
+	right:-1%
+} 
+.leftMsgMAinDivClass{
+  display:flex;
+  flex-direction:row;
+  gap:10px;
+}
+.rightMsgMainDivClass{
+	display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.userTableNamesDivClass {
+margin-right:inherit !important;
+	}
+
+#userConservationalMergeTableNamesButtonId{
+	
+background:rgb(147 173 206) !important;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  font-family: Montserrat,sans-serif;
+  font-size: .9em;
+  margin: 5px;
+  padding: 10px 15px;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+	}
+
+.userMergeTablesJoinErrorClass .userMergeTablesJoinErrorButtonClass{
+  background:rgb(147 173 206) !important;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  font-family: Montserrat,sans-serif;
+  font-size: .9em;
+  margin: 5px;
+  padding: 10px 15px;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+
+/*PRK Changes 09-06-2023*/
+		  
+		  
+		  
+		  /*replace previous code*/
+		  
+.visionVisualizeQueryBodyParentClass{
+ 	width:50%;
+ 	border: 1px solid #3a81e9; 
+    margin: 2px;
+    overflow: hidden;
+ }
+  .visionVisualizeShowTablesDataClass{
+	width: 50%;
+    border: 1px solid #3a81e9; 
+    margin: 2px
+ }
+ .visionVisualizeQueryTablesBodyParentClass{
+ 	width:100%;
+	 height:14.8rem;
+	 display:flex;
+ }
+#textAreaId{
+	width: 20rem;
+    height: 5rem !important;
+    margin: 0.5rem;
+}		  
+.voicMiceClass{  
+ 	position: relative;
+ 	color:#260762;
+}	  
+.searchtextCls{
+    position: inherit;
+    height: 33px;
+    width: 160px;
+    margin-top:1rem;
+    background-image: linear-gradient(160deg, #0093E9 0%, #2d4ccf 100%);
+    border-radius:12px;
+    color:#fff;
+    font-size:14px;
+    font-weight:600;
+    border:1px solid #2d4ccf !important;
+}	 
+		 
+.integralMultiLanguageClass{
+ 	position: relative;
+    left: 1rem;
+ }		  
+
+.integralConvASearchMultiLanguagrClass .languageSelectionBox{
+
+	font-size: 15px !important;
+    width: 125px;
+}
+.mainConversationalAIcontainer {
+   position: fixed;
+    right: 5%;
+    bottom: 0;
+    z-index: 9999;
+}
+.visionChartsAutoSuggestionUserExampleParentClass{
+	height:100% !important;
+}
+.visionChartsAutoSuggestionUserExampleParentClass .visionChartsAutoSuggestionUserClass{
+	overflow-y:scroll !important;
+    background-image: url("../images/ManRobotBgImage.png") !important;       
+	background-repeat: no-repeat !important;  
+    background-size: 100% 100% !important; 
+}
+.visionChartsAutoSuggestionExampleClass{
+   width: 100%;
+     flex-shrink: 0;  
+     background:#D3D3D3;
+     position:relative;
+     height: auto;
+}
+.visionChartsAutoSuggestionExampleClass #searchResultText{
+ height:80%;
+  overflow: auto;
+    
+}
+
+.visionChartsAutoSuggestionExampleClass .searchButtonCls{
+  position: absolute;
+    bottom: 11px;
+    right: 1%;
+    width: 112px;
+    background-image: linear-gradient(160deg, #0093E9 0%, #2d4ccf 100%);
+    border-radius:12px;
+    color:#fff;
+    font-size:14px;
+    font-weight:600;
+    border:1px solid #2d4ccf !important;
+}
+.visionChartsAutoSuggestionExampleClass .mircoClass{
+	position: absolute;
+    right: 24%;
+    bottom: 9%;
+    color:#260762;
+}
+
+.visionChartsAutoSuggestionExampleClass #div_language{
+	position: absolute;
+    right: 1%;
+    bottom:9%;
+}
+.intelliSenseViewGoBackClass i{
+    color: #0b1926;
+    font-size: 16px;
+    margin-right:1rem;
+ }
+.leftMessageDiv{
+    background-color:#287bc3;
+    color: #fff !important;
+    border-top-left-radius: inherit; 
+    border-radius:12px;
+    width: fit-content;
+    min-width: 100px;
+    position:relative;
+    margin-left:10px !important;
+    margin: 10px 0px;
+    max-width: 700px;
+    padding: 5px 16px;
+    font-weight:600;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.1), -2px -2px 5px rgba(0,0,0,.1);
+}
+.rightMessageDiv{
+    color: #3a38a1;
+    background-color:#fff;
+    border-radius:12px;
+    width: fit-content;
+    min-width: 100px;
+    position:relative;
+    margin-right:10px !important;
+    margin: 10px 0px;
+    max-width: 700px;
+    padding: 5px 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.1), -2px -2px 5px rgba(0,0,0,.1);
+    margin-left: auto;
+    font-weight:600;
+}
+
+.convai-left-message{
+	background-color: #287bc3;
+    color: #fff !important;
+    border-top-left-radius: inherit;
+    border-radius: 12px;
+    width: fit-content;
+    min-width: 100px;
+    position: relative;
+   /*  margin-left: 15% !important; */
+    margin: 10px 0px;
+    max-width: 400px;
+    min-height: 50px;
+    max-height: auto;
+    padding: 10px 16px;
+    font-weight: 600;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.1), -2px -2px 5px rgba(0,0,0,.1);
+}
+
+.convai-right-message{
+	color:  #000;
+    background-color:rgb(147 173 206);
+    border-radius:12px;
+    width: fit-content;
+    min-width: 100px;
+    position:relative;
+   /*  margin-right:15% !important; */
+    margin: 10px 0px;
+    max-width: 400px;
+    min-height: 50px;
+    max-height: auto;
+    padding: 10px 15px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.1), -2px -2px 5px rgba(0,0,0,.1);
+    margin-left: auto;
+    font-weight:600;
+}
+.convai-left-message-button{
+	background:rgb(147 173 206) !important;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  font-family: Montserrat,sans-serif;
+  font-size: .9em;
+  margin: 5px;
+  padding: 10px 15px;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.intelliSenseViewGoBackClass {
+   padding: 0 10px;
+   position: relative;     
+    margin-left: 82%;   
+    
+    
+}
+ .userIntellisenseViewTableNamesDivClass {
+   height: 116px;
+    overflow: hidden;
+    padding: 10px;
+    background: rgb(147 173 206) !important;
+}
+
+.userTableColumnsDivClass {
+	width:920px !important;
+	overflow-x:hidden !important;
+}
+
+.userIntellisenseViewTableNamesDivClass > div.userTableNameClass{
+    background:rgb(147 173 206) !important;
+    color: #000;
+    font-weight:600;
+    padding: 5px 10px;
+    margin:5px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.15), -2px -2px 5px rgba(0,0,0,.15);
+}
+
+.convai_right_main_message{
+	position: relative;
+   /*  margin-right: 15%; */
+}
+
+.userMergeTableColumnsRemoveDeleteClass{
+	margin-left:25%;
+} 
+.modalFileChartsClass {
+	/* margin-left:20%; */ 
+}
+
+.excelimageClass, .importFileClass {
+	width: 83px;
+	height: 59px;
+	margin-left: 194px;
+	margin-top: 111px;
+}
+
+.isCreatedClass{
+	color:red;
+	border-bottom:2px solid red;   
+}
+
+.keyboardIconsMainDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.keyboardIconsMainDiv .minMaxKeys{
+    display: flex;
+    flex-direction: column;
+}
+
+.intelliSenseViewGoBackClassTemp {
+    padding: 0px 10px;
+    position: relative;
+    margin-left: 82%;
+}
+
+.intelliSenseViewGoBackClassTemp i {
+    color: rgb(11, 25, 38);
+    font-size: 16px;
+    margin-right: 1rem;
+}
+
+
+.dialog-error-message{
+    color: red;
+}
+
+
+.editDashboardPopup .HomePageEditDashBoardNamesId .search{
+	float: inherit;
+	width: 100%;
+	padding: 4px;
+	margin-bottom: 8px;
+}
+.editDashboardPopup .HomePageEditDashBoardNamesId .search input{
+	width: 100%;
+}
+.editDashboardPopup .userIntellisenseViewDashBoardNamesDivClass li{
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 4px;
+    border-bottom: 1px solid #f1f1f1;
+    justify-content: space-between;
+}
+.editDashboardPopup .userIntellisenseViewDashBoardNamesDivClass li:last-child{ 
+    border-bottom: inherit;
+}
+
+
+.dxpLoginHeader .navbar-collapse .weatherIcon {
+    position: absolute;
+    top: 1px;
+    right: 24%; 
+}
+
+#visualizationMainDivwrapperID .VisionAnalyticsBICharts{
+	height:575px;
+	overflow-y:scroll;
+}
+
+.conversAiDialog{
+	position: absolute;
+    height: auto;
+    width: 500px !important;
+    top: auto !important;
+    bottom:5% !important;
+    left: auto !important;
+    right: 10px !important;
+    display: block;
+    z-index: 1080;
+}
+
+
+.weatherIcon .tooltip-content {
+    display: none;
+    width: 154px;
+    height: 112px;
+    border: solid #ddd 1px;
+    position: absolute;
+    left: 80%;
+    top: 40%;
+    z-index: 9999;
+    background-color: #f6f7ff;
+    border-radius: 12px;
+    padding: 5px;
+}
+.weatherIcon .tooltip-content div{
+   display:flex;
+   font-weight: 600;
+   align-items: self-end;
+}
+.weatherIcon .tooltip-content span{
+   font-weight:600;
+}
+.weatherContent .stretch-card>.card {
+  width:100%;
+  }
+.weatherContent  .passDataInfo h2{
+  font-size:16px;
+  }
+.weatherContent .grid-margin, .purchace-popup > div {
+   margin-bottom: 25px;
+}
+
+.weatherContent .card {
+   border: 0;
+   border-radius: 2px;
+}
+
+.weatherContent .card-weather {
+   background: #e1ecff;
+   background-image: linear-gradient(to left bottom, #d6eef6, #dff0fa, #e7f3fc, #eff6fe, #f6f9ff);
+}
+
+.weatherContent .card {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   min-width: 0;
+   word-wrap: break-word;
+   background-color: #fff;
+   background-clip: border-box;
+   border: 1px solid rgba(0, 0, 0, 0.125);
+   border-radius: 0.25rem;
+}
+
+
+.weatherContent .card-weather .cardInMainDiv:first-child {
+   background: url(https://res.cloudinary.com/dxfq3iotg/image/upload/v1557323760/weather.svg) no-repeat center;
+   background-size: cover;
+}
+
+.weatherContent .card .cardInMainDiv {
+   padding: 1.88rem 1.81rem;
+}
+
+.weatherContent .cardInMainDiv {
+   flex: 1 1 auto;
+   padding: 1.25rem;
+}
+
+
+.weatherContent .card-weather .weather-date-location h3{ 
+    font-size: 32px;
+    font-weight: 600;
+    color: #0b4a99;
+}
+
+.weatherContent .h3, h3 {
+   font-size: 1.56rem;
+}
+
+.weatherContent .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+   font-family: "Poppins", sans-serif;
+   font-weight: 500;
+}
+
+.weatherContent .text-gray, .card-subtitle, .new-accounts ul.chats li.chat-persons a p.joined-date {
+   color: #64608d;
+}
+
+.weatherContent .weakly-weather-item p {
+   font-size: 13px;
+}
+
+.weatherContent .text-gray, .card-subtitle, .new-accounts ul.chats li.chat-persons a p.joined-date {
+   color: #969696;
+}
+
+
+
+.weatherContent .mr-auto, .mx-auto {
+   margin-right: auto !important;
+}
+
+.weatherContent .display-3 {
+   font-size: 2.5rem;
+}
+
+.weatherContent .card-weather .cardInMainDiv {
+   background: #f1f1f1;
+}
+
+.weatherContent .card-weather .weakly-weather {
+   background: #f1f1f1;
+   overflow-x: auto;
+}
+
+ .weatherContent.card-weather .weakly-weather .weakly-weather-item {
+   flex: 0 0 14.28%;
+   border-right: 1px solid #f2f2f2; 
+   padding: 1rem;
+   text-align: center;
+   color: #0b4a99;
+   font-size: 16px;
+   font-weight: 600;
+}
+.weatherContent .weather-data{
+    color: #0b4a99;
+}
+
+.weatherContent .weakly-weather-item .mb-0, .my-0 {
+   margin-bottom: 0 !important;
+}
+
+.weatherContent .card-weather .weakly-weather .weakly-weather-item i {
+   font-size: 1.2rem;
+} 
+.weatherContent .passDataInfo  img{
+	width:470px;
+}
+
+/*-----------------*/
+
+.weatherContent .card-weather .weatherMiddleInnerContent .temp_Location{
+   display: flex;
+   flex-direction: row-reverse;
+   justify-content: space-between;
+   align-items: center;
+   border-bottom: 1px solid #ddd;
+} 
+.weatherContent .card-weather .weatherMiddleInnerContent .changerContent .changeButtonMainDiv{
+   display: flex;
+   gap: 15px;
+   align-items: center;
+   margin-top: 12px;
+
+}
+.weatherContent .card-weather .weatherMiddleInnerContent .changerContent .changeButtonMainDiv span{
+   background-color: #f1f1f1;
+   color: #0b4a99;
+   font-size: 16px;
+   font-weight: 600;
+   padding: 5px 10px;
+   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+   cursor: pointer;
+   border-radius: 3px;
+   position: relative;
+}
+.weatherContent .passDataInfo{
+   padding: 20px 0px;
+   color: #0b4a99;
+   text-align: center;
+}
+.weatherContent .buttonClass{
+   cursor: pointer;
+   position: relative;
+
+}
+.weatherContent .buttonClass::after{
+   content:' ';
+   width: 0;
+   height: 3px;
+   background-color: #0b4a99;
+   position: absolute;
+   left: 0;
+   bottom: -8px;
+   transition: 0.5s;
+}
+.weatherContent .buttonClass.active-link::after{
+   width: 50%;
+}
+.weatherContent .passDataInfo{
+   display: none;
+}
+.weatherContent .passDataInfo.active-tab{
+   display: block;
+}
+.weatherContent .weather-data{
+	display:flex;
+	align-items:center;
+	gap:12px;
+}
+
+.weatherContent .bottomWeatherIcons{
+	display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 0;
+    color: #0b4a99;
+}
+/* weather css ends here */
+
+.jqxTabChartsClass{
+	height:220px;
+	overflow-y:auto;
+}
+
+
+
+
+
+.flip-chart {
+	perspective: 1000px;
+}
+.flip-chart-inner {transform-style: preserve-3d;transition: transform 0.5s;}
+.flip-chart-front, .flip-chart-back {
+	
+	
+	backface-visibility: hidden;
+  
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+}
+.flip-chart-back {
+	
+position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+	border:1px solid #000;
+	transform: rotateY(180deg);
+}
+.flipped .flip-chart-inner {
+transform: rotateY(180deg);
+}
+
+.flip-chart-back table {
+	width: 100%;
+	border-collapse: collapse;
+	}
+.flip-chart-back th, td {
+			border: 1px solid black;
+            padding: 5px; /* Decreased cell padding */
+            text-align: center;
+            font-size: 8px; /* Decreased font size */
+}
+.flip-chart-back th {
+	background-color: blue;
+	color: white;
+}
+.flip-chart-back tr:nth-child(even) {
+	background-color: #f2f2f2; /* Alternate row color */
+}
+
+.go-back-button-container {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .go-back-button {
+        background-color: #ff5733;
+        border: none;
+        color: white;
+        padding: 6px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+
+    .go-back-button:hover {
+        background-color: #e64c00;
+    }
+.resizableChartDiv {
+    max-width: inherit !important;
+    margin: 5px;
+}
+.conversationalAIIcon img{
+	width:50px !important;
+}
+.mainchatcontainer .chatIcon img{
+	width:38px !important; 
+
+ }
+.innerFilterDivClass{
+ 	display: flex;
+    align-items: center;
+    justify-content: space-around;
+ }
+ .visionDbCompareChartsFilterButtonDivClass{
+ 	margin-top:25px;
+ }
+
+.dxpLoginHeader .navbar-collapse .voiceIcon {
+    position: absolute;
+    top: 1px;
+    right: 29%; 
+}
+
+.visionNormalCardClass{
+    border: 1px solid #00a1de;
+    border-radius: 8px;
+    background-color: #00a1de;
+    width: 280px;
+    height: 70px;
+}
+.visionNormalCardClass .CardLevelSpanClass{
+	position: absolute;
+    left: 40%;
+    top: 40px;
+    color: white;
+}
+.visionNormalCardClass .CardClassHome{
+	position: absolute;
+    top: 72px;
+    left: 46%;
+    color: white;
+}
+.visionNormalCardClass .CardEditBasicImg{
+	width: 16px;
+    position: absolute;
+    top: 16%;
+    transform: rotate(90deg);
+}
+.ChartsTabsClass img{
+	width:25px;
+	margin-left: 13px;
+    margin-top: 3px;
+}
+
+.homeSearchIcon textarea{
+	width: 250px;
+    height: 51px;
+    position: absolute;
+    right: 40px;
+    top: 12px;
+}
+.homeSearchIcon img{
+    width: 25px;
+    position: absolute;
+    top: 18%;
+    right: 11px;	
+}
+.visionVisualizeChartsBasedOnQuestionsImageClass{
+	background: #6e8fd1;
+    padding: 2px 4px;
+    line-height: 1;
+}
+.visionVisualizeChartsBasedOnQuestionsMainClass{
+	    display: flex;
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+.visionVisualizeChartsBasedOnQuestionsImageClass img{
+	width:18px;
+}
+.visionVisualizeChartsBasedOnQuestionsClass{
+	height: 23px !important;
+    line-height: 1;
+    background-color: #d0e1f9;
+    border: 0 !important;
+    padding: 0px !important;
+    width:290px !important;
+} 
+ #dropdownlistArrowvisionVisualizeChartsBasedOnQuestionsId{
+	display:none !important;
+}
+#visionVisualizeChartsBasedOnQuestionsMainId #dropdownlistContentvisionVisualizeChartsBasedOnQuestionsId{
+	top:-3px !important;
+}
+.processPaymentDivCLS{
+		right: 2.5%;
+		position:absolute;
+	}
+	
+	
+	
+	
+	
+	
+	
+	.visionVisualizeChartsBasedOnQuestionsMainClass .chosen-value,
+    .visionVisualizeChartsBasedOnQuestionsMainClass .value-list {
+      /* position: absolute; */
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .value-list h6 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 7px 10px 0;
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .value-list li {
+      box-shadow: 0 0 0 0 #000;
+      margin: 8px;
+      border-radius: 5px;
+      text-wrap: nowrap;
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .chosen-value {
+       font-weight: 600;
+	    /* letter-spacing: 2px; */
+	    height: 1.79rem;
+	    font-size: 12px;
+	    /* padding: 0.5rem 0.5rem 0.5rem 3rem; */
+	    background-color: #fafcfd;
+	    /* border: 2px solid transparent; */
+	    /* transition: 0.3s ease-in-out; */
+	    /* box-shadow: 0 0 3px #000; */
+	    border-radius: 0 3px 3px 0;
+	    position: relative;
+	    top: -3px;
+
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .chosen-value::-webkit-input-placeholder {
+      color: #333;
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .chosen-value:hover {
+      /* background-color: #ff908b; */
+      cursor: pointer;
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .chosen-value:hover::-webkit-input-placeholder {
+      color: #333;
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .chosen-value:focus,
+    .visionVisualizeChartsBasedOnQuestionsMainClass .chosen-value.drop-open {
+      /* box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2); */
+      outline: 0;
+      /* background-color: #ff908b; */
+      color: #000;
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .chosen-value:focus::-webkit-input-placeholder,
+    .visionVisualizeChartsBasedOnQuestionsMainClass .chosen-value.drop-open::-webkit-input-placeholder {
+      color: #000;
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .value-list {
+      list-style: none;
+      margin-top: 2.5rem;
+      box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      max-height: 0;
+      transition: 0.3s ease-in-out;
+      padding: 0;
+      width: 325px;
+      z-index: 99999;
+      position: relative;
+      left: -32px;
+      top: 0px;
+      background: #fff;
+      margin: 0;
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .value-list img {
+      width: 18px;
+      height: 18px;
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .value-list li:hover img {
+      filter: hue-rotate(180deg);
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .value-list.drop-open {
+      max-height: 250px;
+      overflow: auto;
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .value-list li {
+      position: relative;
+	    height: 1.5rem;
+	    background-color: #dadada;
+	    width: 100%;
+	    padding: 0.3rem 0.5rem;
+	    font-size: 12px;
+	    font-weight: 600;
+	    display: table-caption;
+	    align-items: center;
+	    cursor: pointer;
+	    transition: background-color 0.3s;
+	    opacity: 1;
+	    width: 100%;
+	    margin: 3px 8px
+
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .value-list li:hover {
+      background-color: #0b4a99;
+      color: #fff;
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .value-list li.closed {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0;
+      opacity: 0;
+      display: none;
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .filter_wrapper {
+      background-color: #0c0b6c;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 36px;
+    height: 36px;
+    z-index: 1;
+    border-radius: 4px 0 0 4px;
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .filter_wrapper img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .close-function {
+      position: absolute;
+      top: 9px;
+      right: -52px;
+      width: 8px;
+      height: 8px;
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .close-function img {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* width */
+    .visionVisualizeChartsBasedOnQuestionsMainClassv .value-list.drop-open::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    /* Track */
+    .visionVisualizeChartsBasedOnQuestionsMainClass .value-list.drop-open::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    .visionVisualizeChartsBasedOnQuestionsMainClass .value-list.drop-open::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    /* Handle on hover */
+    .visionVisualizeChartsBasedOnQuestionsMainClass .value-list.drop-open::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    .visionVisualizeChartsBasedOnQuestionsMainClass .error {
+      text-align: center;
+      font-weight: 600;
+    }
+    .visionVisualizeChartsBasedOnQuestionsMainClass ::placeholder{
+      color:#ddd;
+    }
+
+.visionVisualizeChartsBasedOnQuestionsImageClass{
+	background: #6e8fd1;
+    padding: 2px 4px;
+    line-height: 1;
+}
+.visionVisualizeChartsBasedOnQuestionsMainClass{
+	    display: flex;
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+.visionVisualizeChartsBasedOnQuestionsImageClass img{
+	 width: 24px;
+
+}
+.visionVisualizeChartsBasedOnQuestionsClass{
+	height: 23px !important;
+    line-height: 1;
+    background-color: #d0e1f9;
+    border: 0 !important;
+    padding: 0px !important;
+    width:290px !important;
+} 
+ #dropdownlistArrowvisionVisualizeChartsBasedOnQuestionsId{
+	display:none !important;
+}
+#visionVisualizeChartsBasedOnQuestionsMainId #dropdownlistContentvisionVisualizeChartsBasedOnQuestionsId{
+	top:-3px !important;
+}
+
+	
