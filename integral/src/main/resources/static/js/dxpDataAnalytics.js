@@ -781,8 +781,8 @@ var getValueAndPercentageLabelFormatter = function(params) {
 function getSunburstChart(chartId, result, count, chartType, saveType) {
 	chartType = 'sunburst';
 	var chartUpper = chartType.toUpperCase();
-	var chartTitle = $("#" + chartUpper + "TITLEECHARTS").val();
-	isCurrencyConversionEvent = $("#isCurrencyConversionEvent").val();
+	var chartTitle  = result['chartTitle'] ?? $("#" + chartUpper + "TITLEECHARTS").val();
+    	isCurrencyConversionEvent = $("#isCurrencyConversionEvent").val();
 	if (isCurrencyConversionEvent === undefined || isCurrencyConversionEvent === '') {
 		isCurrencyConversionEvent = result['isCurrencyConversionEvent'];
 	}
@@ -950,8 +950,8 @@ function getSunburstChart(chartId, result, count, chartType, saveType) {
 function getTreeMapChart(chartId, result, count, chartType, saveType, axisColumns, filterCondition) {
 	chartType = 'treemap';
 	var chartUpper = chartType.toUpperCase();
-	var chartTitle = $("#" + chartUpper + "TITLEECHARTS").val();
-	isCurrencyConversionEvent = $("#isCurrencyConversionEvent").val();
+	var chartTitle  = result['chartTitle'] ?? $("#" + chartUpper + "TITLEECHARTS").val();
+    isCurrencyConversionEvent = $("#isCurrencyConversionEvent").val();
 	if (isCurrencyConversionEvent === undefined || isCurrencyConversionEvent === '') {
 		isCurrencyConversionEvent = result['isCurrencyConversionEvent'];
 	}
@@ -7409,7 +7409,11 @@ if (zAxix != null && zAxix != '' && zAxix != undefined) {
 		success: function(response) {
 			$("#Loader").css("display", "none");
 			$("body").css("pointer-events", "auto");
+			var iconsToBeAddedObj;
 			if (response != null && !jQuery.isEmptyObject(response)) {
+			if (response['iconsToBeAdded'] != null && response['iconsToBeAdded'] != undefined && response['iconsToBeAdded'] !="" && !jQuery.isEmptyObject(response['iconsToBeAdded']))
+                        					iconsToBeAddedObj = JSON.parse(response['iconsToBeAdded']);
+
 				$("#" + chartId).addClass("chartMainBorderBox");
 				var compareChartTypes = ['column', 'lines', 'scatterpolar'];
 				response['isCurrencyConversionEvent'] = isCurrencyConversionEvent;
@@ -7597,110 +7601,125 @@ if (zAxix != null && zAxix != '' && zAxix != undefined) {
 					displaylogo: false,
 					dragmode: false,
 					modeBarButtonsToAdd: [
-						{
-							name: 'Scroll Up', icon: iconArrowUp, click: function() {
-								scrollUp(chartId, chartType);
-							}
-						}, {
-							name: 'Name',
-							title: 'Download as Image',
-							icon: camera, click: function(gd) {
-								Plotly.downloadImage(gd, {
-									format: 'png',
-									height: 500,
-									width: 500,
-									filename: 'Download plot'
-								})
-							}
-						},
-						{
-							name: 'Show Data', icon: icon1, click: function() {
-								//								var homepageFilterParamsObj = getHomepageFilterParamsArr();
-								//								var mainFilterConditionsObj = homepageFilterParamsObj['mainFilterConditions'];
-								//								var mainFilterConditionsStr = "";
-								//								if(!isNullOrUndefined(mainFilterConditionsObj) && !jQuery.isEmptyObject(mainFilterConditionsObj)) {
-								//									mainFilterConditionsStr = JSON.stringify(mainFilterConditionsObj);
-								//								}
-								getGridData(axix, "", chartId, filterCondition);
-							}
-						}, {
-							name: 'Filters', icon: icon, click: function() {
-								getfilterData(chartId, table, chartType);
-							}
-						}, {
-							name: 'Delete', icon: deleteicon, click: function() {
-								deleteVisualizeChart(chartId, table, chartType);
-							}
-						}, {
-							name: 'Expand', icon: Expand, click: function() {
-								expandChart(chartType, layout, data, chartId, createcount, table, axix, chartLabels, filterCondition); //jaggu
-							}
-						}, {
-							name: 'Edit', icon: EditIcon, click: function() {
-								homePageChartSetting(chartId, chartType, layout, data, createcount, event, "", chartConfigToggleStatus);
-							}
-						}, {
-							name: 'Trends', icon: pridictiveAnalysis, click: function(event) {
-								getChartContent(chartId, createcount, chartType, 'pridictiveAnalysis');
-							}
-						}, {
-							name: 'Color Pallete', icon: ColorPallete, click: function() {
-								updatechartColor(chartId, createcount, data);
-							}
-						}, {
-							name: 'Chart Types', icon: AssignUser, click: function() {
-								changegraph(chartId, chartType, layout, data, createcount, event);
-							}
-						}, {
-							name: 'Reset', icon: reset, click: function(chartId) {
-								getVisualizationchart(dashbordname, "");
-							}
-						}, {
-							name: 'AI Insights', icon: AIChart, click: function() {
-								getArtIntAPI(chartId, chartType, table);
-							}
-						},
-						{
-							name: 'Notes', icon: AIChart, click: function() {
-								getChartNotes(chartId);
-							}
-						},
-						{
-							name: 'Flip Data' , icon :icon1 ,click: function(){
-								getChartDataonFlip(chartId,chartDataObj);
-							}
-						},
+
 					],
-					//                     modeBarButtonsToRemove: ['lasso2d']
-					//                    
 					modeBarButtonsToRemove: ['toImage', 'zoomin', 'resetViews', 'resetScale2d', 'zoomout', 'pan2d', 'sendDataToCloud', 'hoverClosestCartesian', 'autoScale2d', 'lasso2d', 'select2d', 'zoom2d']
 				};
-				var compareChartButton = {
-					name: 'Compare Charts', icon: compareChart, click: function(chartId) {
-						getCompareChart(chartId['id'], chartType);
-					}
-				};
-				var normalChartButton = {
-					name: 'Remove Compare Charts', icon: refreshChart, click: function(chartId) {
-						getRemoveCompareChart(chartId['id'], chartType);
-					}
-				};
-				var downArrow = {
-					name: 'Scroll Down',
-					icon: iconArrowDown,
-					click: function() {
-						scrollDownArrow(chartId, chartType);
-					}
-				}
-				if (chartType != null && chartType != '' && chartType != undefined && compareChartTypes.indexOf(chartType) > -1) {
-					var modeBarButtonsToAdd = config['modeBarButtonsToAdd'];
-					modeBarButtonsToAdd.push(compareChartButton);
-					modeBarButtonsToAdd.push(normalChartButton);
-					modeBarButtonsToAdd.push(downArrow);
-				} else {
-					var modeBarButtonsToAdd = config['modeBarButtonsToAdd'];
-					modeBarButtonsToAdd.push(downArrow);
-				}
+				var buttons = {
+                    Scroll_Up: {
+                        name: 'Scroll Up', icon: iconArrowUp, click: function() {
+                            scrollUp(chartId, chartType);
+                        }
+                    },
+                    Name: {
+                        name: 'Name',
+                        title: 'Download as Image',
+                        icon: camera, click: function(gd) {
+                            Plotly.downloadImage(gd, {
+                                format: 'png',
+                                height: 500,
+                                width: 500,
+                                filename: 'Download plot'
+                            });
+                        }
+                    },
+                    Show_Data: {
+                        name: 'Show Data', icon: icon1, click: function() {
+                            getGridData(axix, "", chartId, filterCondition);
+                        }
+                    },
+                    Filters: {
+                        name: 'Filters', icon: icon, click: function() {
+                            getfilterData(chartId, table, chartType);
+                        }
+                    },
+                    Delete: {
+                        name: 'Delete', icon: deleteicon, click: function() {
+                            deleteVisualizeChart(chartId, table, chartType);
+                        }
+                    },
+                    Expand: {
+                        name: 'Expand', icon: Expand, click: function() {
+                            expandChart(chartType, layout, data, chartId, createcount, table, axix, chartLabels, filterCondition);
+                        }
+                    },
+                    Edit: {
+                        name: 'Edit', icon: EditIcon, click: function() {
+                            homePageChartSetting(chartId, chartType, layout, data, createcount, event, "", chartConfigToggleStatus);
+                        }
+                    },
+                    Trends: {
+                        name: 'Trends', icon: pridictiveAnalysis, click: function(event) {
+                            getChartContent(chartId, createcount, chartType, 'pridictiveAnalysis');
+                        }
+                    },
+                    Color_Pallete: {
+                        name: 'Color Pallete', icon: ColorPallete, click: function() {
+                            updatechartColor(chartId, createcount, data);
+                        }
+                    },
+                    Chart_Types: {
+                        name: 'Chart Types', icon: AssignUser, click: function() {
+                            changegraph(chartId, chartType, layout, data, createcount, event);
+                        }
+                    },
+                    Reset: {
+                        name: 'Reset', icon: reset, click: function(chartId) {
+                            getVisualizationchart(dashbordname, "");
+                        }
+                    },
+                    AI_Insights: {
+                        name: 'AI Insights', icon: AIChart, click: function() {
+                            getArtIntAPI(chartId, chartType, table);
+                        }
+                    },
+                    Notes: {
+                        name: 'Notes', icon: AIChart, click: function() {
+                            getChartNotes(chartId);
+                        }
+                    },
+                    Filp_Data: {
+                        name: 'Flip Data' , icon :icon1 ,click: function(){
+                            getChartDataonFlip(chartId,chartDataObj);
+                        }
+                    },
+                    Compare_Charts: {
+                        name: 'Compare Charts', icon: compareChart, click: function(chartId) {
+                            getCompareChart(chartId['id'], chartType);
+                        }
+                    },
+                    Remove_Compare_Charts: {
+                        name: 'Remove Compare Charts', icon: refreshChart, click: function(chartId) {
+                            getRemoveCompareChart(chartId['id'], chartType);
+                        }
+                    },
+                    Scroll_Down: {
+                        name: 'Scroll Down',
+                        icon: iconArrowDown,
+                        click: function() {
+                            scrollDownArrow(chartId, chartType);
+                        }
+                    }
+                };
+
+         if(iconsToBeAddedObj != null && !jQuery.isEmptyObject(iconsToBeAddedObj)){
+                                  config.modeBarButtonsToAdd = Object.keys(iconsToBeAddedObj).reduce(function (result, key) {
+                                      if (iconsToBeAddedObj[key] === 'Y' && buttons[key]) {
+
+                                         if (chartType != null && chartType != '' && chartType != undefined && compareChartTypes.indexOf(chartType) > -1 && (key === 'Compare_Charts' || key === 'Remove_Compare_Charts')) {
+                                             result.push(buttons[key]);
+
+
+                                      }
+                                          else{
+                                              result.push(buttons[key]);
+                                          }
+                                      }
+
+
+                                      return result;
+                                  }, []);
+                               }
 
 				var axisColumnName;
 				var valuesColumnName;
@@ -14592,7 +14611,9 @@ function getpridictiveData(IntervalValues, count, chartId, chartType, pridiction
 
 
 									$("#" + chartId).empty();
-									Plotly.newPlot(chartId, data, layout, config);
+									data[0].name='Existed';
+                                    data[1].name='Predicted';
+                                    Plotly.newPlot(chartId, data, layout, config);
 
 									//                if(chartType !=null && chartType !='' && chartType !=''){
 									//                    
@@ -16516,8 +16537,8 @@ function getEchartHeatMap(chartId, result, count) {
 	});
 	var option = {
 		title: {
-		text: result['layout']['title'],
-	  },
+		text: result['chartTitle'] ?? result['layout']['title'],
+        	 },
 		tooltip: {
 			position: 'top'
 		},
@@ -16879,6 +16900,9 @@ function getToolBox(chartId, chartType, tableName,chartCOnfigObjStr,response,cou
 	var tempData = response.data;
 	$("#" + chartId + "_toolBox").show();
 	$("#" + chartId +"_legends").hide();
+	var iconsToBeAddedObj;
+	if (response['iconsToBeAdded'] != null && response['iconsToBeAdded'] != undefined && response['iconsToBeAdded'] !="" && !jQuery.isEmptyObject(response['iconsToBeAdded'])){
+       iconsToBeAddedObj = JSON.parse(response['iconsToBeAdded']);
 	var li='';
 	if(['SunBurst','TreeMap'].includes(chartType)){
 		li = "<li rel=\"tooltip\" class=\"modebar-btn\" title=\"Date Columns\" style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
@@ -16890,51 +16914,60 @@ function getToolBox(chartId, chartType, tableName,chartCOnfigObjStr,response,cou
 		+ "<path d='M160 256C160 202.1 202.1 160 256 160C309 160 352 202.1 352 256C352 309 309 352 256 352C202.1 352 160 309 160 256zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z'></path>"
 		+ "</svg></li>";
 	}
+	if(iconsToBeAddedObj['Scroll_Up'] === 'Y')
 	li+="<li rel=\"tooltip\" class=\"modebar-btn\" title=\"Scroll Up\"  style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
 		+ "<svg viewBox=\"0 0 448 512\" class=\"icon\" height=\"1em\" width=\"1em\" style=\"fill: rgb(11, 74, 153);\" onclick=\"scrollUp('" + chartId + "','" + chartType + "')\">"
 		+ "<path d='M4.29289 15.7071C3.90237 15.3166 3.90237 14.6834 4.29289 14.2929L9.29289 9.29289C9.68342 8.90237 10.3166 8.90237 10.7071 9.29289L15.7071 14.2929C16.0976 14.6834 16.0976 15.3166 15.7071 15.7071C15.3166 16.0976 14.6834 16.0976 14.2929 15.7071L10 11.4142L5.70711 15.7071C5.31658 16.0976 4.68342 16.0976 4.29289 15.7071ZM4.29289 9.70711C3.90237 9.31658 3.90237 8.68342 4.29289 8.29289L9.29289 3.29289C9.68342 2.90237 10.3166 2.90237 10.7071 3.29289L15.7071 8.29289C16.0976 8.68342 16.0976 9.31658 15.7071 9.70711C15.3166 10.0976 14.6834 10.0976 14.2929 9.70711L10 5.41421L5.70711 9.70711C5.31658 10.0976 4.68342 10.0976 4.29289 9.70711Z'></path>"
-		+ "</svg></li>"
+		+ "</svg></li>";
+	if(iconsToBeAddedObj['Name'] === 'Y')
 	li+= "<li rel=\"tooltip\" class=\"modebar-btn\" title=\"Save As Image\"  style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
 		+ "<svg viewBox=\"0 0 448 512\" class=\"icon\" height=\"1em\" width=\"1em\" style=\"fill: rgb(11, 74, 153);\" onclick=\"saveChartAsImage('" + chartId + "','" + chartType + "')\">"
 		+ "<path d='m500 450c-83 0-150-67-150-150 0-83 67-150 150-150 83 0 150 67 150 150 0 83-67 150-150 150z m400 150h-120c-16 0-34 13-39 29l-31 93c-6 15-23 28-40 28h-340c-16 0-34-13-39-28l-31-94c-6-15-23-28-40-28h-120c-55 0-100-45-100-100v-450c0-55 45-100 100-100h800c55 0 100 45 100 100v450c0 55-45 100-100 100z m-400-550c-138 0-250 112-250 250 0 138 112 250 250 250 138 0 250-112 250-250 0-138-112-250-250-250z m365 380c-19 0-35 16-35 35 0 19 16 35 35 35 19 0 35-16 35-35 0-19-16-35-35-35z'></path>"
 		+ "</svg></li>"
+	if(iconsToBeAddedObj['Show_Data'] === 'Y')
 	li+= "<li rel=\"tooltip\" class=\"modebar-btn\" title=\"Show Data\"  style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
 		+ "<svg viewBox=\"0 0 448 512\" class=\"icon\" height=\"1em\" width=\"1em\" style=\"fill: rgb(11, 74, 153);\" onclick=\"getGridData('','','" + chartId + "','')\">"
 		+ "<path d='M448 32C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H448zM152 96H64V160H152V96zM208 160H296V96H208V160zM448 96H360V160H448V96zM64 288H152V224H64V288zM296 224H208V288H296V224zM360 288H448V224H360V288zM152 352H64V416H152V352zM208 416H296V352H208V416zM448 352H360V416H448V352z'></path>"
 		+ "</svg></li>"
-
-		+ "<li rel=\"tooltip\" class=\"modebar-btn\" title=\"Filter Chart\" style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
+	if(iconsToBeAddedObj['Filters'] === 'Y')
+	li+= "<li rel=\"tooltip\" class=\"modebar-btn\" title=\"Filter Chart\" style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
 		+ "<svg viewBox=\"0 0 448 512\" class=\"icon\" height=\"1em\" width=\"1em\" style=\"fill: rgb(11, 74, 153);\" onclick=\"getfilterData('" + chartId + "','" + tableName + "','" + chartType + "')\">"
 		+ "<path d='M3.853 54.87C10.47 40.9 24.54 32 40 32H472C487.5 32 501.5 40.9 508.1 54.87C514.8 68.84 512.7 85.37 502.1 97.33L320 320.9V448C320 460.1 313.2 471.2 302.3 476.6C291.5 482 278.5 480.9 268.8 473.6L204.8 425.6C196.7 419.6 192 410.1 192 400V320.9L9.042 97.33C-.745 85.37-2.765 68.84 3.854 54.87L3.853 54.87z'></path>"
-		+ "</svg></li>"
-		+ "<li rel=\"tooltip\" class=\"modebar-btn\" title=\"Delete Chart\" style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
+		+ "</svg></li>";
+	if(iconsToBeAddedObj['Delete'] === 'Y')
+	 li+= "<li rel=\"tooltip\" class=\"modebar-btn\" title=\"Delete Chart\" style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
 		+ "<svg viewBox=\"0 0 448 512\" class=\"icon\" height=\"1em\" width=\"1em\" style=\"fill: rgb(11, 74, 153);\" onclick=\"deleteVisualizeChart('" + chartId + "','" + tableName + "','" + chartType + "')\">"
 		+ "<path d='M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM31.1 128H416V448C416 483.3 387.3 512 352 512H95.1C60.65 512 31.1 483.3 31.1 448V128zM111.1 208V432C111.1 440.8 119.2 448 127.1 448C136.8 448 143.1 440.8 143.1 432V208C143.1 199.2 136.8 192 127.1 192C119.2 192 111.1 199.2 111.1 208zM207.1 208V432C207.1 440.8 215.2 448 223.1 448C232.8 448 240 440.8 240 432V208C240 199.2 232.8 192 223.1 192C215.2 192 207.1 199.2 207.1 208zM304 208V432C304 440.8 311.2 448 320 448C328.8 448 336 440.8 336 432V208C336 199.2 328.8 192 320 192C311.2 192 304 199.2 304 208z'></path>"
 		+ "</svg></li>"
-		+ "<li rel=\"tooltip\" class=\"modebar-btn\" title=\"Expand Chart\" style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
+	if(iconsToBeAddedObj['Expand'] === 'Y')
+	li+= "<li rel=\"tooltip\" class=\"modebar-btn\" title=\"Expand Chart\" style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
 		+ "<svg viewBox=\"0 0 448 512\" class=\"icon\" height=\"1em\" width=\"1em\" style=\"fill: rgb(11, 74, 153);\" onclick=\"expandEChart('" + chartId + "','" + chartType + "')\">"
 		+ "<path d='M447.1 319.1v135.1c0 13.26-10.75 23.1-23.1 23.1h-135.1c-12.94 0-24.61-7.781-29.56-19.75c-4.906-11.1-2.203-25.72 6.937-34.87l30.06-30.06L224 323.9l-71.43 71.44l30.06 30.06c9.156 9.156 11.91 22.91 6.937 34.87C184.6 472.2 172.9 479.1 160 479.1H24c-13.25 0-23.1-10.74-23.1-23.1v-135.1c0-12.94 7.781-24.61 19.75-29.56C23.72 288.8 27.88 288 32 288c8.312 0 16.5 3.242 22.63 9.367l30.06 30.06l71.44-71.44L84.69 184.6L54.63 214.6c-9.156 9.156-22.91 11.91-34.87 6.937C7.798 216.6 .0013 204.9 .0013 191.1v-135.1c0-13.26 10.75-23.1 23.1-23.1h135.1c12.94 0 24.61 7.781 29.56 19.75C191.2 55.72 191.1 59.87 191.1 63.1c0 8.312-3.237 16.5-9.362 22.63L152.6 116.7l71.44 71.44l71.43-71.44l-30.06-30.06c-9.156-9.156-11.91-22.91-6.937-34.87c4.937-11.95 16.62-19.75 29.56-19.75h135.1c13.26 0 23.1 10.75 23.1 23.1v135.1c0 12.94-7.781 24.61-19.75 29.56c-11.1 4.906-25.72 2.203-34.87-6.937l-30.06-30.06l-71.43 71.43l71.44 71.44l30.06-30.06c9.156-9.156 22.91-11.91 34.87-6.937C440.2 295.4 447.1 307.1 447.1 319.1z'></path>"
-		+ "</svg></li>"
-		+ "<li rel=\"tooltip\" class=\"modebar-btn\" title=\"Edit Chart\" style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
+		+ "</svg></li>";
+	if(iconsToBeAddedObj['Edit'] === 'Y')
+	li+= "<li rel=\"tooltip\" class=\"modebar-btn\" title=\"Edit Chart\" style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
 		+ "<svg viewBox=\"0 0 448 512\" class=\"icon\" height=\"1em\" width=\"1em\" style=\"fill: rgb(11, 74, 153);\" onclick=\"homePageChartSetting('" + chartId + "','" + chartType +"','" + " " +"','" + chartCOnfigObjStr + "','" + count + "')\">"
 		+ "<path d='M490.3 40.4C512.2 62.27 512.2 97.73 490.3 119.6L460.3 149.7L362.3 51.72L392.4 21.66C414.3-.2135 449.7-.2135 471.6 21.66L490.3 40.4zM172.4 241.7L339.7 74.34L437.7 172.3L270.3 339.6C264.2 345.8 256.7 350.4 248.4 353.2L159.6 382.8C150.1 385.6 141.5 383.4 135 376.1C128.6 370.5 126.4 361 129.2 352.4L158.8 263.6C161.6 255.3 166.2 247.8 172.4 241.7V241.7zM192 63.1C209.7 63.1 224 78.33 224 95.1C224 113.7 209.7 127.1 192 127.1H96C78.33 127.1 64 142.3 64 159.1V416C64 433.7 78.33 448 96 448H352C369.7 448 384 433.7 384 416V319.1C384 302.3 398.3 287.1 416 287.1C433.7 287.1 448 302.3 448 319.1V416C448 469 405 512 352 512H96C42.98 512 0 469 0 416V159.1C0 106.1 42.98 63.1 96 63.1H192z'></path>"
-		+ "</svg></li>"
-		+ "<li rel=\"tooltip\" class=\"modebar-btn\" title=\"Change Colors\" style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
+		+ "</svg></li>";
+	if(iconsToBeAddedObj['Color_Pallete'] === 'Y')
+	li+="<li rel=\"tooltip\" class=\"modebar-btn\" title=\"Change Colors\" style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
 		+ "<svg viewBox=\"0 0 448 512\" class=\"icon\" height=\"1em\" width=\"1em\" style=\"fill: rgb(11, 74, 153);\" onclick=\"changeEchartColors('" + chartId + "','" + chartType +"','" + colorsObj +"','" + chartCOnfigObjStr + "','" + tempResponse + "')\">"
 		+ "<path d='M512 255.1C512 256.9 511.1 257.8 511.1 258.7C511.6 295.2 478.4 319.1 441.9 319.1H344C317.5 319.1 296 341.5 296 368C296 371.4 296.4 374.7 297 377.9C299.2 388.1 303.5 397.1 307.9 407.8C313.9 421.6 320 435.3 320 449.8C320 481.7 298.4 510.5 266.6 511.8C263.1 511.9 259.5 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256V255.1zM96 255.1C78.33 255.1 64 270.3 64 287.1C64 305.7 78.33 319.1 96 319.1C113.7 319.1 128 305.7 128 287.1C128 270.3 113.7 255.1 96 255.1zM128 191.1C145.7 191.1 160 177.7 160 159.1C160 142.3 145.7 127.1 128 127.1C110.3 127.1 96 142.3 96 159.1C96 177.7 110.3 191.1 128 191.1zM256 63.1C238.3 63.1 224 78.33 224 95.1C224 113.7 238.3 127.1 256 127.1C273.7 127.1 288 113.7 288 95.1C288 78.33 273.7 63.1 256 63.1zM384 191.1C401.7 191.1 416 177.7 416 159.1C416 142.3 401.7 127.1 384 127.1C366.3 127.1 352 142.3 352 159.1C352 177.7 366.3 191.1 384 191.1z'></path>"
-		+ "</svg></li>"
-		+ "<li rel=\"tooltip\" class=\"modebar-btn\" title=\"Reset\" style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
+		+ "</svg></li>";
+	if(iconsToBeAddedObj['Reset'] === 'Y')
+	li+= "<li rel=\"tooltip\" class=\"modebar-btn\" title=\"Reset\" style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
 		+ "<svg viewBox=\"0 0 512 512\" class=\"icon\" height=\"1em\" width=\"1em\" style=\"fill: rgb(11, 74, 153);\" onclick=\"getVisualizationchart('" + dashBoard + "','" + " " + "')\">"
 		+ "<path d='m786 296v-267q0-15-11-26t-25-10h-214v214h-143v-214h-214q-15 0-25 10t-11 26v267q0 1 0 2t0 2l321 264 321-264q1-1 1-4z m124 39l-34-41q-5-5-12-6h-2q-7 0-12 3l-386 322-386-322q-7-4-13-4-7 2-12 7l-35 41q-4 5-3 13t6 12l401 334q18 15 42 15t43-15l136-114v109q0 8 5 13t13 5h107q8 0 13-5t5-13v-227l122-102q5-5 6-12t-4-13z' transform: 'matrix(1 0 0 -1 0 850)></path>"
 		+ "</svg></li>"
-		+ "<li id='" + chartId + "_echartTypes' rel=\"tooltip\" class=\"modebar-btn\" title=\"Chart Types\" style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
+	if(iconsToBeAddedObj['Chart_Types'] === 'Y')
+	li+= "<li id='" + chartId + "_echartTypes' rel=\"tooltip\" class=\"modebar-btn\" title=\"Chart Types\" style=\"padding: 4px;border-bottom: 1px solid #ddd;text-align: center;\">"
 		+ "<svg viewBox=\"0 0 448 512\" class=\"icon\" height=\"1em\" width=\"1em\" style=\"fill: rgb(11, 74, 153);\" onclick=\"changegraph('" + chartId + "','" + chartType +"','"+" "+"','"+" "+"','"+ count +"','"+noOfDataCount+ "')\">"
 		+ "<path d='M424.1 287c-15.13-15.12-40.1-4.426-40.1 16.97V352H336L153.6 108.8C147.6 100.8 138.1 96 128 96H32C14.31 96 0 110.3 0 128s14.31 32 32 32h80l182.4 243.2C300.4 411.3 309.9 416 320 416h63.97v47.94c0 21.39 25.86 32.12 40.99 17l79.1-79.98c9.387-9.387 9.387-24.59 0-33.97L424.1 287zM336 160h47.97v48.03c0 21.39 25.87 32.09 40.1 16.97l79.1-79.98c9.387-9.391 9.385-24.59-.0013-33.97l-79.1-79.98c-15.13-15.12-40.99-4.391-40.99 17V96H320c-10.06 0-19.56 4.75-25.59 12.81L254 162.7L293.1 216L336 160zM112 352H32c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c10.06 0 19.56-4.75 25.59-12.81l40.4-53.87L154 296L112 352z'></path>"
 		+ "</svg></li>";
 
 	$("#" + chartId + "_toolBox ul").html(li);
+	}
 }
-
 
 
 function expandEChart(chartId, chartType) {
@@ -22488,8 +22521,8 @@ function getModalAnalytics(stringList, numberList, tableName,questionsArr,querys
 				dataObj['chartType'] = chartType;
 				dataObj['axisColumnName'] = val.split(".")[1];
 
-				var number = (Math.random() + ' ').substring(2, 10) + (Math.random() + ' ').substring(2, 10);
-				$("#modalFileCharts").append("<div id='visionVisualizeModalChart" + number + "' class='col-md-6 col-sm-6 col-lg-4 visionVisualizeModalChartClass'><div id='visionVisualizeModalInnerChart" + number + "' class='visionVisualizeModalChartInnerClass'></div><div id='visionVisualizeModalInnerChart" + number + "config' class='visionVisualizeModalChartConfigClass' style='display:none'></div></div>");
+				var number = (Math.random() + ' ').substring(2, 10) + (Math.random() + ' ').substring(2, 10);//col-md-6 col-sm-6 col-lg-4
+				$("#modalFileCharts").append("<div id='visionVisualizeModalChart" + number + "' class='visionVisualizeModalChartClass'><div id='visionVisualizeModalInnerChart" + number + "' class='visionVisualizeModalChartInnerClass'></div><div id='visionVisualizeModalInnerChart" + number + "config' class='visionVisualizeModalChartConfigClass' style='display:none'></div></div>");
 				var chartId = "visionVisualizeModalInnerChart" + number;
 				dataObj['chartId'] = chartId;
 				var configObj = chartFilterConfigObj[chartType];
@@ -22650,6 +22683,38 @@ function getModalAnalytics(stringList, numberList, tableName,questionsArr,querys
 function getModalChartSuggestions(chartId, dataObj, valueColumns, axisColumns, tablesObj, createcount,
 	axisColName, chartType, chartOptAllObj, filteredchartOptAllObj, chartConfigToggleStatus,flag) {
     var tchartId = chartId;
+     if(chartType != null && chartType != '' && chartType == 'card'){
+    		$.ajax({
+    		url: 'fetchCardFromQuestion',
+    		type: "POST",
+    		data: dataObj,
+    		dataType: 'json',
+    		traditional: true,
+    		cache: false,
+    		success: function(response) {
+    			stopLoader();
+
+    			if (response != null && !jQuery.isEmptyObject(response)) {
+    				var result = response['value'];
+    				var chartId = response['chartId'];
+    				var parentChartId = $("#" + chartId).parent().attr('id');
+                             $("#" + parentChartId).addClass("fileChartsBorder");
+                    var chartTitle = $("#myInput").val() ?? $("#voiceTextBox").val();
+    				$("#"+chartId).html(`<div class='showTitleAndResultForCardCLS' id='showTitleAndResultForCardID'><div class='showCardTitleFromQuestionsCLS' id='showCardTitleFromQuestionsID'>${chartTitle}</div><div class='showCardFromQuestionsCLS' id='showCardFromQuestionID'>${result}</div></div>`);
+                                           				$(".showCardFromQuestionsCLS").css('width', '100%', '!important');
+    				$(".showCardFromQuestionsCLS").css('height', '100%', '!important');
+                    showChartsInRow();
+
+
+    			}
+
+    		}, error: function(e) {
+    			console.log("The Error Message is:::" + e.message);
+    			sessionTimeout(e);
+    		}
+    	});
+    	}
+    	else{
 	$.ajax({
 		url: 'fetchModalChartData',
 		type: "POST",
@@ -22723,13 +22788,14 @@ function getModalChartSuggestions(chartId, dataObj, valueColumns, axisColumns, t
 						}
 					}
 					var item = $("#myInput").val();
-					if(item !=null)
-					{
-					  initTitle = item;	 
-					}
+					if(item !=null && item!= "" && item != undefined)
+                    					{
+                    					  initTitle = item;
+                    					}
 					var upperChartType = chartType.toUpperCase();
 					upperChartType = upperChartType + "CHARTTITLE";
 					$("#" + chartId + "config").find("#" + upperChartType).val(initTitle);
+					response['chartTitle']=initTitle;
 					var dataObjStr = $("#" + chartId).attr("dataObj");
 					var dataObject = '';
 					if (dataObj !== null && dataObj !== ''
@@ -23308,6 +23374,7 @@ function getModalChartSuggestions(chartId, dataObj, valueColumns, axisColumns, t
 			sessionTimeout(e);
 		}
 	});
+	}
 }
 
 
@@ -25598,8 +25665,10 @@ function showChartsInRow() {
 			var chartId = childIds[0]['id'];
 			if (value != null && value != '' && value != undefined && value == '2') {
 				$("#" + divId).attr("class", "col-md-6 visionVisualizeModalChartClass fileChartsBorder");
-				$(".fileChartsBorder").css("max-width", "49.5%", "!important");
 				var width = $("#" + chartId).width();
+				$(".fileChartsBorder").css("max-width", "49.5%", "!important");
+				$(".fileChartsBorder").css("min-width", "49.5%", "!important");
+				$(".fileChartsBorder").css("height", "304px", "!important");
 				var update =
 				{
 					width: width,
@@ -25609,6 +25678,9 @@ function showChartsInRow() {
 			} else if (value != null && value != '' && value != undefined && value == '3') {
 				$("#" + divId).attr("class", "col-md-4 visionVisualizeModalChartClass fileChartsBorder");
 				$(".fileChartsBorder").css("max-width", "31%", "!important");
+				$(".fileChartsBorder").css("min-width", "31%", "!important");
+		        		$(".fileChartsBorder").css("height", "304px", "!important");
+		        		$(".fileChartsBorder").css("height", "304px", "!important");
 				var width = $("#" + chartId).width();
 				var update =
 				{
@@ -25619,6 +25691,8 @@ function showChartsInRow() {
 			} else if (value != null && value != '' && value != undefined && value == '4') {
 				$("#" + divId).attr("class", "col-md-3 visionVisualizeModalChartClass fileChartsBorder");
 				$(".fileChartsBorder").css("max-width", "24.5%", "!important");
+				$(".fileChartsBorder").css("min-width", "24.5%", "!important");
+				$(".fileChartsBorder").css("height", "304px", "!important");
 				var width = $("#" + chartId).width();
 				var update =
 				{
@@ -33645,7 +33719,7 @@ function getBasicAreaChart(chartId, response, count, chartType) {
 	var total = rawData.reduce((sum, value) => sum + value, 0);
 	var percentArr = rawData.map(value => ((value / total) * 100).toFixed(2) + '%');
 	var mode= $('#'+bigChartType+'MODE'+count).val();
-	var title= $('#'+bigChartType+'CHARTTITLE'+count).val();
+	var title= response['chartTitle'] ?? $('#'+bigChartType+'CHARTTITLE'+count).val();
 	var labelData = $('#' + bigChartType + 'LABELDATA'+count).val();
 	var hoverlabeldata = $('#' + bigChartType + 'HOVERLABELDATA'+count).val();
 	var labelPosition = $('#' + bigChartType + 'LABELPOSITION'+count).val();
@@ -33877,7 +33951,7 @@ function getStackedAreaChart(chartId, response, count, chartType) {
               
               
               var mode= $('#'+bigChartType+'MODE'+count).val();
-              var title= $('#'+bigChartType+'CHARTTITLE'+count).val();
+              var title= response['chartTitle'] ??  $('#'+bigChartType+'CHARTTITLE'+count).val();
               var labelData = $('#' + bigChartType + 'LABELDATA'+count).val();
               if(labelData == null || labelData == undefined || labelData == "''")
 					labelData='x+y';
@@ -34155,7 +34229,7 @@ function getGradientStackedAreaChart(chartId, response, count, chartType) {
                                       
                                       
                                       var mode= $('#'+bigChartType+'MODE'+count).val();
-                                      var title= $('#'+bigChartType+'CHARTTITLE'+count).val();
+                                      var title= response['chartTitle'] ??  $('#'+bigChartType+'CHARTTITLE'+count).val();
                                       var labelData = $('#' + bigChartType + 'LABELDATA'+count).val();
                                       if(labelData == null || labelData == undefined || labelData == "''")
                                   labelData='x+y';
@@ -34449,7 +34523,7 @@ function getAreaPiecesChart(chartId, response, count, chartType) {
 	var total = rawData.reduce((sum, value) => sum + value, 0);
 	var percentArr = rawData.map(value => ((value / total) * 100).toFixed(2) + '%');
 	var mode= $('#'+bigChartType+'MODE'+count).val();
-	var title= $('#'+bigChartType+'CHARTTITLE'+count).val();
+	var title= response['chartTitle'] ?? $('#'+bigChartType+'CHARTTITLE'+count).val();
 	var labelData = $('#' + bigChartType + 'LABELDATA'+count).val();
 	var hoverlabeldata = $('#' + bigChartType + 'HOVERLABELDATA'+count).val();
 	var labelPosition = $('#' + bigChartType + 'LABELPOSITION'+count).val();
@@ -35480,7 +35554,7 @@ function getGradientStackedAreaChartFromDashBoard(
   
 	var option;
 	var mode = chartCOnfigObjStr[bigChartType + "MODE"];
-	var title = chartCOnfigObjStr[bigChartType + "CHARTTITLE"];
+	var title = response['chartTitle'] ??  chartCOnfigObjStr[bigChartType + "CHARTTITLE"];
 	var labelData = chartCOnfigObjStr[bigChartType + "LABELDATA"];
 	var hoverlabeldata = chartCOnfigObjStr[bigChartType + "HOVERLABELDATA"];
 	var labelPosition = chartCOnfigObjStr[bigChartType + "LABELPOSITION"];
@@ -35776,7 +35850,7 @@ function getAreaPiecesChartFromDashBoard(chartId, response, count, chartType) {
 	);
   
 	var mode = chartCOnfigObjStr[bigChartType + "MODE"];
-	var title = chartCOnfigObjStr[bigChartType + "CHARTTITLE"];
+	var title = response['chartTitle'] ?? chartCOnfigObjStr[bigChartType + "CHARTTITLE"];
 	var labeldata = chartCOnfigObjStr[bigChartType + "LABELDATA"];
 	var hoverlabeldata = chartCOnfigObjStr[bigChartType + "HOVERLABELDATA"];
 	var labelPosition = chartCOnfigObjStr[bigChartType + "LABELPOSITION"];
@@ -36966,7 +37040,7 @@ function getCandlestickChart(chartId, response, count, chartType,dashBoardFlag) 
      }
      var title,labeldata,hoverlabeldata,hoverBGColor,hoverBorderColor,hoverFontColor,hoverTextSize,hoverTextFont;
     if(!(dashBoardFlag !=null && dashBoardFlag !='' && dashBoardFlag !=undefined)){
-	 title = chartEditoptions[bigChartType + "CHARTTITLE" + count];
+	 title =  response['chartTitle'] ?? chartEditoptions[bigChartType + "CHARTTITLE" + count];
 	 labeldata = chartEditoptions[bigChartType + "LABELDATA"];
 	 hoverlabeldata = chartEditoptions[bigChartType + "HOVERLABELDATA" + count];
 	 hoverBGColor = chartEditoptions[bigChartType + "HOVERBG" + count];
@@ -36976,7 +37050,7 @@ function getCandlestickChart(chartId, response, count, chartType,dashBoardFlag) 
 	 hoverTextFont = chartEditoptions[bigChartType + "HOVERFONTFAMILY" + count] || "Arial, sans-serif";
 	}
 	else{
-	 title = chartEditoptions[bigChartType + "CHARTTITLE"];
+	 title =  response['chartTitle'] ?? chartEditoptions[bigChartType + "CHARTTITLE"];
 	 labeldata = chartEditoptions[bigChartType + "LABELDATA"];
 	 hoverlabeldata = chartEditoptions[bigChartType + "HOVERLABELDATA"];
 	 hoverBGColor = chartEditoptions[bigChartType + "HOVERBG"];

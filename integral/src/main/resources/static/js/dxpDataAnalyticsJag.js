@@ -1747,6 +1747,39 @@ function getVoiceSuggestedChartBasedonCols(columnsList, chartType,tableName,join
 function getVoiceModalChartSuggestions(chartId, dataObj, valueColumns, axisColumns, tablesObj, createcount,
 	axisColName, chartType, chartOptAllObj, filteredchartOptAllObj, chartConfigToggleStatus,flag) {
     var tchartId = chartId;
+    if(chartType != null && chartType != '' && chartType == 'card'){
+        		$.ajax({
+        		url: 'fetchCardFromQuestion',
+        		type: "POST",
+        		data: dataObj,
+        		dataType: 'json',
+        		traditional: true,
+        		cache: false,
+        		success: function(response) {
+        			stopLoader();
+
+        			if (response != null && !jQuery.isEmptyObject(response)) {
+        				var result = response['value'];
+        				var chartId = response['chartId'];
+        				$('.fileVoiceChartsBorder').addClass("voiceModelup");
+        				var parentChartId = $("#" + chartId).parent().attr('id');
+                                 $("#" + parentChartId).addClass("fileChartsBorder");
+                        var chartTitle = $("#myInput").val() ?? $("#voiceTextBox").val();
+        				$("#"+chartId).html(`<div class='showCardTitleAndResultFromVoiceCLS'><div class='showCardTitleFromVoiceCLS' id='showCardTitleFromVoiceID'>${chartTitle}</div><div class='showCardFromQuestionsCLS' id='showCardFromQuestionID'>${result}</div></div>`);
+                            				$(".showCardFromVoiceCLS").css('width', '100%', '!important');
+        				$(".showCardFromVoiceCLS").css('height', '100%', '!important');
+
+
+
+        			}
+
+        		}, error: function(e) {
+        			console.log("The Error Message is:::" + e.message);
+        			sessionTimeout(e);
+        		}
+        	});
+        	}
+        	else{
 	$.ajax({
 		url: 'fetchModalChartData',
 		type: "POST",
@@ -1825,6 +1858,7 @@ function getVoiceModalChartSuggestions(chartId, dataObj, valueColumns, axisColum
 					var upperChartType = chartType.toUpperCase();
 					upperChartType = upperChartType + "CHARTTITLE";
 					$("#" + chartId + "config").find("#" + upperChartType).val(initTitle);
+					response['chartTitle'] = initTitle;
 					var dataObjStr = $("#" + chartId).attr("dataObj");
 					var dataObject = '';
 					if (dataObj !== null && dataObj !== ''
@@ -2384,5 +2418,6 @@ function getVoiceModalChartSuggestions(chartId, dataObj, valueColumns, axisColum
 			sessionTimeout(e);
 		}
 	});
+	}
 }
 

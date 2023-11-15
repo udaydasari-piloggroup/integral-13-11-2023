@@ -1870,6 +1870,8 @@ public class DashBoardsService {
 			} else {
 				chartObj = dashBoardsDAO.fetchChartData(request);        
 			}
+
+
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -6629,6 +6631,9 @@ public class DashBoardsService {
 	 public JSONObject checkForCompanyAlreadyExist(HttpServletRequest request) {
 			return dashBoardsDAO.checkForCompanyAlreadyExist(request) ;
 		 }
+    public JSONObject fetchCardFromQuestion(HttpServletRequest request) {
+        return dashBoardsDAO.fetchCardFromQuestion(request);
+    }
 
 
 }

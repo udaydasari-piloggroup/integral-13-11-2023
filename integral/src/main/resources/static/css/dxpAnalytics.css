@@ -2858,10 +2858,10 @@ and open the template in the editor.
 }
 
 .fileChartsBorder {
-	max-width: 32%;
-	border: 2px solid #3a81e9;
-	margin: 2px;
-	box-shadow: rgb(0 0 0/ 24%) 0px 3px 8px;
+	/*max-width: 31%;*/
+    border: 2px solid #3a81e9;
+    margin: 2px;
+    box-shadow: rgb(0 0 0/ 24%) 0px 3px 8px;
 }
 .fileVoiceChartsBorder {
 	max-width: 100% !important;
@@ -6312,5 +6312,49 @@ transform: rotateY(180deg);
 #visionVisualizeChartsBasedOnQuestionsMainId #dropdownlistContentvisionVisualizeChartsBasedOnQuestionsId{
 	top:-3px !important;
 }
+.showTitleAndResultForCardCLS{
+    display: grid;
+    align-content: stretch;
+    align-items: baseline;
+    justify-items: center;
+    margin: 30%;
+    justify-content: center;
+}
+.showCardTitleFromQuestionsCLS{
+        top: 8px;
+       position: absolute;
+       color: #3a81e9;
+       font-weight: 600;
+       font-size: 14px;
+       }
+       .showTitleAndResultForCardCLS .showCardFromQuestionsCLS{
+        color: #3a81e9;
+              font-weight:600
+       }
 
-	
+
+       .voiceModelup.fileVoiceChartsBorder {
+            height: 340px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 18px;
+       }
+        .voiceModelup.fileVoiceChartsBorder .showCardTitleFromVoiceCLS{
+                position: absolute;
+                top: 30px;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: #3a81e9;
+                font-weight: 500;
+        }
+        .voiceModelup.fileVoiceChartsBorder .showCardFromQuestionsCLS{
+                        font-size: 22px;
+                            font-weight: 700;
+                            color: #3a81e9;
+                }
+        .homeChartWrapDiv  .homeChartParentDiv {
+                		height: 100%;
+                	}

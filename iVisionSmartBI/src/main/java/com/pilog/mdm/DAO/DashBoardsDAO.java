@@ -561,7 +561,7 @@ public class DashBoardsDAO {
 			chartObj.put("compareChartFlag", compareChartsFlag);
 			chartObj.put("colorsObj",colorsObj);
 			chartObj.put("chartCOnfigObjStr", chartConfigObjStr);
-
+			chartObj.put("iconsToBeAdded",fetchIconsNeedToBeAdded(request));
 //            insertChartDetailsInTable(dataPropObj, dataObj, layoutObj, chartId);
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -13085,7 +13085,10 @@ public String transformdata(HttpServletRequest request) {
 			if (colSize == 1) {
 				result += "<div class=\"col-lg-4 my-2 px-1 col-md-4 visualChartsByQueryClass\"><img onclick= "+methodName+"('"
 						+ colListStr + "','indicator','" + tableName + "','" + joinQueryFlag + "','" + script
-						+ "','" + prependFlag + "')  src='images/Guage.svg' class='visualDarkMode' title='Guage chart'></div>";
+						+ "','" + prependFlag + "')  src='images/Guage.svg' class='visualDarkMode' title='Guage chart'></div>"
+						+ "<div class=\"col-lg-4 my-2 px-1 col-md-4 visualChartsByQueryClass\"><img onclick= "+methodName+"('"
+						+ colListStr + "','card','" + tableName + "','" + joinQueryFlag + "','" + script
+						+ "','" + prependFlag + "')  src='images/DashBoardCard.svg' class='visualDarkMode' title='Card'></div>";
 			} else if (colSize <= 2) {
 				if(varCharCnt == 1 && numberCnt == 1) {
 					result += "<div class=\"col-lg-4 my-2 px-1 col-md-4 visualChartsByQueryClass\"><img onclick= "+methodName+"('"
@@ -18415,5 +18418,46 @@ public String transformdata(HttpServletRequest request) {
 			}
 			return resultObj;
 		}
+	@Transactional
+	public JSONObject fetchCardFromQuestion(HttpServletRequest request) {
+		JSONObject resultObj = new JSONObject();
+		try {
+			String fetchQuery = request.getParameter("script");
+			String chartId = request.getParameter("chartId");
+			Map treeMap = new HashMap<>();
+			List treeList = access.sqlqueryWithParams(fetchQuery,treeMap);
+			if (treeList != null && !treeList.isEmpty()) {
+				//Long value =  (Long) treeList.get(0);
+				resultObj.put("value", treeList.get(0));
+				resultObj.put("chartId", chartId);
+			}
 
+		}
+		catch(Exception e) {
+			e.printStackTrace();			}
+		return resultObj;
+	}
+	@Transactional
+	public String fetchIconsNeedToBeAdded(HttpServletRequest request) {
+		//JSONObject resultObj = new JSONObject();
+		String resultStr = new String();
+		try {
+			HttpSession httpSession = request.getSession(false);
+			String ssOrgnId = (String) httpSession.getAttribute("ssOrgId");
+			String fetchQuery = "SELECT PARAMS FROM DAL_VISUALIZATION_ICONS WHERE ORGN_ID=:ORGN_ID AND ROLE_ID=:ROLE_ID";
+			Map<String, Object> treeMap = new HashMap<>();
+			treeMap.put("ORGN_ID", ssOrgnId);
+			treeMap.put("ROLE_ID", "MM_MANAGER");
+			List<Clob> treeList = access.sqlqueryWithParams(fetchQuery,treeMap);
+			if (treeList != null && !treeList.isEmpty()) {
+				//Long value =  (Long) treeList.get(0);
+				 resultStr = new PilogUtilities().clobToString(treeList.get(0));
+
+			}
+		}catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		return resultStr;
+	}
 }

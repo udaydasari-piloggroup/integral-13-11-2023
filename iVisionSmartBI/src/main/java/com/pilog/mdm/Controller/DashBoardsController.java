@@ -1964,6 +1964,16 @@ public class DashBoardsController {
 	        }
 	        return resultObj;
 	    }
+	@RequestMapping(value = "/fetchCardFromQuestion" , method = { RequestMethod.GET, RequestMethod.POST })
+	public @ResponseBody JSONObject fetchCardFromQuestion(HttpServletRequest request) {
 
+		JSONObject joinTablesData = new JSONObject();
+		try {
+			joinTablesData = dashBoardsService.fetchCardFromQuestion(request);
+
+		} catch (Exception e) {
+		}
+		return joinTablesData;
+	}
 
 }
