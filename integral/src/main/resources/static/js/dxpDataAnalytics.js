@@ -14546,7 +14546,7 @@ function getpridictiveData(IntervalValues, count, chartId, chartType, pridiction
 											//                        pad: 10
 										},
 										//                    width: 250,
-										height: 300,
+										height: 330,
 										//                    wieght:400,
 										dragmode: false,
 										font: {
@@ -14611,8 +14611,8 @@ function getpridictiveData(IntervalValues, count, chartId, chartType, pridiction
 
 
 									$("#" + chartId).empty();
-									data[0].name='Existed';
-                                    data[1].name='Predicted';
+									data[0].name='Predicted';
+                                    data[1].name='Existed';
                                     Plotly.newPlot(chartId, data, layout, config);
 
 									//                if(chartType !=null && chartType !='' && chartType !=''){
@@ -25658,6 +25658,31 @@ function createPrifix(column, tableName,gridId) {
 
 function showChartsInRow() {
 	var value = $("#visionVisualizeChartsInRowSelectId").val();
+    		if(value === undefined){
+    		value ='2';
+    	if ($.trim($('#modalFileCharts').html())) {
+    		$("#modalFileCharts div.visionVisualizeModalChartClass").each(function() {
+    			var divId = $(this).attr("id");
+    			var childIds = $("#" + divId).children("div[id]");
+    			var chartId = childIds[0]['id'];
+
+    			$("#" + divId).attr("class", "col-md-6 visionVisualizeModalChartClass fileChartsBorder");
+    			var width = $("#" + chartId).width();
+    			$(".fileChartsBorder").css("max-width", "48.5%", "!important");
+    			$(".fileChartsBorder").css("min-width", "48.5%", "!important");
+    			$(".fileChartsBorder").css("height", "304px", "!important");
+    			var update =
+    			{
+    				width: width,
+    				height: 300,
+    			}
+    			Plotly.relayout(chartId, update);
+
+
+    		});
+    	}
+    	}
+    	else{
 	if ($.trim($('#modalFileCharts').html())) {
 		$("#modalFileCharts div.visionVisualizeModalChartClass").each(function() {
 			var divId = $(this).attr("id");
@@ -25703,6 +25728,7 @@ function showChartsInRow() {
 			}
 
 		});
+	}
 	}
 }
 function removeDuplicate(column, table) {
@@ -29355,7 +29381,8 @@ function showIntelliSenseAutoSuggestions(divId) {
 
 		},
 		beforeClose: function(event, ui) {
-			$("#visionChartsAutoSuggestionUserId").remove();    
+		$(".visionVisualizeChartBoxClass").remove();
+		$("#visionChartsAutoSuggestionUserId").remove();
 			$(".visionHeaderMain").css("z-index", "99999");
 			$(".visionFooterMain").css("z-index", "99999");
 			$("#intelliSenseChartVisualizeDivId"+intellisenseViewChartCount).remove();
